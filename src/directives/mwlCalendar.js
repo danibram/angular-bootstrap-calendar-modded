@@ -4,11 +4,16 @@ var angular = require('angular');
 
 angular
   .module('mwl.calendar')
-  .controller('MwlCalendarCtrl', function($scope, $log, $timeout, $attrs, $locale, moment, calendarTitle) {
+  .controller('MwlCalendarCtrl', function($scope, $log, $timeout, $attrs, $locale, moment, calendarTitle, calendarConfig) {
 
     var vm = this;
 
     vm.events = vm.events || [];
+
+    if (vm.belongIds && vm.belongIds.length) {
+      calendarConfig.showBelongsToId = true;
+      calendarConfig.belongIds = vm.belongIds;
+    }
 
     vm.changeView = function(view, newDay) {
       vm.view = view;
@@ -130,7 +135,8 @@ angular
         cellModifier: '&',
         dayViewStart: '@',
         dayViewEnd: '@',
-        dayViewSplit: '@'
+        dayViewSplit: '@',
+        belongIds: '=?'
       },
       controller: 'MwlCalendarCtrl as vm',
       bindToController: true

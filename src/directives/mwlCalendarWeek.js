@@ -9,6 +9,8 @@ angular
     var vm = this;
 
     vm.showTimes = calendarConfig.showTimesOnWeekView;
+    vm.showBelongsToId = calendarConfig.showBelongsToId;
+
     vm.$sce = $sce;
 
     $scope.$on('calendar.refreshView', function() {
@@ -25,6 +27,14 @@ angular
           vm.dayViewStart,
           vm.dayViewEnd,
           vm.dayViewSplit
+        );
+      } else if (vm.showBelongsToId) {
+        vm.view = calendarHelper.getWeekViewWithIds(
+          vm.events,
+          vm.viewDate,
+          vm.dayViewStart,
+          vm.dayViewEnd,
+          calendarConfig.belongIds
         );
       } else {
         vm.view = calendarHelper.getWeekView(vm.events, vm.viewDate);
@@ -69,7 +79,7 @@ angular
 
     };
 
-    vm.tempTimeChanged = function(event, minuteChunksMoved) {
+    vm.tempTimeChanged = function(event, minuteChunksMoved, x) {
       var minutesDiff = minuteChunksMoved * vm.dayViewSplit;
       event.tempStartsAt = moment(event.startsAt).add(minutesDiff, 'minutes').toDate();
     };

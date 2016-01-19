@@ -311,6 +311,81 @@ angular
 
     }
 
+    function getDayViewById(events, viewDate, dayViewStart, dayViewEnd, dayViewSplit, ids) {
+
+      var dayStartHour = moment(dayViewStart || '00:00', 'HH:mm').hours();
+      var dayEndHour = moment(dayViewEnd || '23:00', 'HH:mm').hours();
+      var hourHeight = (60 / dayViewSplit) * 30;
+      var calendarStart = moment(viewDate).startOf('day').add(dayStartHour, 'hours');
+      var calendarEnd = moment(viewDate).startOf('day').add(dayEndHour, 'hours');
+      var calendarHeight = (dayEndHour - dayStartHour + 1) * hourHeight;
+      var hourHeightMultiplier = hourHeight / 60;
+      var buckets = [];
+      var eventsInPeriod = filterEventsInPeriod(
+        events,
+        moment(viewDate).startOf('day').toDate(),
+        moment(viewDate).endOf('day').toDate()
+      );
+
+      return eventsInPeriod.map(function(event) {
+
+        var index = ids.indexOf(event.belongsToId);
+        if (moment(event.startsAt).isBefore(calendarStart)) {
+          event.top = 0;
+        } else {
+          event.top = 0;
+
+          if (index > -1) {
+            event.top = hourHeight + (index * hourHeight) - 2;
+          }
+        }
+
+        if (moment(event.endsAt || event.startsAt).isAfter(calendarEnd)) {
+          event.height = calendarHeight - event.top;
+        } else {
+          event.height = 30;
+        }
+
+        if (event.top - event.height > calendarHeight) {
+          event.height = 0;
+        }
+
+        event.left = 0;
+
+        return event;
+      }).filter(function(event) {
+        return event.height > 0;
+      }).map(function(event) {
+
+        var cannotFitInABucket = true;
+        buckets.forEach(function(bucket, bucketIndex) {
+
+          var canFitInThisBucket = true;
+
+          bucket.forEach(function(bucketItem) {
+            if (eventIsInPeriod(event, bucketItem.startsAt, bucketItem.endsAt || bucketItem.startsAt) ||
+              eventIsInPeriod(bucketItem, event.startsAt, event.endsAt || event.startsAt)) {
+              canFitInThisBucket = false;
+            }
+          });
+
+          if (canFitInThisBucket && cannotFitInABucket) {
+            cannotFitInABucket = false;
+            buckets[bucketIndex].push(event);
+          }
+        });
+
+        if (cannotFitInABucket) {
+          event.left = buckets.length * 150;
+          buckets.push([event]);
+        }
+
+        return event;
+
+      });
+
+    }
+
     function getWeekViewWithTimes(events, viewDate, dayViewStart, dayViewEnd, dayViewSplit) {
       var weekView = getWeekView(events, viewDate);
       var newEvents = [];
@@ -324,6 +399,27 @@ angular
           dayViewStart,
           dayViewEnd,
           dayViewSplit
+        );
+        newEvents = newEvents.concat(newDayEvents);
+      });
+      weekView.events = newEvents;
+      return weekView;
+    }
+
+    function getWeekViewWithIds(events, viewDate, dayViewStart, dayViewEnd, ids) {
+      var weekView = getWeekView(events, viewDate);
+      var newEvents = [];
+      weekView.days.forEach(function(day) {
+        var dayEvents = weekView.events.filter(function(event) {
+          return moment(event.startsAt).startOf('day').isSame(moment(day.date).startOf('day'));
+        });
+        var newDayEvents = getDayViewById(
+          dayEvents,
+          day.date,
+          dayViewStart,
+          dayViewEnd,
+          '60',
+          ids
         );
         newEvents = newEvents.concat(newDayEvents);
       });
@@ -345,6 +441,7 @@ angular
       getWeekView: getWeekView,
       getDayView: getDayView,
       getWeekViewWithTimes: getWeekViewWithTimes,
+      getWeekViewWithIds: getWeekViewWithIds,
       getDayViewHeight: getDayViewHeight,
       adjustEndDateFromStartDiff: adjustEndDateFromStartDiff,
       formatDate: formatDate,

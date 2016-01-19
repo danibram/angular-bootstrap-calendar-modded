@@ -1,0 +1,68 @@
+<div class="cal-week-box belong-to-id" ng-class="{'cal-day-box': vm.showTimes}">
+  <div class="cal-week-box-without-borders">
+      <div class="cal-row-fluid cal-row-head">
+        <div
+          class="cal-cell1"
+          ng-repeat="day in vm.view.days track by $index"
+          ng-click="vm.calendarCtrl.dateClicked(day.date)"
+          ng-class="{
+            'cal-day-weekend': day.isWeekend,
+            'cal-day-past': day.isPast,
+            'cal-day-today': day.isToday,
+            'cal-day-future': day.isFuture}"
+          mwl-element-dimensions="vm.dayColumnDimensions">
+            <div class="room-indicator" ng-show="$index === 0"> Stanze </div>
+            <span ng-bind="day.weekDayLabel"></span>
+            <span
+              ng-bind="day.dayLabel">
+            </span>
+
+        </div>
+      </div>
+  </div>
+
+  <div class="cal-day-panel clearfix" ng-style="{height: vm.showTimes ? (vm.dayViewHeight + 'px') : 'auto'}">
+    <div
+      class="cal-row-fluid"
+      ng-repeat="room in [0,1,2,3,4,5,6,7,8,9,10,11,12]"
+      >
+
+      <div class="cal-row-fluid">
+        <div class="room-indicator"> Room {{room}} </div>
+        <div
+            ng-repeat="event in vm.events"
+            ng-if="room===event.belongsToId"
+            ng-class="'cal-cell' + (vm.showTimes ? 1 : event.daySpan) + (vm.showTimes ? '' : ' cal-offset' + event.dayOffset) + ' day-highlight dh-event-' + event.type + ' ' + event.cssClass"
+            ng-style="{
+                top: (vm.showTimes || vm.showBelongsToId) ? ((event.top + 2) + 'px') : 'auto',
+                position: (vm.showTimes || vm.showBelongsToId) ? 'absolute' : 'inherit',
+                width: (vm.showTimes || vm.showBelongsToId) ? (vm.dayColumnDimensions.width + 'px') : '',
+                left: vm.showTimes ? (vm.dayColumnDimensions.width * event.dayOffset) + 15 + 'px' : ''
+            }"
+            data-event-class
+            mwl-draggable="event.draggable === true"
+            axis="xy"
+            snap-grid="{x: vm.dayColumnDimensions.width, y: 30}"
+            on-drag="vm.tempTimeChanged(event, x, y)"
+            on-drag-end="vm.weekDragged(event, x, y)"
+            mwl-resizable="event.resizable === true && event.endsAt && !vm.showTimes"
+            resize-edges="{left: true, right: true}"
+            on-resize-end="vm.weekResized(event, edge, x)">
+                <strong ng-bind="(event.tempStartsAt || event.startsAt) | calendarDate:'time':true" ng-show="vm.showTimes"></strong>
+                <a
+                href="javascript:;"
+                ng-click="vm.onEventClick({calendarEvent: event})"
+                class="event-item"
+                ng-bind-html="vm.$sce.trustAsHtml(event.title)">
+                </a>
+        </div>
+        <div
+            ng-show="!event"
+            style="height: 30px;">
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>

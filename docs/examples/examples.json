@@ -1,4 +1,7 @@
 [{
+  "key": "events-by-id",
+  "label": "Events by id"
+},{
   "key": "kitchen-sink",
   "label": "Kitchen sink"
 }, {

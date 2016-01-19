@@ -11,6 +11,7 @@ angular
     }
 
     var snap, snapGridDimensions;
+    console.log($attrs.snapGrid)
     if ($attrs.snapGrid) {
       snapGridDimensions = $parse($attrs.snapGrid)($scope);
       snap = {
