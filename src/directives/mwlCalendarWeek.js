@@ -9,7 +9,8 @@ angular
     var vm = this;
 
     vm.showTimes = calendarConfig.showTimesOnWeekView;
-    vm.showBelongsToId = calendarConfig.showBelongsToId;
+    vm.showCategories = calendarConfig.showCategories;
+    vm.categories = calendarConfig.categories;
 
     vm.$sce = $sce;
 
@@ -28,13 +29,12 @@ angular
           vm.dayViewEnd,
           vm.dayViewSplit
         );
-      } else if (vm.showBelongsToId) {
-        vm.view = calendarHelper.getWeekViewWithIds(
+      } else if (vm.showCategories) {
+        vm.dayViewHeight = calendarConfig.categories.length * 30 + 2;
+        vm.view = calendarHelper.getWeekViewWithCategories(
           vm.events,
           vm.viewDate,
-          vm.dayViewStart,
-          vm.dayViewEnd,
-          calendarConfig.belongIds
+          calendarConfig.categories
         );
       } else {
         vm.view = calendarHelper.getWeekView(vm.events, vm.viewDate);

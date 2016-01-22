@@ -48,12 +48,12 @@
           class="cal-row-fluid "
           ng-repeat="event in vm.view.events track by event.$id">
           <div
-            ng-class="'cal-cell' + (vm.showTimes ? 1 : event.daySpan) + ((vm.showTimes||vm.showCategories) ? '' : ' cal-offset' + event.dayOffset) + ' day-highlight dh-event-' + event.type + ' ' + event.cssClass"
+            ng-class="'cal-cell' + ((vm.showTimes) ? 1 : event.daySpan) + ((vm.showTimes||vm.showCategories) ? '' : ' cal-offset' + event.dayOffset) + ' day-highlight dh-event-' + event.type + ' ' + event.cssClass"
             ng-style="{
               top: (vm.showTimes||vm.showCategories) ? ((event.top + 2) + 'px') : 'auto',
               position: (vm.showTimes||vm.showCategories) ? 'absolute' : 'inherit',
-              width: vm.showTimes ? (vm.dayColumnDimensions.width + 'px') : '',
-              left: (vm.showTimes||vm.showCategories) ? (vm.dayColumnDimensions.width * event.dayOffset) + 12 + 'px' : ''
+              width: (vm.showTimes||vm.showCategories) ? (vm.dayColumnDimensions.width + 'px') : '',
+              left: (vm.showTimes||vm.showCategories) ? (vm.dayColumnDimensions.width * event.dayOffset) + 15 + 'px' : ''
             }"
             data-event-class
             mwl-draggable="event.draggable === true"
@@ -61,10 +61,9 @@
             snap-grid="(vm.showTimes||vm.showCategories) ? {x: vm.dayColumnDimensions.width, y: 30} : {x: vm.dayColumnDimensions.width}"
             on-drag="vm.tempTimeChanged(event, y)"
             on-drag-end="vm.weekDragged(event, x, y)"
-            mwl-resizable="event.resizable === true && event.endsAt && !(vm.showTimes)"
+            mwl-resizable="event.resizable === true && event.endsAt && !(vm.showTimes||vm.showCategories)"
             resize-edges="{left: true, right: true}"
             on-resize-end="vm.weekResized(event, edge, x)">
-            <strong ng-bind="(event.tempStartsAt || event.startsAt) | calendarDate:'time':true" ng-show="vm.showTimes"></strong>
             <a
               href="javascript:;"
               ng-click="vm.onEventClick({calendarEvent: event})"

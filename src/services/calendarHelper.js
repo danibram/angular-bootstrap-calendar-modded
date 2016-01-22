@@ -311,15 +311,10 @@ angular
 
     }
 
-    function getDayViewById(events, viewDate, dayViewStart, dayViewEnd, dayViewSplit, ids) {
+    function getCategoryView(events, viewDate, categories) {
 
-      var dayStartHour = moment(dayViewStart || '00:00', 'HH:mm').hours();
-      var dayEndHour = moment(dayViewEnd || '23:00', 'HH:mm').hours();
-      var hourHeight = (60 / dayViewSplit) * 30;
-      var calendarStart = moment(viewDate).startOf('day').add(dayStartHour, 'hours');
-      var calendarEnd = moment(viewDate).startOf('day').add(dayEndHour, 'hours');
-      var calendarHeight = (dayEndHour - dayStartHour + 1) * hourHeight;
-      var hourHeightMultiplier = hourHeight / 60;
+      var roomHeight = 30;
+      var calendarHeight = (categories.length + 1) * roomHeight;
       var buckets = [];
       var eventsInPeriod = filterEventsInPeriod(
         events,
@@ -329,32 +324,11 @@ angular
 
       return eventsInPeriod.map(function(event) {
 
-        var index = ids.indexOf(event.belongsToId);
-        if (moment(event.startsAt).isBefore(calendarStart)) {
-          event.top = 0;
-        } else {
-          event.top = 0;
-
-          if (index > -1) {
-            event.top = hourHeight + (index * hourHeight) - 2;
-          }
-        }
-
-        if (moment(event.endsAt || event.startsAt).isAfter(calendarEnd)) {
-          event.height = calendarHeight - event.top;
-        } else {
-          event.height = 30;
-        }
-
-        if (event.top - event.height > calendarHeight) {
-          event.height = 0;
-        }
-
+        event.top = (event.category * roomHeight) - 2;
+        event.height = 30;
         event.left = 0;
 
         return event;
-      }).filter(function(event) {
-        return event.height > 0;
       }).map(function(event) {
 
         var cannotFitInABucket = true;
@@ -406,20 +380,17 @@ angular
       return weekView;
     }
 
-    function getWeekViewWithIds(events, viewDate, dayViewStart, dayViewEnd, ids) {
+    function getWeekViewWithCategories(events, viewDate, categories) {
       var weekView = getWeekView(events, viewDate);
       var newEvents = [];
       weekView.days.forEach(function(day) {
         var dayEvents = weekView.events.filter(function(event) {
           return moment(event.startsAt).startOf('day').isSame(moment(day.date).startOf('day'));
         });
-        var newDayEvents = getDayViewById(
+        var newDayEvents = getCategoryView(
           dayEvents,
           day.date,
-          dayViewStart,
-          dayViewEnd,
-          '60',
-          ids
+          categories
         );
         newEvents = newEvents.concat(newDayEvents);
       });
@@ -441,7 +412,7 @@ angular
       getWeekView: getWeekView,
       getDayView: getDayView,
       getWeekViewWithTimes: getWeekViewWithTimes,
-      getWeekViewWithIds: getWeekViewWithIds,
+      getWeekViewWithCategories: getWeekViewWithCategories,
       getDayViewHeight: getDayViewHeight,
       adjustEndDateFromStartDiff: adjustEndDateFromStartDiff,
       formatDate: formatDate,
