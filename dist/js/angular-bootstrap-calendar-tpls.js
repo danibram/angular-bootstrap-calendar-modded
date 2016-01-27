@@ -1206,9 +1206,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	      if (angular.isDefined($attrs.setToToday)) {
 	        vm.date = new Date();
 	      } else if (angular.isDefined($attrs.increment)) {
-	        vm.date = moment(vm.date).add(1, vm.increment).toDate();
+	        var inc = (vm.increment === 'dayhorizontal') ? 'day' : vm.increment;
+	        vm.date = moment(vm.date).add(1, inc).toDate();
 	      } else if (angular.isDefined($attrs.decrement)) {
-	        vm.date = moment(vm.date).subtract(1, vm.decrement).toDate();
+	        var dec = (vm.decrement === 'dayhorizontal') ? 'day' : vm.decrement;
+	        vm.date = moment(vm.date).subtract(1, dec).toDate();
 	      }
 	      $scope.$apply();
 	    }
