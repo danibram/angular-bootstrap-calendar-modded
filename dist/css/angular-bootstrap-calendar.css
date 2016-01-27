@@ -120,6 +120,45 @@
 .cal-row-fluid [class*="cal-cell"].pull-right {
   float: right;
 }
+.cal-hour-1 {
+  width: calc(100%);
+}
+.cal-hour-2 {
+  width: calc(50%);
+}
+.cal-hour-3 {
+  width: calc(33.33333333%);
+}
+.cal-hour-4 {
+  width: calc(25%);
+}
+.cal-hour-5 {
+  width: calc(20%);
+}
+.cal-hour-6 {
+  width: calc(16.66666667%);
+}
+.cal-hour-7 {
+  width: calc(14.28571429%);
+}
+.cal-hour-8 {
+  width: calc(12.5%);
+}
+.cal-hour-9 {
+  width: calc(11.11111111%);
+}
+.cal-hour-10 {
+  width: calc(10%);
+}
+.cal-hour-11 {
+  width: calc(9.09090909%);
+}
+.cal-hour-12 {
+  width: calc(8.33333333%);
+}
+.cal-hour-13 {
+  width: calc(7.69230769%);
+}
 .cal-row-head [class*="cal-cell"]:first-child,
 .cal-row-head [class*="cal-cell"] {
   min-height: auto;
@@ -239,6 +278,31 @@
 }
 .cal-week-box.cal-day-box .cal-day-panel {
   overflow-x: hidden;
+}
+.belong-to-id {
+  margin: 15px 15px 15px 80px;
+}
+.belong-to-id .cal-row-head:hover {
+  background: none !important;
+}
+.cal-week-box-without-borders .cal-row-head:hover {
+  background: none !important;
+}
+.cal-week-box-without-borders .cal-cell1:hover {
+  background: none;
+  cursor: pointer;
+}
+.room-indicator {
+  position: absolute;
+  left: -60px;
+  height: 30px;
+  line-height: 30px;
+  overflow: hidden;
+  padding-top: 0px !important;
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+  font-size: 12px;
+  padding: 0 3px !important;
 }
 .cal-day-box {
   text-wrap: none;
