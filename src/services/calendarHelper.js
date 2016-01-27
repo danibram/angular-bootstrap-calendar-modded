@@ -380,6 +380,82 @@ angular
       return weekView;
     }
 
+    function getDayViewWithCategories(events, viewDate, dayViewStart, dayViewEnd, categories) {
+
+      var dayStartHour = moment(dayViewStart || '00:00', 'HH:mm').hours();
+      var dayEndHour = moment(dayViewEnd || '23:00', 'HH:mm').hours();
+      var calendarStart = moment(viewDate).startOf('day').add(dayStartHour, 'hours');
+      var calendarEnd = moment(viewDate).startOf('day').add(dayEndHour, 'hours');
+      var roomHeight = 30;
+      var buckets = [];
+
+      var eventsInPeriod = filterEventsInPeriod(
+        events,
+        moment(viewDate).startOf('day').toDate(),
+        moment(viewDate).endOf('day').toDate()
+      );
+
+      console.log(viewDate)
+      console.log(eventsInPeriod.length)
+
+      return eventsInPeriod.map(function(event) {
+        var evStart, evEnd;
+        event.top = (event.category * roomHeight) - 2;
+
+        event.height = 30;
+
+        if (moment(event.startsAt).isBefore(calendarStart)) {
+          evStart = calendarStart;
+          event.dayOffset = 0;
+        } else {
+          evStart = event.startsAt;
+          event.dayOffset = (moment(event.startsAt).startOf('hour').diff(calendarStart.startOf('hour'), 'hours')) -1;
+        }
+
+        if (moment(event.endsAt).isAfter(calendarEnd)) {
+          evEnd = calendarEnd;
+        } else {
+          evEnd = event.endsAt;
+        }
+        event.duration = (moment(evEnd).startOf('hour').diff(moment(evStart).endOf('hour'), 'hours')) +1;
+
+        if ((moment(event.startsAt).isBefore(calendarStart) && moment(event.endsAt).isBefore(calendarStart)) ||
+             (moment(event.startsAt).isAfter(calendarEnd) && moment(event.endsAt).isBefore(calendarEnd))) {
+          event.duration = 0;
+        }
+        return event;
+      }).filter(function(event) {
+        return event.duration > 0;
+      }).map(function(event) {
+
+        var cannotFitInABucket = true;
+        buckets.forEach(function(bucket, bucketIndex) {
+
+          var canFitInThisBucket = true;
+
+          bucket.forEach(function(bucketItem) {
+            if (eventIsInPeriod(event, bucketItem.startsAt, bucketItem.endsAt || bucketItem.startsAt) ||
+              eventIsInPeriod(bucketItem, event.startsAt, event.endsAt || event.startsAt)) {
+              canFitInThisBucket = false;
+            }
+          });
+
+          if (canFitInThisBucket && cannotFitInABucket) {
+            cannotFitInABucket = false;
+            buckets[bucketIndex].push(event);
+          }
+        });
+
+        if (cannotFitInABucket) {
+          event.left = buckets.length * 150;
+          buckets.push([event]);
+        }
+
+        return event;
+
+      });
+    }
+
     function getWeekViewWithCategories(events, viewDate, categories) {
       var weekView = getWeekView(events, viewDate);
       var newEvents = [];
@@ -411,6 +487,7 @@ angular
       getMonthView: getMonthView,
       getWeekView: getWeekView,
       getDayView: getDayView,
+      getDayViewWithCategories: getDayViewWithCategories,
       getWeekViewWithTimes: getWeekViewWithTimes,
       getWeekViewWithCategories: getWeekViewWithCategories,
       getDayViewHeight: getDayViewHeight,

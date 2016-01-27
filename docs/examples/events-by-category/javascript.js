@@ -13,7 +13,7 @@ angular
         title: 'An event',
         type: 'warning',
         startsAt: moment().startOf('day').toDate(),
-        endsAt: moment().startOf('day').toDate(),
+        endsAt: moment().startOf('day').add(3, 'hours').toDate(),
         draggable: true,
         resizable: true,
         category: 0
@@ -21,7 +21,7 @@ angular
         title: 'An event',
         type: 'warning',
         startsAt: moment().startOf('week').add(3, 'days').toDate(),
-        endsAt: moment().startOf('week').add(4, 'days').toDate(),
+        endsAt: moment().startOf('week').add(4, 'days').add(3, 'hours').toDate(),
         draggable: true,
         resizable: true,
         category: 2
@@ -29,7 +29,7 @@ angular
         title: '<i class="glyphicon glyphicon-asterisk"></i> <span class="text-primary">Another event</span>, with a <i>html</i> title',
         type: 'info',
         startsAt: moment().startOf('week').add(2, 'days').toDate(),
-        endsAt: moment().startOf('week').add(2, 'days').toDate(),
+        endsAt: moment().startOf('week').add(2, 'days').add(3, 'hours').toDate(),
         draggable: true,
         resizable: true,
         category: 2
@@ -37,17 +37,17 @@ angular
         title: 'This is a really long event title that occurs on every year',
         type: 'important',
         startsAt: moment().startOf('week').add(3, 'days').toDate(),
-        endsAt: moment().startOf('week').add(4, 'days').toDate(),
+        endsAt: moment().startOf('week').add(4, 'days').add(3, 'hours').toDate(),
         draggable: true,
         resizable: true,
         category: 1
     }];
 
-    vm.calendarView = 'week';
+    vm.calendarView = 'dayhorizontal';
     vm.viewDate = moment().startOf('month').toDate();
 
     vm.dayViewStart = '08:00';
-    vm.dayViewStart = '21:00';
+    vm.dayViewEnd = '21:00';
 
     vm.eventTimesChanged = function(event) {
       alert.show('Dragged and dropped', event);
@@ -56,6 +56,7 @@ angular
     $scope.$on('$destroy', function() {
       calendarConfig.templates.calendarMonthCell = 'mwl/calendarMonthCell.html';
       calendarConfig.templates.calendarWeekView = 'mwl/calendarWeekView.html';
+      calendarConfig.templates.calendarDayView = 'mwl/calendarWeekView.html';
     });
 
     vm.toggle = function($event, field, event) {

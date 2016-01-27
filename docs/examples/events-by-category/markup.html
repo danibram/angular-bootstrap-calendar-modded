@@ -1,6 +1,5 @@
 <script id="customMonthCell.html" type="text/ng-template">
   <div class="cal-month-day">
-
     <span
       class="pull-right"
       data-cal-date
@@ -16,12 +15,60 @@
 </script>
 
 <div ng-controller="CustomTemplatesCtrl1 as vm">
-  <ng-include src="'calendarControls.html'"></ng-include>
+  <h2 class="text-center">{{ vm.calendarTitle }}</h2>
+
+  <div class="row">
+
+    <div class="col-md-6 text-center">
+      <div class="btn-group">
+
+        <button
+          class="btn btn-primary"
+          mwl-date-modifier
+          date="vm.viewDate"
+          decrement="vm.calendarView">
+          Previous
+        </button>
+        <button
+          class="btn btn-default"
+          mwl-date-modifier
+          date="vm.viewDate"
+          set-to-today>
+          Today
+        </button>
+        <button
+          class="btn btn-primary"
+          mwl-date-modifier
+          date="vm.viewDate"
+          increment="vm.calendarView">
+          Next
+        </button>
+      </div>
+    </div>
+
+    <br class="visible-xs visible-sm">
+
+    <div class="col-md-6 text-center">
+      <div class="btn-group">
+        <label class="btn btn-primary" ng-model="vm.calendarView" uib-btn-radio="'year'">Year</label>
+        <label class="btn btn-primary" ng-model="vm.calendarView" uib-btn-radio="'month'">Month</label>
+        <label class="btn btn-primary" ng-model="vm.calendarView" uib-btn-radio="'week'">Week</label>
+        <label class="btn btn-primary" ng-model="vm.calendarView" uib-btn-radio="'day'">Day</label>
+        <label class="btn btn-primary" ng-model="vm.calendarView" uib-btn-radio="'dayhorizontal'">Day(H)</label>
+      </div>
+    </div>
+
+  </div>
+
+  <br>
+
   <mwl-calendar
     events="vm.events"
     view="vm.calendarView"
     view-date="vm.viewDate"
-    on-event-times-changed="vm.eventTimesChanged(calendarEvent);">
+    on-event-times-changed="vm.eventTimesChanged(calendarEvent);"
+    day-view-start="09:00"
+    day-view-end="21:00">
   </mwl-calendar>
 
 

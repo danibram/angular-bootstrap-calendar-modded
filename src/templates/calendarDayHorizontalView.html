@@ -2,25 +2,12 @@
   <div class="cal-row-fluid cal-row-head">
 
     <div
-      class="cal-cell1"
-      ng-repeat="day in vm.view.days track by $index"
-      ng-class="{
-        'cal-day-weekend': day.isWeekend,
-        'cal-day-past': day.isPast,
-        'cal-day-today': day.isToday,
-        'cal-day-future': day.isFuture}"
+      class="cal-hour-13"
+      style="display: inline-block;text-align:center;"
+      ng-repeat="hour in vm.hours track by $index"
       mwl-element-dimensions="vm.dayColumnDimensions">
 
-      <span ng-bind="day.weekDayLabel"></span>
-      <br>
-      <small>
-        <span
-          data-cal-date
-          ng-click="vm.calendarCtrl.dateClicked(day.date)"
-          class="pointer"
-          ng-bind="day.dayLabel">
-        </span>
-      </small>
+      <span ng-bind="hour.label"></span>
 
     </div>
 
@@ -46,24 +33,26 @@
       <div class="col-xs-12">
         <div
           class="cal-row-fluid "
-          ng-repeat="event in vm.view.events track by event.$id">
+          ng-repeat="event in vm.view track by event.$id">
           <div
-            ng-class="'cal-cell' + ((vm.showTimes) ? 1 : event.daySpan) + ((vm.showTimes||vm.showCategories) ? '' : ' cal-offset' + event.dayOffset) + ' day-highlight dh-event-' + event.type + ' ' + event.cssClass"
+            ng-class="'cal-cell' + (vm.showTimes ? 1 : event.daySpan) + ((vm.showTimes||vm.showCategories) ? '' : ' cal-offset' + event.dayOffset) + ' day-highlight dh-event-' + event.type + ' ' + event.cssClass"
             ng-style="{
               top: (vm.showTimes||vm.showCategories) ? ((event.top + 2) + 'px') : 'auto',
               position: (vm.showTimes||vm.showCategories) ? 'absolute' : 'inherit',
-              width: (vm.showTimes||vm.showCategories) ? (vm.dayColumnDimensions.width + 'px') : '',
-              left: (vm.showTimes||vm.showCategories) ? (vm.dayColumnDimensions.width * event.dayOffset) + 15 + 'px' : ''
+              width: (vm.showTimes||vm.showCategories) ? (vm.dayColumnDimensions.width*event.duration) + 'px' : '',
+              left: (vm.showTimes||vm.showCategories) ? (vm.dayColumnDimensions.width*event.dayOffset) + 12 + 'px' : ''
             }"
             data-event-class
             mwl-draggable="event.draggable === true"
             axis="(vm.showTimes||vm.showCategories) ? 'xy' : 'x'"
             snap-grid="(vm.showTimes||vm.showCategories) ? {x: vm.dayColumnDimensions.width, y: 30} : {x: vm.dayColumnDimensions.width}"
-            on-drag="vm.tempTimeChanged(event, y)"
-            on-drag-end="vm.weekDragged(event, x, y)"
-            mwl-resizable="event.resizable === true && event.endsAt && !(vm.showTimes||vm.showCategories)"
+            on-drag="vm.eventDragged(event, y)"
+            on-drag-end="vm.eventDragComplete(event, x, y)"
+            mwl-resizable="event.resizable === true && event.endsAt && !(vm.showTimes)"
             resize-edges="{left: true, right: true}"
-            on-resize-end="vm.weekResized(event, edge, x)">
+            on-resize="vm.eventResized(event, edge, x)"
+            on-resize-end="vm.eventResizeComplete(event, edge, x)">
+            <strong ng-bind="(event.tempStartsAt || event.startsAt) | calendarDate:'time':true" ng-show="vm.showTimes"></strong>
             <a
               href="javascript:;"
               ng-click="vm.onEventClick({calendarEvent: event})"

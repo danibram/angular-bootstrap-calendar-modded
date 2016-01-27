@@ -57,4 +57,16 @@
     day-view-split="vm.dayViewSplit"
     ng-switch-when="day"
     ></mwl-calendar-day>
+
+    <mwl-calendar-day-horizontal
+      events="vm.events"
+      view-date="vm.viewDate"
+      on-event-click="vm.onEventClick"
+      on-event-times-changed="vm.onEventTimesChanged"
+      on-timespan-click="vm.onTimespanClick"
+      day-view-start="vm.dayViewStart"
+      day-view-end="vm.dayViewEnd"
+      day-view-split="vm.dayViewSplit"
+      ng-switch-when="dayhorizontal"
+      ></mwl-calendar-day-horizontal>
 </div>

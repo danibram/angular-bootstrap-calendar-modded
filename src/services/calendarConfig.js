@@ -55,6 +55,6 @@ angular
       weekNumber: 'Week {week}'
     },
     templates: {},
-    showBelongsToId: false,
-    belongIds: []
+    showCategories: false,
+    categories: []
   });
