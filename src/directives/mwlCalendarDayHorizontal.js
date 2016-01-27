@@ -33,7 +33,6 @@ angular
     }
 
     $scope.$on('calendar.refreshView', function() {
-      console.log(vm.viewDate)
       vm.dayViewSplit = vm.dayViewSplit || 30;
       vm.dayViewHeight = calendarHelper.getDayViewHeight(
         vm.dayViewStart,

@@ -79,7 +79,7 @@ angular
 
     };
 
-    vm.tempTimeChanged = function(event, minuteChunksMoved, x) {
+    vm.tempTimeChanged = function(event, minuteChunksMoved) {
       var minutesDiff = minuteChunksMoved * vm.dayViewSplit;
       event.tempStartsAt = moment(event.startsAt).add(minutesDiff, 'minutes').toDate();
     };

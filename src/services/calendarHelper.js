@@ -311,10 +311,9 @@ angular
 
     }
 
-    function getCategoryView(events, viewDate, categories) {
+    function getCategoryView(events, viewDate) {
 
       var roomHeight = 30;
-      var calendarHeight = (categories.length + 1) * roomHeight;
       var buckets = [];
       var eventsInPeriod = filterEventsInPeriod(
         events,
@@ -380,7 +379,7 @@ angular
       return weekView;
     }
 
-    function getDayViewWithCategories(events, viewDate, dayViewStart, dayViewEnd, categories) {
+    function getDayViewWithCategories(events, viewDate, dayViewStart, dayViewEnd) {
 
       var dayStartHour = moment(dayViewStart || '00:00', 'HH:mm').hours();
       var dayEndHour = moment(dayViewEnd || '23:00', 'HH:mm').hours();
@@ -394,10 +393,6 @@ angular
         moment(viewDate).startOf('day').toDate(),
         moment(viewDate).endOf('day').toDate()
       );
-
-      console.log(viewDate)
-      console.log(eventsInPeriod.length)
-
       return eventsInPeriod.map(function(event) {
         var evStart, evEnd;
         event.top = (event.category * roomHeight) - 2;
@@ -409,7 +404,7 @@ angular
           event.dayOffset = 0;
         } else {
           evStart = event.startsAt;
-          event.dayOffset = (moment(event.startsAt).startOf('hour').diff(calendarStart.startOf('hour'), 'hours')) -1;
+          event.dayOffset = (moment(event.startsAt).startOf('hour').diff(calendarStart.startOf('hour'), 'hours'));
         }
 
         if (moment(event.endsAt).isAfter(calendarEnd)) {
@@ -417,7 +412,7 @@ angular
         } else {
           evEnd = event.endsAt;
         }
-        event.duration = (moment(evEnd).startOf('hour').diff(moment(evStart).endOf('hour'), 'hours')) +1;
+        event.duration = (moment(evEnd).startOf('hour').diff(moment(evStart).endOf('hour'), 'hours')) + 1;
 
         if ((moment(event.startsAt).isBefore(calendarStart) && moment(event.endsAt).isBefore(calendarStart)) ||
              (moment(event.startsAt).isAfter(calendarEnd) && moment(event.endsAt).isBefore(calendarEnd))) {
