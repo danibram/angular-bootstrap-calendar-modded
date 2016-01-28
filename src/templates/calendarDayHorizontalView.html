@@ -35,14 +35,16 @@
           class="cal-row-fluid "
           ng-repeat="event in vm.view track by event.$id"
           ng-style="{
-            top: event.top + 2 + 'px',
-            position: 'absolute'
-          }"
-          >
+            top: event.top + 'px',
+            position: 'inherit'
+          }">
           <div
             ng-class="'grid-hour-' + vm.hours.length + '-' + event.hourSpan +  ' grid-hour-left-' + vm.hours.length + '-' + event.dayOffset + ' day-highlight dh-event-' + event.type + ' ' + event.cssClass"
             ng-style="{
-              position: 'inherit'
+              top: '0px',
+              position: 'absolute',
+              width: '',
+              left: ''
             }"
             data-event-class
             mwl-draggable="event.draggable === true"

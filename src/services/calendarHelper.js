@@ -347,7 +347,7 @@ angular
       );
       return eventsInPeriod.map(function(event) {
         var evStart, evEnd;
-        event.top = (event.category * roomHeight) - 2;
+        event.top = (event.category * roomHeight);
 
         event.height = 30;
 
@@ -360,7 +360,7 @@ angular
         }
 
         if (moment(event.endsAt).isAfter(calendarEnd) || moment(event.endsAt).isSame(calendarEnd)) {
-          evEnd = moment(calendarEnd).startOf('hour').diff(moment(evStart).endOf('hour'), 'hours') + 2;
+          evEnd = moment(calendarEnd).startOf('hour').diff(moment(evStart).endOf('hour'), 'hours') + 1;
         } else {
           evEnd = moment(event.endsAt).startOf('hour').diff(moment(evStart).endOf('hour'), 'hours') + 1;
         }

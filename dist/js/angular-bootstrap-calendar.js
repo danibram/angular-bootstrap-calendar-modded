@@ -479,25 +479,23 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    vm.$sce = $sce;
 
-	    vm.updateHours = function() {
-	      var dayViewStart = moment(vm.dayViewStart || '00:00', 'HH:mm');
-	      var dayViewEnd = moment(vm.dayViewEnd || '23:00', 'HH:mm');
-	      vm.dayViewSplit = parseInt(vm.dayViewSplit);
-	      vm.hours = [];
-	      var dayCounter = moment(vm.viewDate)
-	        .clone()
-	        .hours(dayViewStart.hours())
-	        .minutes(dayViewStart.minutes())
-	        .seconds(dayViewStart.seconds());
+	    var dayViewStart = moment(vm.dayViewStart || '00:00', 'HH:mm');
+	    var dayViewEnd = moment(vm.dayViewEnd || '23:00', 'HH:mm');
+	    vm.dayViewSplit = parseInt(vm.dayViewSplit);
+	    vm.hours = [];
+	    var dayCounter = moment(vm.viewDate)
+	      .clone()
+	      .hours(dayViewStart.hours())
+	      .minutes(dayViewStart.minutes())
+	      .seconds(dayViewStart.seconds());
 
-	      for (var i = 0; i <= dayViewEnd.diff(dayViewStart, 'hours'); i++) {
-	        vm.hours.push({
-	          label: calendarHelper.formatDate(dayCounter, calendarConfig.dateFormats.hour),
-	          date: dayCounter.clone()
-	        });
-	        dayCounter.add(1, 'hour');
-	      }
-	    };
+	    for (var i = 0; i <= dayViewEnd.diff(dayViewStart, 'hours'); i++) {
+	      vm.hours.push({
+	        label: calendarHelper.formatDate(dayCounter, calendarConfig.dateFormats.hour),
+	        date: dayCounter.clone()
+	      });
+	      dayCounter.add(1, 'hour');
+	    }
 
 	    $scope.$on('calendar.refreshView', function() {
 	      vm.dayViewSplit = vm.dayViewSplit || 30;
@@ -507,7 +505,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        vm.dayViewSplit
 	      );
 
-	      vm.updateHours();
 	      if (vm.showCategories) {
 	        vm.dayViewHeight = calendarConfig.categories.length * 30 + 2;
 	        vm.view = calendarHelper.getDayViewWithCategories(
@@ -1349,6 +1346,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      width: $element[0].offsetWidth,
 	      height: $element[0].offsetHeight
 	    });
+
 	  }])
 	  .directive('mwlElementDimensions', function() {
 
@@ -2098,7 +2096,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      );
 	      return eventsInPeriod.map(function(event) {
 	        var evStart, evEnd;
-	        event.top = (event.category * roomHeight) - 2;
+	        event.top = (event.category * roomHeight);
 
 	        event.height = 30;
 
@@ -2111,7 +2109,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 
 	        if (moment(event.endsAt).isAfter(calendarEnd) || moment(event.endsAt).isSame(calendarEnd)) {
-	          evEnd = moment(calendarEnd).startOf('hour').diff(moment(evStart).endOf('hour'), 'hours') + 2;
+	          evEnd = moment(calendarEnd).startOf('hour').diff(moment(evStart).endOf('hour'), 'hours') + 1;
 	        } else {
 	          evEnd = moment(event.endsAt).startOf('hour').diff(moment(evStart).endOf('hour'), 'hours') + 1;
 	        }

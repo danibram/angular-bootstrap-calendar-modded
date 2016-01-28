@@ -182,7 +182,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 17 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"cal-week-box\" ng-class=\"{'cal-day-box': (vm.showTimes||vm.showCategories)}\">\n  <div class=\"cal-row-fluid cal-row-head\">\n\n    <div\n      class=\"cal-hour-{{vm.hours.length}}\"\n      style=\"display: inline-block;text-align:center;\"\n      ng-repeat=\"hour in vm.hours track by $index\"\n      mwl-element-dimensions=\"vm.hourColumnDimensions\">\n\n      <span ng-bind=\"hour.label\"></span>\n\n    </div>\n\n  </div>\n\n  <div class=\"cal-day-panel clearfix\" ng-style=\"{height: (vm.showTimes||vm.showCategories) ? (vm.dayViewHeight + 'px') : 'auto'}\">\n\n    <mwl-calendar-hour-list\n      day-view-start=\"vm.dayViewStart\"\n      day-view-end=\"vm.dayViewEnd\"\n      day-view-split=\"vm.dayViewSplit\"\n      view-date=\"vm.viewDate\"\n      on-timespan-click=\"vm.onTimespanClick\"\n      ng-if=\"vm.showTimes\">\n    </mwl-calendar-hour-list>\n\n    <mwl-calendar-category-list\n      categories=\"vm.categories\"\n      ng-if=\"vm.showCategories\">\n    </mwl-calendar-category-list>\n\n    <div class=\"row\">\n      <div class=\"col-xs-12\">\n        <div\n          class=\"cal-row-fluid \"\n          ng-repeat=\"event in vm.view track by event.$id\">\n          <div\n            ng-class=\"'cal-cell' + ((vm.showTimes||vm.showCategories) ? 1 : event.daySpan) + ((vm.showTimes||vm.showCategories) ? '' : ' cal-offset' + event.dayOffset) + ' day-highlight dh-event-' + event.type + ' ' + event.cssClass\"\n            ng-style=\"{\n              top: (event.top + 2) + 'px',\n              position: 'absolute',\n              width: (vm.showTimes||vm.showCategories) ? (vm.hourColumnDimensions.width * event.hourSpan + 'px') : '',\n              left: (vm.showTimes||vm.showCategories) ? (vm.hourColumnDimensions.width * event.dayOffset) + 15 + 'px' : ''\n            }\"\n            data-event-class\n            mwl-draggable=\"event.draggable === true\"\n            axis=\"(vm.showTimes||vm.showCategories) ? 'xy' : 'x'\"\n            snap-grid=\"(vm.showTimes||vm.showCategories) ? {x: vm.hourColumnDimensions.width, y: 30} : {x: vm.hourColumnDimensions.width}\"\n            on-drag=\"vm.eventDragged(event, y)\"\n            on-drag-end=\"vm.eventDragComplete(event, x, y)\"\n            mwl-resizable=\"event.resizable === true && event.endsAt && !(vm.showTimes)\"\n            resize-edges=\"{left: true, right: true}\"\n            on-resize=\"vm.eventResized(event, edge, x)\"\n            on-resize-end=\"vm.eventResizeComplete(event, edge, x)\">\n            <strong ng-bind=\"(event.tempStartsAt || event.startsAt) | calendarDate:'time':true\" ng-show=\"vm.showTimes\"></strong>\n            <a\n              href=\"javascript:;\"\n              ng-click=\"vm.onEventClick({calendarEvent: event})\"\n              class=\"event-item\"\n              ng-bind-html=\"vm.$sce.trustAsHtml(event.title)\"\n              uib-tooltip-html=\"event.title | calendarTrustAsHtml\"\n              tooltip-placement=\"left\"\n              tooltip-append-to-body=\"true\">\n            </a>\n          </div>\n        </div>\n      </div>\n\n    </div>\n\n  </div>\n</div>\n";
+	module.exports = "<div class=\"cal-week-box\" ng-class=\"{'cal-day-box': (vm.showTimes||vm.showCategories)}\">\n  <div class=\"cal-row-fluid cal-row-head\">\n\n    <div\n      ng-class=\"'cal-hour-' + vm.hours.length\"\n      style=\"display: inline-block;text-align:center;\"\n      ng-repeat=\"hour in vm.hours track by $index\"\n      mwl-element-dimensions=\"vm.dayColumnDimensions\">\n\n      <span ng-bind=\"hour.label\"></span>\n\n    </div>\n\n  </div>\n\n  <div class=\"cal-day-panel clearfix\" ng-style=\"{height: (vm.showTimes||vm.showCategories) ? (vm.dayViewHeight + 'px') : 'auto'}\">\n\n    <mwl-calendar-hour-list\n      day-view-start=\"vm.dayViewStart\"\n      day-view-end=\"vm.dayViewEnd\"\n      day-view-split=\"vm.dayViewSplit\"\n      view-date=\"vm.viewDate\"\n      on-timespan-click=\"vm.onTimespanClick\"\n      ng-if=\"vm.showTimes\">\n    </mwl-calendar-hour-list>\n\n    <mwl-calendar-category-list\n      categories=\"vm.categories\"\n      ng-if=\"vm.showCategories\">\n    </mwl-calendar-category-list>\n\n    <div class=\"row\">\n      <div class=\"col-xs-12\">\n        <div\n          class=\"cal-row-fluid \"\n          ng-repeat=\"event in vm.view track by event.$id\"\n          ng-style=\"{\n            top: event.top + 'px',\n            position: 'inherit'\n          }\">\n          <div\n            ng-class=\"'grid-hour-' + vm.hours.length + '-' + event.hourSpan +  ' grid-hour-left-' + vm.hours.length + '-' + event.dayOffset + ' day-highlight dh-event-' + event.type + ' ' + event.cssClass\"\n            ng-style=\"{\n              top: '0px',\n              position: 'absolute',\n              width: '',\n              left: ''\n            }\"\n            data-event-class\n            mwl-draggable=\"event.draggable === true\"\n            axis=\"(vm.showTimes||vm.showCategories) ? 'xy' : 'x'\"\n            snap-grid=\"(vm.showTimes||vm.showCategories) ? {x: vm.dayColumnDimensions.width, y: 30} : {x: vm.dayColumnDimensions.width}\"\n            on-drag=\"vm.eventDragged(event, y)\"\n            on-drag-end=\"vm.eventDragComplete(event, x, y)\"\n            mwl-resizable=\"event.resizable === true && event.endsAt && !(vm.showTimes)\"\n            resize-edges=\"{left: true, right: true}\"\n            on-resize=\"vm.eventResized(event, edge, x)\"\n            on-resize-end=\"vm.eventResizeComplete(event, edge, x)\">\n            <strong ng-bind=\"(event.tempStartsAt || event.startsAt) | calendarDate:'time':true\" ng-show=\"vm.showTimes\"></strong>\n            <a\n              href=\"javascript:;\"\n              ng-click=\"vm.onEventClick({calendarEvent: event})\"\n              class=\"event-item\"\n              ng-bind-html=\"vm.$sce.trustAsHtml(event.title)\"\n              uib-tooltip-html=\"event.title | calendarTrustAsHtml\"\n              tooltip-placement=\"left\"\n              tooltip-append-to-body=\"true\">\n            </a>\n          </div>\n        </div>\n      </div>\n\n    </div>\n\n  </div>\n</div>\n";
 
 /***/ },
 /* 18 */
@@ -576,25 +576,23 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    vm.$sce = $sce;
 
-	    vm.updateHours = function() {
-	      var dayViewStart = moment(vm.dayViewStart || '00:00', 'HH:mm');
-	      var dayViewEnd = moment(vm.dayViewEnd || '23:00', 'HH:mm');
-	      vm.dayViewSplit = parseInt(vm.dayViewSplit);
-	      vm.hours = [];
-	      var dayCounter = moment(vm.viewDate)
-	        .clone()
-	        .hours(dayViewStart.hours())
-	        .minutes(dayViewStart.minutes())
-	        .seconds(dayViewStart.seconds());
+	    var dayViewStart = moment(vm.dayViewStart || '00:00', 'HH:mm');
+	    var dayViewEnd = moment(vm.dayViewEnd || '23:00', 'HH:mm');
+	    vm.dayViewSplit = parseInt(vm.dayViewSplit);
+	    vm.hours = [];
+	    var dayCounter = moment(vm.viewDate)
+	      .clone()
+	      .hours(dayViewStart.hours())
+	      .minutes(dayViewStart.minutes())
+	      .seconds(dayViewStart.seconds());
 
-	      for (var i = 0; i <= dayViewEnd.diff(dayViewStart, 'hours'); i++) {
-	        vm.hours.push({
-	          label: calendarHelper.formatDate(dayCounter, calendarConfig.dateFormats.hour),
-	          date: dayCounter.clone()
-	        });
-	        dayCounter.add(1, 'hour');
-	      }
-	    };
+	    for (var i = 0; i <= dayViewEnd.diff(dayViewStart, 'hours'); i++) {
+	      vm.hours.push({
+	        label: calendarHelper.formatDate(dayCounter, calendarConfig.dateFormats.hour),
+	        date: dayCounter.clone()
+	      });
+	      dayCounter.add(1, 'hour');
+	    }
 
 	    $scope.$on('calendar.refreshView', function() {
 	      vm.dayViewSplit = vm.dayViewSplit || 30;
@@ -604,7 +602,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        vm.dayViewSplit
 	      );
 
-	      vm.updateHours();
 	      if (vm.showCategories) {
 	        vm.dayViewHeight = calendarConfig.categories.length * 30 + 2;
 	        vm.view = calendarHelper.getDayViewWithCategories(
@@ -1446,6 +1443,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      width: $element[0].offsetWidth,
 	      height: $element[0].offsetHeight
 	    });
+
 	  }])
 	  .directive('mwlElementDimensions', function() {
 
@@ -2195,7 +2193,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      );
 	      return eventsInPeriod.map(function(event) {
 	        var evStart, evEnd;
-	        event.top = (event.category * roomHeight) - 2;
+	        event.top = (event.category * roomHeight);
 
 	        event.height = 30;
 
@@ -2208,7 +2206,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 
 	        if (moment(event.endsAt).isAfter(calendarEnd) || moment(event.endsAt).isSame(calendarEnd)) {
-	          evEnd = moment(calendarEnd).startOf('hour').diff(moment(evStart).endOf('hour'), 'hours') + 2;
+	          evEnd = moment(calendarEnd).startOf('hour').diff(moment(evStart).endOf('hour'), 'hours') + 1;
 	        } else {
 	          evEnd = moment(event.endsAt).startOf('hour').diff(moment(evStart).endOf('hour'), 'hours') + 1;
 	        }
