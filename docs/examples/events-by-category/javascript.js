@@ -12,7 +12,7 @@ angular
     vm.events = [{
         title: 'An event',
         type: 'warning',
-        startsAt: moment().startOf('day').toDate(),
+        startsAt: moment().startOf('day').subtract(10, 'days').toDate(),
         endsAt: moment().startOf('day').add(3, 'hours').toDate(),
         draggable: true,
         resizable: true,
@@ -20,31 +20,15 @@ angular
     }, {
         title: 'An event',
         type: 'warning',
-        startsAt: moment().startOf('week').add(3, 'days').toDate(),
-        endsAt: moment().startOf('week').add(4, 'days').add(3, 'hours').toDate(),
+        startsAt: moment().startOf('day').subtract(10, 'days').toDate(),
+        endsAt: moment().startOf('day').add(3, 'hours').toDate(),
         draggable: true,
         resizable: true,
-        category: 2
-    }, {
-        title: '<i class="glyphicon glyphicon-asterisk"></i> <span class="text-primary">Another event</span>, with a <i>html</i> title',
-        type: 'info',
-        startsAt: moment().startOf('week').add(2, 'days').toDate(),
-        endsAt: moment().startOf('week').add(2, 'days').add(3, 'hours').toDate(),
-        draggable: true,
-        resizable: true,
-        category: 2
-    }, {
-        title: 'This is a really long event title that occurs on every year',
-        type: 'important',
-        startsAt: moment().startOf('week').add(3, 'days').toDate(),
-        endsAt: moment().startOf('week').add(4, 'days').add(3, 'hours').toDate(),
-        draggable: true,
-        resizable: true,
-        category: 10
+        category: 3
     }];
 
     vm.calendarView = 'dayhorizontal';
-    vm.viewDate = moment().startOf('month').toDate();
+    vm.viewDate = moment().toDate();
 
     vm.eventTimesChanged = function(event) {
       alert.show('Dragged and dropped', event);
