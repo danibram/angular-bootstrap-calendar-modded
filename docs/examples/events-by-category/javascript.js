@@ -40,7 +40,7 @@ angular
         endsAt: moment().startOf('week').add(4, 'days').add(3, 'hours').toDate(),
         draggable: true,
         resizable: true,
-        category: 1
+        category: 10
     }];
 
     vm.calendarView = 'dayhorizontal';

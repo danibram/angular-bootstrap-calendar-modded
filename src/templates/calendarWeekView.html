@@ -46,11 +46,16 @@
       <div class="col-xs-12">
         <div
           class="cal-row-fluid "
-          ng-repeat="event in vm.view.events track by event.$id">
+          ng-repeat="event in vm.view.events track by event.$id"
+          ng-style="{
+            top: vm.showCategories ? (event.top + 'px') : 'auto',
+            position: 'absolute'
+          }"
+          >
           <div
             ng-class="'cal-cell' + (vm.showTimes ? 1 : event.daySpan) + (vm.showTimes ? '' : ' cal-offset' + event.dayOffset) + ' day-highlight dh-event-' + event.type + ' ' + event.cssClass"
             ng-style="{
-              top: (vm.showTimes||vm.showCategories) ? ((event.top + 2) + 'px') : 'auto',
+              top: vm.showTimes ? ((event.top + 2) + 'px') : 'auto',
               position: vm.showTimes ? 'absolute' : 'inherit',
               width: vm.showTimes ? (vm.dayColumnDimensions.width + 'px') : '',
               left: vm.showTimes ? vm.dayColumnDimensions.width + 12 + 'px' : ''
