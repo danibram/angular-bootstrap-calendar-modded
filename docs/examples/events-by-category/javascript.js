@@ -46,9 +46,6 @@ angular
     vm.calendarView = 'dayhorizontal';
     vm.viewDate = moment().startOf('month').toDate();
 
-    vm.dayViewStart = '08:00';
-    vm.dayViewEnd = '21:00';
-
     vm.eventTimesChanged = function(event) {
       alert.show('Dragged and dropped', event);
     };

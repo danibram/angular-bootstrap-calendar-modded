@@ -120,48 +120,2526 @@
 .cal-row-fluid [class*="cal-cell"].pull-right {
   float: right;
 }
-.cal-hour-1 {
-  width: calc(100%);
+/*CSS to gen*/
+.cal-hour-24 {
+  width: calc(4.16666667%);
 }
-.cal-hour-2 {
-  width: calc(50%);
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-24-24 {
+  width: 100% !important;
 }
-.cal-hour-3 {
-  width: calc(33.33333333%);
+.grid-hour-left-24-24 {
+  margin-left: 100% !important;
 }
-.cal-hour-4 {
-  width: calc(25%);
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-24-23 {
+  width: 95.83333333% !important;
 }
-.cal-hour-5 {
-  width: calc(20%);
+.grid-hour-left-24-23 {
+  margin-left: 95.83333333% !important;
 }
-.cal-hour-6 {
-  width: calc(16.66666667%);
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-24-22 {
+  width: 91.66666667% !important;
 }
-.cal-hour-7 {
-  width: calc(14.28571429%);
+.grid-hour-left-24-22 {
+  margin-left: 91.66666667% !important;
 }
-.cal-hour-8 {
-  width: calc(12.5%);
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-24-21 {
+  width: 87.5% !important;
 }
-.cal-hour-9 {
-  width: calc(11.11111111%);
+.grid-hour-left-24-21 {
+  margin-left: 87.5% !important;
 }
-.cal-hour-10 {
-  width: calc(10%);
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-24-20 {
+  width: 83.33333333% !important;
 }
-.cal-hour-11 {
-  width: calc(9.09090909%);
+.grid-hour-left-24-20 {
+  margin-left: 83.33333333% !important;
 }
-.cal-hour-12 {
-  width: calc(8.33333333%);
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-24-19 {
+  width: 79.16666667% !important;
 }
-.cal-hour-13 {
-  width: calc(7.69230769%);
+.grid-hour-left-24-19 {
+  margin-left: 79.16666667% !important;
 }
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-24-18 {
+  width: 75% !important;
+}
+.grid-hour-left-24-18 {
+  margin-left: 75% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-24-17 {
+  width: 70.83333333% !important;
+}
+.grid-hour-left-24-17 {
+  margin-left: 70.83333333% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-24-16 {
+  width: 66.66666667% !important;
+}
+.grid-hour-left-24-16 {
+  margin-left: 66.66666667% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-24-15 {
+  width: 62.5% !important;
+}
+.grid-hour-left-24-15 {
+  margin-left: 62.5% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-24-14 {
+  width: 58.33333333% !important;
+}
+.grid-hour-left-24-14 {
+  margin-left: 58.33333333% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-24-13 {
+  width: 54.16666667% !important;
+}
+.grid-hour-left-24-13 {
+  margin-left: 54.16666667% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-24-12 {
+  width: 50% !important;
+}
+.grid-hour-left-24-12 {
+  margin-left: 50% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-24-11 {
+  width: 45.83333333% !important;
+}
+.grid-hour-left-24-11 {
+  margin-left: 45.83333333% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-24-10 {
+  width: 41.66666667% !important;
+}
+.grid-hour-left-24-10 {
+  margin-left: 41.66666667% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-24-9 {
+  width: 37.5% !important;
+}
+.grid-hour-left-24-9 {
+  margin-left: 37.5% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-24-8 {
+  width: 33.33333333% !important;
+}
+.grid-hour-left-24-8 {
+  margin-left: 33.33333333% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-24-7 {
+  width: 29.16666667% !important;
+}
+.grid-hour-left-24-7 {
+  margin-left: 29.16666667% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-24-6 {
+  width: 25% !important;
+}
+.grid-hour-left-24-6 {
+  margin-left: 25% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-24-5 {
+  width: 20.83333333% !important;
+}
+.grid-hour-left-24-5 {
+  margin-left: 20.83333333% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-24-4 {
+  width: 16.66666667% !important;
+}
+.grid-hour-left-24-4 {
+  margin-left: 16.66666667% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-24-3 {
+  width: 12.5% !important;
+}
+.grid-hour-left-24-3 {
+  margin-left: 12.5% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-24-2 {
+  width: 8.33333333% !important;
+}
+.grid-hour-left-24-2 {
+  margin-left: 8.33333333% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-24-1 {
+  width: 4.16666667% !important;
+}
+.grid-hour-left-24-1 {
+  margin-left: 4.16666667% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.cal-hour-23 {
+  width: calc(4.34782609%);
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-23-23 {
+  width: 100% !important;
+}
+.grid-hour-left-23-23 {
+  margin-left: 100% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-23-22 {
+  width: 95.65217391% !important;
+}
+.grid-hour-left-23-22 {
+  margin-left: 95.65217391% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-23-21 {
+  width: 91.30434783% !important;
+}
+.grid-hour-left-23-21 {
+  margin-left: 91.30434783% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-23-20 {
+  width: 86.95652174% !important;
+}
+.grid-hour-left-23-20 {
+  margin-left: 86.95652174% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-23-19 {
+  width: 82.60869565% !important;
+}
+.grid-hour-left-23-19 {
+  margin-left: 82.60869565% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-23-18 {
+  width: 78.26086957% !important;
+}
+.grid-hour-left-23-18 {
+  margin-left: 78.26086957% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-23-17 {
+  width: 73.91304348% !important;
+}
+.grid-hour-left-23-17 {
+  margin-left: 73.91304348% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-23-16 {
+  width: 69.56521739% !important;
+}
+.grid-hour-left-23-16 {
+  margin-left: 69.56521739% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-23-15 {
+  width: 65.2173913% !important;
+}
+.grid-hour-left-23-15 {
+  margin-left: 65.2173913% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-23-14 {
+  width: 60.86956522% !important;
+}
+.grid-hour-left-23-14 {
+  margin-left: 60.86956522% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-23-13 {
+  width: 56.52173913% !important;
+}
+.grid-hour-left-23-13 {
+  margin-left: 56.52173913% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-23-12 {
+  width: 52.17391304% !important;
+}
+.grid-hour-left-23-12 {
+  margin-left: 52.17391304% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-23-11 {
+  width: 47.82608696% !important;
+}
+.grid-hour-left-23-11 {
+  margin-left: 47.82608696% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-23-10 {
+  width: 43.47826087% !important;
+}
+.grid-hour-left-23-10 {
+  margin-left: 43.47826087% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-23-9 {
+  width: 39.13043478% !important;
+}
+.grid-hour-left-23-9 {
+  margin-left: 39.13043478% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-23-8 {
+  width: 34.7826087% !important;
+}
+.grid-hour-left-23-8 {
+  margin-left: 34.7826087% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-23-7 {
+  width: 30.43478261% !important;
+}
+.grid-hour-left-23-7 {
+  margin-left: 30.43478261% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-23-6 {
+  width: 26.08695652% !important;
+}
+.grid-hour-left-23-6 {
+  margin-left: 26.08695652% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-23-5 {
+  width: 21.73913043% !important;
+}
+.grid-hour-left-23-5 {
+  margin-left: 21.73913043% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-23-4 {
+  width: 17.39130435% !important;
+}
+.grid-hour-left-23-4 {
+  margin-left: 17.39130435% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-23-3 {
+  width: 13.04347826% !important;
+}
+.grid-hour-left-23-3 {
+  margin-left: 13.04347826% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-23-2 {
+  width: 8.69565217% !important;
+}
+.grid-hour-left-23-2 {
+  margin-left: 8.69565217% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-23-1 {
+  width: 4.34782609% !important;
+}
+.grid-hour-left-23-1 {
+  margin-left: 4.34782609% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.cal-hour-22 {
+  width: calc(4.54545455%);
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-22-22 {
+  width: 100% !important;
+}
+.grid-hour-left-22-22 {
+  margin-left: 100% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-22-21 {
+  width: 95.45454545% !important;
+}
+.grid-hour-left-22-21 {
+  margin-left: 95.45454545% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-22-20 {
+  width: 90.90909091% !important;
+}
+.grid-hour-left-22-20 {
+  margin-left: 90.90909091% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-22-19 {
+  width: 86.36363636% !important;
+}
+.grid-hour-left-22-19 {
+  margin-left: 86.36363636% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-22-18 {
+  width: 81.81818182% !important;
+}
+.grid-hour-left-22-18 {
+  margin-left: 81.81818182% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-22-17 {
+  width: 77.27272727% !important;
+}
+.grid-hour-left-22-17 {
+  margin-left: 77.27272727% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-22-16 {
+  width: 72.72727273% !important;
+}
+.grid-hour-left-22-16 {
+  margin-left: 72.72727273% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-22-15 {
+  width: 68.18181818% !important;
+}
+.grid-hour-left-22-15 {
+  margin-left: 68.18181818% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-22-14 {
+  width: 63.63636364% !important;
+}
+.grid-hour-left-22-14 {
+  margin-left: 63.63636364% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-22-13 {
+  width: 59.09090909% !important;
+}
+.grid-hour-left-22-13 {
+  margin-left: 59.09090909% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-22-12 {
+  width: 54.54545455% !important;
+}
+.grid-hour-left-22-12 {
+  margin-left: 54.54545455% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-22-11 {
+  width: 50% !important;
+}
+.grid-hour-left-22-11 {
+  margin-left: 50% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-22-10 {
+  width: 45.45454545% !important;
+}
+.grid-hour-left-22-10 {
+  margin-left: 45.45454545% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-22-9 {
+  width: 40.90909091% !important;
+}
+.grid-hour-left-22-9 {
+  margin-left: 40.90909091% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-22-8 {
+  width: 36.36363636% !important;
+}
+.grid-hour-left-22-8 {
+  margin-left: 36.36363636% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-22-7 {
+  width: 31.81818182% !important;
+}
+.grid-hour-left-22-7 {
+  margin-left: 31.81818182% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-22-6 {
+  width: 27.27272727% !important;
+}
+.grid-hour-left-22-6 {
+  margin-left: 27.27272727% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-22-5 {
+  width: 22.72727273% !important;
+}
+.grid-hour-left-22-5 {
+  margin-left: 22.72727273% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-22-4 {
+  width: 18.18181818% !important;
+}
+.grid-hour-left-22-4 {
+  margin-left: 18.18181818% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-22-3 {
+  width: 13.63636364% !important;
+}
+.grid-hour-left-22-3 {
+  margin-left: 13.63636364% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-22-2 {
+  width: 9.09090909% !important;
+}
+.grid-hour-left-22-2 {
+  margin-left: 9.09090909% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-22-1 {
+  width: 4.54545455% !important;
+}
+.grid-hour-left-22-1 {
+  margin-left: 4.54545455% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.cal-hour-21 {
+  width: calc(4.76190476%);
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-21-21 {
+  width: 100% !important;
+}
+.grid-hour-left-21-21 {
+  margin-left: 100% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-21-20 {
+  width: 95.23809524% !important;
+}
+.grid-hour-left-21-20 {
+  margin-left: 95.23809524% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-21-19 {
+  width: 90.47619048% !important;
+}
+.grid-hour-left-21-19 {
+  margin-left: 90.47619048% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-21-18 {
+  width: 85.71428571% !important;
+}
+.grid-hour-left-21-18 {
+  margin-left: 85.71428571% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-21-17 {
+  width: 80.95238095% !important;
+}
+.grid-hour-left-21-17 {
+  margin-left: 80.95238095% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-21-16 {
+  width: 76.19047619% !important;
+}
+.grid-hour-left-21-16 {
+  margin-left: 76.19047619% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-21-15 {
+  width: 71.42857143% !important;
+}
+.grid-hour-left-21-15 {
+  margin-left: 71.42857143% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-21-14 {
+  width: 66.66666667% !important;
+}
+.grid-hour-left-21-14 {
+  margin-left: 66.66666667% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-21-13 {
+  width: 61.9047619% !important;
+}
+.grid-hour-left-21-13 {
+  margin-left: 61.9047619% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-21-12 {
+  width: 57.14285714% !important;
+}
+.grid-hour-left-21-12 {
+  margin-left: 57.14285714% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-21-11 {
+  width: 52.38095238% !important;
+}
+.grid-hour-left-21-11 {
+  margin-left: 52.38095238% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-21-10 {
+  width: 47.61904762% !important;
+}
+.grid-hour-left-21-10 {
+  margin-left: 47.61904762% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-21-9 {
+  width: 42.85714286% !important;
+}
+.grid-hour-left-21-9 {
+  margin-left: 42.85714286% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-21-8 {
+  width: 38.0952381% !important;
+}
+.grid-hour-left-21-8 {
+  margin-left: 38.0952381% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-21-7 {
+  width: 33.33333333% !important;
+}
+.grid-hour-left-21-7 {
+  margin-left: 33.33333333% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-21-6 {
+  width: 28.57142857% !important;
+}
+.grid-hour-left-21-6 {
+  margin-left: 28.57142857% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-21-5 {
+  width: 23.80952381% !important;
+}
+.grid-hour-left-21-5 {
+  margin-left: 23.80952381% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-21-4 {
+  width: 19.04761905% !important;
+}
+.grid-hour-left-21-4 {
+  margin-left: 19.04761905% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-21-3 {
+  width: 14.28571429% !important;
+}
+.grid-hour-left-21-3 {
+  margin-left: 14.28571429% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-21-2 {
+  width: 9.52380952% !important;
+}
+.grid-hour-left-21-2 {
+  margin-left: 9.52380952% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-21-1 {
+  width: 4.76190476% !important;
+}
+.grid-hour-left-21-1 {
+  margin-left: 4.76190476% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.cal-hour-20 {
+  width: calc(5%);
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-20-20 {
+  width: 100% !important;
+}
+.grid-hour-left-20-20 {
+  margin-left: 100% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-20-19 {
+  width: 95% !important;
+}
+.grid-hour-left-20-19 {
+  margin-left: 95% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-20-18 {
+  width: 90% !important;
+}
+.grid-hour-left-20-18 {
+  margin-left: 90% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-20-17 {
+  width: 85% !important;
+}
+.grid-hour-left-20-17 {
+  margin-left: 85% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-20-16 {
+  width: 80% !important;
+}
+.grid-hour-left-20-16 {
+  margin-left: 80% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-20-15 {
+  width: 75% !important;
+}
+.grid-hour-left-20-15 {
+  margin-left: 75% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-20-14 {
+  width: 70% !important;
+}
+.grid-hour-left-20-14 {
+  margin-left: 70% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-20-13 {
+  width: 65% !important;
+}
+.grid-hour-left-20-13 {
+  margin-left: 65% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-20-12 {
+  width: 60% !important;
+}
+.grid-hour-left-20-12 {
+  margin-left: 60% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-20-11 {
+  width: 55% !important;
+}
+.grid-hour-left-20-11 {
+  margin-left: 55% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-20-10 {
+  width: 50% !important;
+}
+.grid-hour-left-20-10 {
+  margin-left: 50% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-20-9 {
+  width: 45% !important;
+}
+.grid-hour-left-20-9 {
+  margin-left: 45% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-20-8 {
+  width: 40% !important;
+}
+.grid-hour-left-20-8 {
+  margin-left: 40% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-20-7 {
+  width: 35% !important;
+}
+.grid-hour-left-20-7 {
+  margin-left: 35% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-20-6 {
+  width: 30% !important;
+}
+.grid-hour-left-20-6 {
+  margin-left: 30% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-20-5 {
+  width: 25% !important;
+}
+.grid-hour-left-20-5 {
+  margin-left: 25% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-20-4 {
+  width: 20% !important;
+}
+.grid-hour-left-20-4 {
+  margin-left: 20% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-20-3 {
+  width: 15% !important;
+}
+.grid-hour-left-20-3 {
+  margin-left: 15% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-20-2 {
+  width: 10% !important;
+}
+.grid-hour-left-20-2 {
+  margin-left: 10% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-20-1 {
+  width: 5% !important;
+}
+.grid-hour-left-20-1 {
+  margin-left: 5% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.cal-hour-19 {
+  width: calc(5.26315789%);
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-19-19 {
+  width: 100% !important;
+}
+.grid-hour-left-19-19 {
+  margin-left: 100% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-19-18 {
+  width: 94.73684211% !important;
+}
+.grid-hour-left-19-18 {
+  margin-left: 94.73684211% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-19-17 {
+  width: 89.47368421% !important;
+}
+.grid-hour-left-19-17 {
+  margin-left: 89.47368421% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-19-16 {
+  width: 84.21052632% !important;
+}
+.grid-hour-left-19-16 {
+  margin-left: 84.21052632% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-19-15 {
+  width: 78.94736842% !important;
+}
+.grid-hour-left-19-15 {
+  margin-left: 78.94736842% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-19-14 {
+  width: 73.68421053% !important;
+}
+.grid-hour-left-19-14 {
+  margin-left: 73.68421053% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-19-13 {
+  width: 68.42105263% !important;
+}
+.grid-hour-left-19-13 {
+  margin-left: 68.42105263% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-19-12 {
+  width: 63.15789474% !important;
+}
+.grid-hour-left-19-12 {
+  margin-left: 63.15789474% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-19-11 {
+  width: 57.89473684% !important;
+}
+.grid-hour-left-19-11 {
+  margin-left: 57.89473684% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-19-10 {
+  width: 52.63157895% !important;
+}
+.grid-hour-left-19-10 {
+  margin-left: 52.63157895% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-19-9 {
+  width: 47.36842105% !important;
+}
+.grid-hour-left-19-9 {
+  margin-left: 47.36842105% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-19-8 {
+  width: 42.10526316% !important;
+}
+.grid-hour-left-19-8 {
+  margin-left: 42.10526316% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-19-7 {
+  width: 36.84210526% !important;
+}
+.grid-hour-left-19-7 {
+  margin-left: 36.84210526% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-19-6 {
+  width: 31.57894737% !important;
+}
+.grid-hour-left-19-6 {
+  margin-left: 31.57894737% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-19-5 {
+  width: 26.31578947% !important;
+}
+.grid-hour-left-19-5 {
+  margin-left: 26.31578947% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-19-4 {
+  width: 21.05263158% !important;
+}
+.grid-hour-left-19-4 {
+  margin-left: 21.05263158% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-19-3 {
+  width: 15.78947368% !important;
+}
+.grid-hour-left-19-3 {
+  margin-left: 15.78947368% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-19-2 {
+  width: 10.52631579% !important;
+}
+.grid-hour-left-19-2 {
+  margin-left: 10.52631579% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-19-1 {
+  width: 5.26315789% !important;
+}
+.grid-hour-left-19-1 {
+  margin-left: 5.26315789% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.cal-hour-18 {
+  width: calc(5.55555556%);
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-18-18 {
+  width: 100% !important;
+}
+.grid-hour-left-18-18 {
+  margin-left: 100% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-18-17 {
+  width: 94.44444444% !important;
+}
+.grid-hour-left-18-17 {
+  margin-left: 94.44444444% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-18-16 {
+  width: 88.88888889% !important;
+}
+.grid-hour-left-18-16 {
+  margin-left: 88.88888889% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-18-15 {
+  width: 83.33333333% !important;
+}
+.grid-hour-left-18-15 {
+  margin-left: 83.33333333% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-18-14 {
+  width: 77.77777778% !important;
+}
+.grid-hour-left-18-14 {
+  margin-left: 77.77777778% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-18-13 {
+  width: 72.22222222% !important;
+}
+.grid-hour-left-18-13 {
+  margin-left: 72.22222222% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-18-12 {
+  width: 66.66666667% !important;
+}
+.grid-hour-left-18-12 {
+  margin-left: 66.66666667% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-18-11 {
+  width: 61.11111111% !important;
+}
+.grid-hour-left-18-11 {
+  margin-left: 61.11111111% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-18-10 {
+  width: 55.55555556% !important;
+}
+.grid-hour-left-18-10 {
+  margin-left: 55.55555556% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-18-9 {
+  width: 50% !important;
+}
+.grid-hour-left-18-9 {
+  margin-left: 50% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-18-8 {
+  width: 44.44444444% !important;
+}
+.grid-hour-left-18-8 {
+  margin-left: 44.44444444% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-18-7 {
+  width: 38.88888889% !important;
+}
+.grid-hour-left-18-7 {
+  margin-left: 38.88888889% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-18-6 {
+  width: 33.33333333% !important;
+}
+.grid-hour-left-18-6 {
+  margin-left: 33.33333333% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-18-5 {
+  width: 27.77777778% !important;
+}
+.grid-hour-left-18-5 {
+  margin-left: 27.77777778% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-18-4 {
+  width: 22.22222222% !important;
+}
+.grid-hour-left-18-4 {
+  margin-left: 22.22222222% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-18-3 {
+  width: 16.66666667% !important;
+}
+.grid-hour-left-18-3 {
+  margin-left: 16.66666667% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-18-2 {
+  width: 11.11111111% !important;
+}
+.grid-hour-left-18-2 {
+  margin-left: 11.11111111% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-18-1 {
+  width: 5.55555556% !important;
+}
+.grid-hour-left-18-1 {
+  margin-left: 5.55555556% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.cal-hour-17 {
+  width: calc(5.88235294%);
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-17-17 {
+  width: 100% !important;
+}
+.grid-hour-left-17-17 {
+  margin-left: 100% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-17-16 {
+  width: 94.11764706% !important;
+}
+.grid-hour-left-17-16 {
+  margin-left: 94.11764706% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-17-15 {
+  width: 88.23529412% !important;
+}
+.grid-hour-left-17-15 {
+  margin-left: 88.23529412% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-17-14 {
+  width: 82.35294118% !important;
+}
+.grid-hour-left-17-14 {
+  margin-left: 82.35294118% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-17-13 {
+  width: 76.47058824% !important;
+}
+.grid-hour-left-17-13 {
+  margin-left: 76.47058824% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-17-12 {
+  width: 70.58823529% !important;
+}
+.grid-hour-left-17-12 {
+  margin-left: 70.58823529% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-17-11 {
+  width: 64.70588235% !important;
+}
+.grid-hour-left-17-11 {
+  margin-left: 64.70588235% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-17-10 {
+  width: 58.82352941% !important;
+}
+.grid-hour-left-17-10 {
+  margin-left: 58.82352941% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-17-9 {
+  width: 52.94117647% !important;
+}
+.grid-hour-left-17-9 {
+  margin-left: 52.94117647% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-17-8 {
+  width: 47.05882353% !important;
+}
+.grid-hour-left-17-8 {
+  margin-left: 47.05882353% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-17-7 {
+  width: 41.17647059% !important;
+}
+.grid-hour-left-17-7 {
+  margin-left: 41.17647059% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-17-6 {
+  width: 35.29411765% !important;
+}
+.grid-hour-left-17-6 {
+  margin-left: 35.29411765% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-17-5 {
+  width: 29.41176471% !important;
+}
+.grid-hour-left-17-5 {
+  margin-left: 29.41176471% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-17-4 {
+  width: 23.52941176% !important;
+}
+.grid-hour-left-17-4 {
+  margin-left: 23.52941176% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-17-3 {
+  width: 17.64705882% !important;
+}
+.grid-hour-left-17-3 {
+  margin-left: 17.64705882% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-17-2 {
+  width: 11.76470588% !important;
+}
+.grid-hour-left-17-2 {
+  margin-left: 11.76470588% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-17-1 {
+  width: 5.88235294% !important;
+}
+.grid-hour-left-17-1 {
+  margin-left: 5.88235294% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.cal-hour-16 {
+  width: calc(6.25%);
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-16-16 {
+  width: 100% !important;
+}
+.grid-hour-left-16-16 {
+  margin-left: 100% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-16-15 {
+  width: 93.75% !important;
+}
+.grid-hour-left-16-15 {
+  margin-left: 93.75% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-16-14 {
+  width: 87.5% !important;
+}
+.grid-hour-left-16-14 {
+  margin-left: 87.5% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-16-13 {
+  width: 81.25% !important;
+}
+.grid-hour-left-16-13 {
+  margin-left: 81.25% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-16-12 {
+  width: 75% !important;
+}
+.grid-hour-left-16-12 {
+  margin-left: 75% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-16-11 {
+  width: 68.75% !important;
+}
+.grid-hour-left-16-11 {
+  margin-left: 68.75% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-16-10 {
+  width: 62.5% !important;
+}
+.grid-hour-left-16-10 {
+  margin-left: 62.5% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-16-9 {
+  width: 56.25% !important;
+}
+.grid-hour-left-16-9 {
+  margin-left: 56.25% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-16-8 {
+  width: 50% !important;
+}
+.grid-hour-left-16-8 {
+  margin-left: 50% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-16-7 {
+  width: 43.75% !important;
+}
+.grid-hour-left-16-7 {
+  margin-left: 43.75% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-16-6 {
+  width: 37.5% !important;
+}
+.grid-hour-left-16-6 {
+  margin-left: 37.5% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-16-5 {
+  width: 31.25% !important;
+}
+.grid-hour-left-16-5 {
+  margin-left: 31.25% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-16-4 {
+  width: 25% !important;
+}
+.grid-hour-left-16-4 {
+  margin-left: 25% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-16-3 {
+  width: 18.75% !important;
+}
+.grid-hour-left-16-3 {
+  margin-left: 18.75% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-16-2 {
+  width: 12.5% !important;
+}
+.grid-hour-left-16-2 {
+  margin-left: 12.5% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-16-1 {
+  width: 6.25% !important;
+}
+.grid-hour-left-16-1 {
+  margin-left: 6.25% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.cal-hour-15 {
+  width: calc(6.66666667%);
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-15-15 {
+  width: 100% !important;
+}
+.grid-hour-left-15-15 {
+  margin-left: 100% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-15-14 {
+  width: 93.33333333% !important;
+}
+.grid-hour-left-15-14 {
+  margin-left: 93.33333333% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-15-13 {
+  width: 86.66666667% !important;
+}
+.grid-hour-left-15-13 {
+  margin-left: 86.66666667% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-15-12 {
+  width: 80% !important;
+}
+.grid-hour-left-15-12 {
+  margin-left: 80% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-15-11 {
+  width: 73.33333333% !important;
+}
+.grid-hour-left-15-11 {
+  margin-left: 73.33333333% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-15-10 {
+  width: 66.66666667% !important;
+}
+.grid-hour-left-15-10 {
+  margin-left: 66.66666667% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-15-9 {
+  width: 60% !important;
+}
+.grid-hour-left-15-9 {
+  margin-left: 60% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-15-8 {
+  width: 53.33333333% !important;
+}
+.grid-hour-left-15-8 {
+  margin-left: 53.33333333% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-15-7 {
+  width: 46.66666667% !important;
+}
+.grid-hour-left-15-7 {
+  margin-left: 46.66666667% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-15-6 {
+  width: 40% !important;
+}
+.grid-hour-left-15-6 {
+  margin-left: 40% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-15-5 {
+  width: 33.33333333% !important;
+}
+.grid-hour-left-15-5 {
+  margin-left: 33.33333333% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-15-4 {
+  width: 26.66666667% !important;
+}
+.grid-hour-left-15-4 {
+  margin-left: 26.66666667% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-15-3 {
+  width: 20% !important;
+}
+.grid-hour-left-15-3 {
+  margin-left: 20% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-15-2 {
+  width: 13.33333333% !important;
+}
+.grid-hour-left-15-2 {
+  margin-left: 13.33333333% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-15-1 {
+  width: 6.66666667% !important;
+}
+.grid-hour-left-15-1 {
+  margin-left: 6.66666667% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
 .cal-hour-14 {
   width: calc(7.14285714%);
 }
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-14-14 {
+  width: 100% !important;
+}
+.grid-hour-left-14-14 {
+  margin-left: 100% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-14-13 {
+  width: 92.85714286% !important;
+}
+.grid-hour-left-14-13 {
+  margin-left: 92.85714286% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-14-12 {
+  width: 85.71428571% !important;
+}
+.grid-hour-left-14-12 {
+  margin-left: 85.71428571% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-14-11 {
+  width: 78.57142857% !important;
+}
+.grid-hour-left-14-11 {
+  margin-left: 78.57142857% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-14-10 {
+  width: 71.42857143% !important;
+}
+.grid-hour-left-14-10 {
+  margin-left: 71.42857143% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-14-9 {
+  width: 64.28571429% !important;
+}
+.grid-hour-left-14-9 {
+  margin-left: 64.28571429% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-14-8 {
+  width: 57.14285714% !important;
+}
+.grid-hour-left-14-8 {
+  margin-left: 57.14285714% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-14-7 {
+  width: 50% !important;
+}
+.grid-hour-left-14-7 {
+  margin-left: 50% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-14-6 {
+  width: 42.85714286% !important;
+}
+.grid-hour-left-14-6 {
+  margin-left: 42.85714286% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-14-5 {
+  width: 35.71428571% !important;
+}
+.grid-hour-left-14-5 {
+  margin-left: 35.71428571% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-14-4 {
+  width: 28.57142857% !important;
+}
+.grid-hour-left-14-4 {
+  margin-left: 28.57142857% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-14-3 {
+  width: 21.42857143% !important;
+}
+.grid-hour-left-14-3 {
+  margin-left: 21.42857143% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-14-2 {
+  width: 14.28571429% !important;
+}
+.grid-hour-left-14-2 {
+  margin-left: 14.28571429% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-14-1 {
+  width: 7.14285714% !important;
+}
+.grid-hour-left-14-1 {
+  margin-left: 7.14285714% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.cal-hour-13 {
+  width: calc(7.69230769%);
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-13-13 {
+  width: 100% !important;
+}
+.grid-hour-left-13-13 {
+  margin-left: 100% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-13-12 {
+  width: 92.30769231% !important;
+}
+.grid-hour-left-13-12 {
+  margin-left: 92.30769231% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-13-11 {
+  width: 84.61538462% !important;
+}
+.grid-hour-left-13-11 {
+  margin-left: 84.61538462% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-13-10 {
+  width: 76.92307692% !important;
+}
+.grid-hour-left-13-10 {
+  margin-left: 76.92307692% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-13-9 {
+  width: 69.23076923% !important;
+}
+.grid-hour-left-13-9 {
+  margin-left: 69.23076923% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-13-8 {
+  width: 61.53846154% !important;
+}
+.grid-hour-left-13-8 {
+  margin-left: 61.53846154% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-13-7 {
+  width: 53.84615385% !important;
+}
+.grid-hour-left-13-7 {
+  margin-left: 53.84615385% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-13-6 {
+  width: 46.15384615% !important;
+}
+.grid-hour-left-13-6 {
+  margin-left: 46.15384615% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-13-5 {
+  width: 38.46153846% !important;
+}
+.grid-hour-left-13-5 {
+  margin-left: 38.46153846% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-13-4 {
+  width: 30.76923077% !important;
+}
+.grid-hour-left-13-4 {
+  margin-left: 30.76923077% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-13-3 {
+  width: 23.07692308% !important;
+}
+.grid-hour-left-13-3 {
+  margin-left: 23.07692308% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-13-2 {
+  width: 15.38461538% !important;
+}
+.grid-hour-left-13-2 {
+  margin-left: 15.38461538% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-13-1 {
+  width: 7.69230769% !important;
+}
+.grid-hour-left-13-1 {
+  margin-left: 7.69230769% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.cal-hour-12 {
+  width: calc(8.33333333%);
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-12-12 {
+  width: 100% !important;
+}
+.grid-hour-left-12-12 {
+  margin-left: 100% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-12-11 {
+  width: 91.66666667% !important;
+}
+.grid-hour-left-12-11 {
+  margin-left: 91.66666667% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-12-10 {
+  width: 83.33333333% !important;
+}
+.grid-hour-left-12-10 {
+  margin-left: 83.33333333% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-12-9 {
+  width: 75% !important;
+}
+.grid-hour-left-12-9 {
+  margin-left: 75% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-12-8 {
+  width: 66.66666667% !important;
+}
+.grid-hour-left-12-8 {
+  margin-left: 66.66666667% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-12-7 {
+  width: 58.33333333% !important;
+}
+.grid-hour-left-12-7 {
+  margin-left: 58.33333333% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-12-6 {
+  width: 50% !important;
+}
+.grid-hour-left-12-6 {
+  margin-left: 50% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-12-5 {
+  width: 41.66666667% !important;
+}
+.grid-hour-left-12-5 {
+  margin-left: 41.66666667% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-12-4 {
+  width: 33.33333333% !important;
+}
+.grid-hour-left-12-4 {
+  margin-left: 33.33333333% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-12-3 {
+  width: 25% !important;
+}
+.grid-hour-left-12-3 {
+  margin-left: 25% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-12-2 {
+  width: 16.66666667% !important;
+}
+.grid-hour-left-12-2 {
+  margin-left: 16.66666667% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-12-1 {
+  width: 8.33333333% !important;
+}
+.grid-hour-left-12-1 {
+  margin-left: 8.33333333% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.cal-hour-11 {
+  width: calc(9.09090909%);
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-11-11 {
+  width: 100% !important;
+}
+.grid-hour-left-11-11 {
+  margin-left: 100% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-11-10 {
+  width: 90.90909091% !important;
+}
+.grid-hour-left-11-10 {
+  margin-left: 90.90909091% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-11-9 {
+  width: 81.81818182% !important;
+}
+.grid-hour-left-11-9 {
+  margin-left: 81.81818182% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-11-8 {
+  width: 72.72727273% !important;
+}
+.grid-hour-left-11-8 {
+  margin-left: 72.72727273% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-11-7 {
+  width: 63.63636364% !important;
+}
+.grid-hour-left-11-7 {
+  margin-left: 63.63636364% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-11-6 {
+  width: 54.54545455% !important;
+}
+.grid-hour-left-11-6 {
+  margin-left: 54.54545455% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-11-5 {
+  width: 45.45454545% !important;
+}
+.grid-hour-left-11-5 {
+  margin-left: 45.45454545% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-11-4 {
+  width: 36.36363636% !important;
+}
+.grid-hour-left-11-4 {
+  margin-left: 36.36363636% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-11-3 {
+  width: 27.27272727% !important;
+}
+.grid-hour-left-11-3 {
+  margin-left: 27.27272727% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-11-2 {
+  width: 18.18181818% !important;
+}
+.grid-hour-left-11-2 {
+  margin-left: 18.18181818% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-11-1 {
+  width: 9.09090909% !important;
+}
+.grid-hour-left-11-1 {
+  margin-left: 9.09090909% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.cal-hour-10 {
+  width: calc(10%);
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-10-10 {
+  width: 100% !important;
+}
+.grid-hour-left-10-10 {
+  margin-left: 100% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-10-9 {
+  width: 90% !important;
+}
+.grid-hour-left-10-9 {
+  margin-left: 90% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-10-8 {
+  width: 80% !important;
+}
+.grid-hour-left-10-8 {
+  margin-left: 80% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-10-7 {
+  width: 70% !important;
+}
+.grid-hour-left-10-7 {
+  margin-left: 70% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-10-6 {
+  width: 60% !important;
+}
+.grid-hour-left-10-6 {
+  margin-left: 60% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-10-5 {
+  width: 50% !important;
+}
+.grid-hour-left-10-5 {
+  margin-left: 50% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-10-4 {
+  width: 40% !important;
+}
+.grid-hour-left-10-4 {
+  margin-left: 40% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-10-3 {
+  width: 30% !important;
+}
+.grid-hour-left-10-3 {
+  margin-left: 30% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-10-2 {
+  width: 20% !important;
+}
+.grid-hour-left-10-2 {
+  margin-left: 20% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-10-1 {
+  width: 10% !important;
+}
+.grid-hour-left-10-1 {
+  margin-left: 10% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.cal-hour-9 {
+  width: calc(11.11111111%);
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-9-9 {
+  width: 100% !important;
+}
+.grid-hour-left-9-9 {
+  margin-left: 100% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-9-8 {
+  width: 88.88888889% !important;
+}
+.grid-hour-left-9-8 {
+  margin-left: 88.88888889% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-9-7 {
+  width: 77.77777778% !important;
+}
+.grid-hour-left-9-7 {
+  margin-left: 77.77777778% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-9-6 {
+  width: 66.66666667% !important;
+}
+.grid-hour-left-9-6 {
+  margin-left: 66.66666667% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-9-5 {
+  width: 55.55555556% !important;
+}
+.grid-hour-left-9-5 {
+  margin-left: 55.55555556% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-9-4 {
+  width: 44.44444444% !important;
+}
+.grid-hour-left-9-4 {
+  margin-left: 44.44444444% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-9-3 {
+  width: 33.33333333% !important;
+}
+.grid-hour-left-9-3 {
+  margin-left: 33.33333333% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-9-2 {
+  width: 22.22222222% !important;
+}
+.grid-hour-left-9-2 {
+  margin-left: 22.22222222% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-9-1 {
+  width: 11.11111111% !important;
+}
+.grid-hour-left-9-1 {
+  margin-left: 11.11111111% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.cal-hour-8 {
+  width: calc(12.5%);
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-8-8 {
+  width: 100% !important;
+}
+.grid-hour-left-8-8 {
+  margin-left: 100% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-8-7 {
+  width: 87.5% !important;
+}
+.grid-hour-left-8-7 {
+  margin-left: 87.5% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-8-6 {
+  width: 75% !important;
+}
+.grid-hour-left-8-6 {
+  margin-left: 75% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-8-5 {
+  width: 62.5% !important;
+}
+.grid-hour-left-8-5 {
+  margin-left: 62.5% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-8-4 {
+  width: 50% !important;
+}
+.grid-hour-left-8-4 {
+  margin-left: 50% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-8-3 {
+  width: 37.5% !important;
+}
+.grid-hour-left-8-3 {
+  margin-left: 37.5% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-8-2 {
+  width: 25% !important;
+}
+.grid-hour-left-8-2 {
+  margin-left: 25% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-8-1 {
+  width: 12.5% !important;
+}
+.grid-hour-left-8-1 {
+  margin-left: 12.5% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.cal-hour-7 {
+  width: calc(14.28571429%);
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-7-7 {
+  width: 100% !important;
+}
+.grid-hour-left-7-7 {
+  margin-left: 100% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-7-6 {
+  width: 85.71428571% !important;
+}
+.grid-hour-left-7-6 {
+  margin-left: 85.71428571% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-7-5 {
+  width: 71.42857143% !important;
+}
+.grid-hour-left-7-5 {
+  margin-left: 71.42857143% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-7-4 {
+  width: 57.14285714% !important;
+}
+.grid-hour-left-7-4 {
+  margin-left: 57.14285714% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-7-3 {
+  width: 42.85714286% !important;
+}
+.grid-hour-left-7-3 {
+  margin-left: 42.85714286% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-7-2 {
+  width: 28.57142857% !important;
+}
+.grid-hour-left-7-2 {
+  margin-left: 28.57142857% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-7-1 {
+  width: 14.28571429% !important;
+}
+.grid-hour-left-7-1 {
+  margin-left: 14.28571429% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.cal-hour-6 {
+  width: calc(16.66666667%);
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-6-6 {
+  width: 100% !important;
+}
+.grid-hour-left-6-6 {
+  margin-left: 100% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-6-5 {
+  width: 83.33333333% !important;
+}
+.grid-hour-left-6-5 {
+  margin-left: 83.33333333% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-6-4 {
+  width: 66.66666667% !important;
+}
+.grid-hour-left-6-4 {
+  margin-left: 66.66666667% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-6-3 {
+  width: 50% !important;
+}
+.grid-hour-left-6-3 {
+  margin-left: 50% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-6-2 {
+  width: 33.33333333% !important;
+}
+.grid-hour-left-6-2 {
+  margin-left: 33.33333333% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-6-1 {
+  width: 16.66666667% !important;
+}
+.grid-hour-left-6-1 {
+  margin-left: 16.66666667% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.cal-hour-5 {
+  width: calc(20%);
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-5-5 {
+  width: 100% !important;
+}
+.grid-hour-left-5-5 {
+  margin-left: 100% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-5-4 {
+  width: 80% !important;
+}
+.grid-hour-left-5-4 {
+  margin-left: 80% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-5-3 {
+  width: 60% !important;
+}
+.grid-hour-left-5-3 {
+  margin-left: 60% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-5-2 {
+  width: 40% !important;
+}
+.grid-hour-left-5-2 {
+  margin-left: 40% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-5-1 {
+  width: 20% !important;
+}
+.grid-hour-left-5-1 {
+  margin-left: 20% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.cal-hour-4 {
+  width: calc(25%);
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-4-4 {
+  width: 100% !important;
+}
+.grid-hour-left-4-4 {
+  margin-left: 100% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-4-3 {
+  width: 75% !important;
+}
+.grid-hour-left-4-3 {
+  margin-left: 75% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-4-2 {
+  width: 50% !important;
+}
+.grid-hour-left-4-2 {
+  margin-left: 50% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-4-1 {
+  width: 25% !important;
+}
+.grid-hour-left-4-1 {
+  margin-left: 25% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.cal-hour-3 {
+  width: calc(33.33333333%);
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-3-3 {
+  width: 100% !important;
+}
+.grid-hour-left-3-3 {
+  margin-left: 100% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-3-2 {
+  width: 66.66666667% !important;
+}
+.grid-hour-left-3-2 {
+  margin-left: 66.66666667% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-3-1 {
+  width: 33.33333333% !important;
+}
+.grid-hour-left-3-1 {
+  margin-left: 33.33333333% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.cal-hour-2 {
+  width: calc(50%);
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-2-2 {
+  width: 100% !important;
+}
+.grid-hour-left-2-2 {
+  margin-left: 100% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-2-1 {
+  width: 50% !important;
+}
+.grid-hour-left-2-1 {
+  margin-left: 50% !important;
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.cal-hour-1 {
+  width: calc(100%);
+}
+/*CSS to gen*/
+/*CSS to gen*/
+.grid-hour-1-1 {
+  width: 100% !important;
+}
+.grid-hour-left-1-1 {
+  margin-left: 100% !important;
+}
+/*CSS to gen*/
 .cal-row-head [class*="cal-cell"]:first-child,
 .cal-row-head [class*="cal-cell"] {
   min-height: auto;

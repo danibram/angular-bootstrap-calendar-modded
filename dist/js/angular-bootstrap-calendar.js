@@ -2157,19 +2157,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 
 	        if (moment(event.endsAt).isAfter(calendarEnd)) {
-	          evEnd = calendarEnd;
+	          evEnd = moment(calendarEnd).startOf('hour').diff(moment(evStart).endOf('hour'), 'hours') + 2;
 	        } else {
-	          evEnd = event.endsAt;
+	          evEnd = moment(event.endsAt).startOf('hour').diff(moment(evStart).endOf('hour'), 'hours') + 1;
 	        }
-	        event.duration = (moment(evEnd).startOf('hour').diff(moment(evStart).endOf('hour'), 'hours')) + 1;
+	        event.hourSpan = evEnd;
 
 	        if ((moment(event.startsAt).isBefore(calendarStart) && moment(event.endsAt).isBefore(calendarStart)) ||
 	             (moment(event.startsAt).isAfter(calendarEnd) && moment(event.endsAt).isBefore(calendarEnd))) {
-	          event.duration = 0;
+	          event.hourSpan = 0;
 	        }
 	        return event;
 	      }).filter(function(event) {
-	        return event.duration > 0;
+	        return event.hourSpan > 0;
 	      }).map(function(event) {
 
 	        var cannotFitInABucket = true;

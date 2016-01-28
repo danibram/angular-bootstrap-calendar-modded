@@ -2,7 +2,7 @@
   <div class="cal-row-fluid cal-row-head">
 
     <div
-      class="cal-hour-14"
+      ng-class="'cal-hour-' + vm.hours.length"
       style="display: inline-block;text-align:center;"
       ng-repeat="hour in vm.hours track by $index"
       mwl-element-dimensions="vm.dayColumnDimensions">
@@ -35,12 +35,12 @@
           class="cal-row-fluid "
           ng-repeat="event in vm.view track by event.$id">
           <div
-            ng-class="'cal-cell' + (vm.showTimes ? 1 : event.daySpan) + ((vm.showTimes||vm.showCategories) ? '' : ' cal-offset' + event.dayOffset) + ' day-highlight dh-event-' + event.type + ' ' + event.cssClass"
+            ng-class="'grid-hour-' + vm.hours.length + '-' + event.hourSpan +  ' grid-hour-left-' + vm.hours.length + '-' + event.dayOffset + ' day-highlight dh-event-' + event.type + ' ' + event.cssClass"
             ng-style="{
-              top: (vm.showTimes||vm.showCategories) ? ((event.top + 2) + 'px') : 'auto',
-              position: (vm.showTimes||vm.showCategories) ? 'absolute' : 'inherit',
-              width: (vm.showTimes||vm.showCategories) ? (vm.dayColumnDimensions.width*event.duration) + 'px' : '',
-              left: (vm.showTimes||vm.showCategories) ? (vm.dayColumnDimensions.width*event.dayOffset) + 12 + 'px' : ''
+              top: event.top + 2 + 'px',
+              position: 'inherit',
+              width: '',
+              left: ''
             }"
             data-event-class
             mwl-draggable="event.draggable === true"

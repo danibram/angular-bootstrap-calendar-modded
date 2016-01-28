@@ -48,12 +48,12 @@
           class="cal-row-fluid "
           ng-repeat="event in vm.view.events track by event.$id">
           <div
-            ng-class="'cal-cell' + (vm.showTimes ? 1 : event.daySpan) + ((vm.showTimes||vm.showCategories) ? '' : ' cal-offset' + event.dayOffset) + ' day-highlight dh-event-' + event.type + ' ' + event.cssClass"
+            ng-class="'cal-cell' + (vm.showTimes ? 1 : event.daySpan) + (vm.showTimes ? '' : ' cal-offset' + event.dayOffset) + ' day-highlight dh-event-' + event.type + ' ' + event.cssClass"
             ng-style="{
               top: (vm.showTimes||vm.showCategories) ? ((event.top + 2) + 'px') : 'auto',
-              position: (vm.showTimes||vm.showCategories) ? 'absolute' : 'inherit',
+              position: vm.showTimes ? 'absolute' : 'inherit',
               width: vm.showTimes ? (vm.dayColumnDimensions.width + 'px') : '',
-              left: (vm.showTimes||vm.showCategories) ? (vm.dayColumnDimensions.width * event.dayOffset) + 12 + 'px' : ''
+              left: vm.showTimes ? vm.dayColumnDimensions.width + 12 + 'px' : ''
             }"
             data-event-class
             mwl-draggable="event.draggable === true"

@@ -1,14 +1,30 @@
-.cal-hour-1 { width: calc(100%/1)}
-.cal-hour-2 { width: calc(100%/2)}
-.cal-hour-3 { width: calc(100%/3)}
-.cal-hour-4 { width: calc(100%/4)}
-.cal-hour-5 { width: calc(100%/5)}
-.cal-hour-6 { width: calc(100%/6)}
-.cal-hour-7 { width: calc(100%/7)}
-.cal-hour-8 { width: calc(100%/8)}
-.cal-hour-9 { width: calc(100%/9)}
-.cal-hour-10 { width: calc(100%/10)}
-.cal-hour-11 { width: calc(100%/11)}
-.cal-hour-12 { width: calc(100%/12)}
-.cal-hour-13 { width: calc(100%/13)}
-.cal-hour-14 { width: calc(100%/14)}
+
+@iterations: 24;
+
+.grid-gen (@i) when (@i > 0) {
+
+  .grid-gen-column (@col, @i) when (@col > 0) {
+
+    /*CSS to gen*/
+    .grid-hour-@{i}-@{col} {
+      width: 100%/@i*@col !important;
+    }
+    .grid-hour-left-@{i}-@{col} {
+      margin-left: 100%/@i*@col !important;
+    }
+
+    /*CSS to gen*/
+    .grid-gen-column(@col - 1, @i);
+  }
+
+  /*CSS to gen*/
+  .cal-hour-@{i} {
+    width: calc(100%/@i)
+  }
+  /*CSS to gen*/
+
+  .grid-gen-column(@i, @i);
+  .grid-gen(@i - 1);
+}
+
+.grid-gen(@iterations);
