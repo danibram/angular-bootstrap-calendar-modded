@@ -10,6 +10,8 @@ angular
     vm.calendarView = 'month';
     vm.viewDate = moment().startOf('month').toDate();
 
+    vm.customData = {hello: 'world'};
+
     $scope.$on('$destroy', function() {
       calendarConfig.templates.calendarMonthCell = 'mwl/calendarMonthCell.html';
     });

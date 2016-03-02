@@ -8,6 +8,7 @@ angular
 
     var vm = this;
 
+    vm.customData = vm.customData || {};
     vm.events = vm.events || [];
 
     vm.changeView = function(view, newDay) {
@@ -131,7 +132,8 @@ angular
         dayViewStart: '@',
         dayViewEnd: '@',
         dayViewSplit: '@',
-        categories: '=?'
+        categories: '=?',
+        customData: '='
       },
       controller: 'MwlCalendarCtrl as vm',
       bindToController: true

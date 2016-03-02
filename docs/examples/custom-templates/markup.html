@@ -9,7 +9,8 @@
     </span>
 
     <small style="position: absolute; bottom: 10px; left: 5px">
-      There are {{ day.events.length }} events on this day
+      There are {{ day.events.length }} events on this day.
+      {{vm.calendarCtrl.customData.hello}}
     </small>
 
   </div>
@@ -20,6 +21,7 @@
   <mwl-calendar
     events="vm.events"
     view="vm.calendarView"
-    view-date="vm.viewDate">
+    view-date="vm.viewDate"
+    custom-data="vm.customData">
   </mwl-calendar>
 </div>

@@ -281,6 +281,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    var vm = this;
 
+	    vm.customData = vm.customData || {};
 	    vm.events = vm.events || [];
 
 	    vm.changeView = function(view, newDay) {
@@ -404,7 +405,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        dayViewStart: '@',
 	        dayViewEnd: '@',
 	        dayViewSplit: '@',
-	        categories: '=?'
+	        categories: '=?',
+	        customData: '='
 	      },
 	      controller: 'MwlCalendarCtrl as vm',
 	      bindToController: true
