@@ -1,0 +1,30 @@
+
+@iterations: 24;
+
+.grid-gen (@i) when (@i > 0) {
+
+  .grid-gen-column (@col, @i) when (@col > 0) {
+
+    /*CSS to gen*/
+    .grid-hour-@{i}-@{col} {
+      width: 100%/@i*@col !important;
+    }
+    .grid-hour-left-@{i}-@{col} {
+      margin-left: 100%/@i*@col !important;
+    }
+
+    /*CSS to gen*/
+    .grid-gen-column(@col - 1, @i);
+  }
+
+  /*CSS to gen*/
+  .cal-hour-@{i} {
+    width: calc(100%/@i)
+  }
+  /*CSS to gen*/
+
+  .grid-gen-column(@i, @i);
+  .grid-gen(@i - 1);
+}
+
+.grid-gen(@iterations);

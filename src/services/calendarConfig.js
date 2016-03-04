@@ -54,5 +54,7 @@ angular
       timeLabel: 'Time',
       weekNumber: 'Week {week}'
     },
-    templates: {}
+    templates: {},
+    showCategories: false,
+    categories: []
   });

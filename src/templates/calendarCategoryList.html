@@ -1,0 +1,14 @@
+<div class="cal-day-panel-hour">
+
+  <div class="cal-day-hour" ng-repeat="category in vm.categories track by $index">
+
+    <div
+      class="row-fluid cal-day-hour-part"
+      ng-click="vm.onTimespanClick({calendarDate: hour.date.toDate()})">
+      <div class="span1 col-xs-1"><strong ng-bind="category"></strong></div>
+      <div class="span11 col-xs-11"></div>
+    </div>
+
+  </div>
+
+</div>

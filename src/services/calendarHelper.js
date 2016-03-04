@@ -331,6 +331,138 @@ angular
       return weekView;
     }
 
+    function getDayViewWithCategories(events, viewDate, dayViewStart, dayViewEnd) {
+
+      var dayStartHour = moment(dayViewStart || '00:00', 'HH:mm').hours();
+      var dayEndHour = moment(dayViewEnd || '23:00', 'HH:mm').hours();
+      var calendarStart = moment(viewDate).startOf('day').add(dayStartHour, 'hours');
+      var calendarEnd = moment(viewDate).startOf('day').add(dayEndHour, 'hours');
+      var roomHeight = 30;
+      var buckets = [];
+
+      var eventsInPeriod = filterEventsInPeriod(
+        events,
+        moment(viewDate).startOf('day').toDate(),
+        moment(viewDate).endOf('day').toDate()
+      );
+      return eventsInPeriod.map(function(event) {
+        var evStart, evEnd;
+        event.top = (event.category * roomHeight);
+
+        event.height = 30;
+
+        if (moment(event.startsAt).isBefore(calendarStart) || moment(event.startsAt).isSame(calendarStart)) {
+          evStart = calendarStart;
+          event.dayOffset = 0;
+        } else {
+          evStart = event.startsAt;
+          event.dayOffset = (moment(event.startsAt).startOf('hour').diff(calendarStart.startOf('hour'), 'hours'));
+        }
+
+        if (moment(event.endsAt).isAfter(calendarEnd) || moment(event.endsAt).isSame(calendarEnd)) {
+          evEnd = moment(calendarEnd).startOf('hour').diff(moment(evStart).endOf('hour'), 'hours') + 1;
+        } else {
+          evEnd = moment(event.endsAt).startOf('hour').diff(moment(evStart).endOf('hour'), 'hours') + 1;
+        }
+        event.hourSpan = evEnd;
+
+        if ((moment(event.startsAt).isBefore(calendarStart) && moment(event.endsAt).isBefore(calendarStart)) ||
+             (moment(event.startsAt).isAfter(calendarEnd) && moment(event.endsAt).isBefore(calendarEnd))) {
+          event.hourSpan = 0;
+        }
+        return event;
+      }).filter(function(event) {
+        return event.hourSpan > 0;
+      }).map(function(event) {
+
+        var cannotFitInABucket = true;
+        buckets.forEach(function(bucket, bucketIndex) {
+
+          var canFitInThisBucket = true;
+
+          bucket.forEach(function(bucketItem) {
+            if (eventIsInPeriod(event, bucketItem.startsAt, bucketItem.endsAt || bucketItem.startsAt) ||
+              eventIsInPeriod(bucketItem, event.startsAt, event.endsAt || event.startsAt)) {
+              canFitInThisBucket = false;
+            }
+          });
+
+          if (canFitInThisBucket && cannotFitInABucket) {
+            cannotFitInABucket = false;
+            buckets[bucketIndex].push(event);
+          }
+        });
+
+        if (cannotFitInABucket) {
+          event.left = buckets.length * 150;
+          buckets.push([event]);
+        }
+
+        return event;
+
+      });
+    }
+
+    function getWeekViewWithCategories(events, viewDate) {
+      var startOfWeek = moment(viewDate).startOf('week');
+      var endOfWeek = moment(viewDate).endOf('week');
+      var dayCounter = startOfWeek.clone();
+      var days = [];
+      var today = moment().startOf('day');
+      while (days.length < 7) {
+        days.push({
+          weekDayLabel: formatDate(dayCounter, calendarConfig.dateFormats.weekDay),
+          date: dayCounter.clone(),
+          dayLabel: formatDate(dayCounter, calendarConfig.dateFormats.day),
+          isPast: dayCounter.isBefore(today),
+          isToday: dayCounter.isSame(today),
+          isFuture: dayCounter.isAfter(today),
+          isWeekend: [0, 6].indexOf(dayCounter.day()) > -1
+        });
+        dayCounter.add(1, 'day');
+      }
+
+      var eventsSorted = filterEventsInPeriod(events, startOfWeek, endOfWeek).map(function(event) {
+
+        var weekViewStart = moment(startOfWeek).startOf('day');
+        var weekViewEnd = moment(endOfWeek).startOf('day');
+
+        var eventPeriod = getRecurringEventPeriod({
+          start: moment(event.startsAt).startOf('day'),
+          end: moment(event.endsAt || event.startsAt).startOf('day')
+        }, event.recursOn, weekViewStart);
+
+        var eventStart = eventPeriod.start;
+        var eventEnd = eventPeriod.end;
+
+        event.top = (event.category * 30) - 2;
+
+        var offset, span;
+        if (eventStart.isBefore(weekViewStart) || eventStart.isSame(weekViewStart)) {
+          offset = 0;
+        } else {
+          offset = eventStart.diff(weekViewStart, 'days');
+        }
+
+        if (eventEnd.isAfter(weekViewEnd)) {
+          eventEnd = weekViewEnd;
+        }
+
+        if (eventStart.isBefore(weekViewStart)) {
+          eventStart = weekViewStart;
+        }
+
+        span = moment(eventEnd).diff(eventStart, 'days') + 1;
+
+        event.daySpan = span;
+        event.dayOffset = offset;
+
+        return event;
+      });
+
+      return {days: days, events: eventsSorted};
+    }
+
     function getDayViewHeight(dayViewStart, dayViewEnd, dayViewSplit) {
       var dayViewStartM = moment(dayViewStart || '00:00', 'HH:mm');
       var dayViewEndM = moment(dayViewEnd || '23:00', 'HH:mm');
@@ -344,7 +476,9 @@ angular
       getMonthView: getMonthView,
       getWeekView: getWeekView,
       getDayView: getDayView,
+      getDayViewWithCategories: getDayViewWithCategories,
       getWeekViewWithTimes: getWeekViewWithTimes,
+      getWeekViewWithCategories: getWeekViewWithCategories,
       getDayViewHeight: getDayViewHeight,
       adjustEndDateFromStartDiff: adjustEndDateFromStartDiff,
       formatDate: formatDate,

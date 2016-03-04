@@ -9,6 +9,9 @@ angular
     var vm = this;
 
     vm.showTimes = calendarConfig.showTimesOnWeekView;
+    vm.showCategories = calendarConfig.showCategories;
+    vm.categories = calendarConfig.categories;
+
     vm.$sce = $sce;
 
     $scope.$on('calendar.refreshView', function() {
@@ -25,6 +28,13 @@ angular
           vm.dayViewStart,
           vm.dayViewEnd,
           vm.dayViewSplit
+        );
+      } else if (vm.showCategories) {
+        vm.dayViewHeight = calendarConfig.categories.length * 30 + 2;
+        vm.view = calendarHelper.getWeekViewWithCategories(
+          vm.events,
+          vm.viewDate,
+          calendarConfig.categories
         );
       } else {
         vm.view = calendarHelper.getWeekView(vm.events, vm.viewDate);

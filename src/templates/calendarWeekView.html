@@ -1,4 +1,6 @@
-<div class="cal-week-box" ng-class="{'cal-day-box': vm.showTimes}">
+
+<div class="cal-week-box" ng-class="{'cal-day-box': (vm.showTimes||vm.showCategories)}">
+
   <div class="cal-row-fluid cal-row-head">
 
     <div
@@ -26,7 +28,7 @@
 
   </div>
 
-  <div class="cal-day-panel clearfix" ng-style="{height: vm.showTimes ? (vm.dayViewHeight + 'px') : 'auto'}">
+  <div class="cal-day-panel clearfix" ng-style="{height: (vm.showTimes||vm.showCategories) ? (vm.dayViewHeight + 'px') : 'auto'}">
 
     <mwl-calendar-hour-list
       day-view-start="vm.dayViewStart"
@@ -37,18 +39,23 @@
       ng-if="vm.showTimes">
     </mwl-calendar-hour-list>
 
+    <mwl-calendar-category-list
+      categories="vm.categories"
+      ng-if="vm.showCategories">
+    </mwl-calendar-category-list>
+
     <div class="row">
       <div class="col-xs-12">
         <div
           class="cal-row-fluid "
           ng-repeat="event in vm.view.events track by event.$id">
           <div
-            ng-class="'cal-cell' + (vm.showTimes ? 1 : event.daySpan) + (vm.showTimes ? '' : ' cal-offset' + event.dayOffset) + ' day-highlight dh-event-' + event.type + ' ' + event.cssClass"
+            ng-class="'cal-cell' + ((vm.showTimes||vm.showCategories) ? 1 : event.daySpan) + ((vm.showTimes||vm.showCategories) ? '' : ' cal-offset' + event.dayOffset) + ' day-highlight dh-event-' + event.type + ' ' + event.cssClass"
             ng-style="{
-              top: vm.showTimes ? ((event.top + 2) + 'px') : 'auto',
-              position: vm.showTimes ? 'absolute' : 'inherit',
-              width: vm.showTimes ? (vm.dayColumnDimensions.width + 'px') : '',
-              left: vm.showTimes ? (vm.dayColumnDimensions.width * event.dayOffset) + 15 + 'px' : ''
+              top: (vm.showTimes||vm.showCategories) ? ((event.top + 2) + 'px') : 'auto',
+              position: (vm.showTimes||vm.showCategories) ? 'absolute' : 'inherit',
+              width: (vm.showTimes||vm.showCategories) ? (vm.dayColumnDimensions.width * event.daySpan + 'px') : '',
+              left: (vm.showTimes||vm.showCategories) ? (vm.dayColumnDimensions.width * event.dayOffset) + 15 + 'px' : ''
             }"
             data-event-class
             mwl-draggable="event.draggable === true"
