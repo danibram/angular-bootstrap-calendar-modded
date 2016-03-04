@@ -133,7 +133,7 @@ angular
         dayViewEnd: '@',
         dayViewSplit: '@',
         categories: '=?',
-        customData: '='
+        customData: '=?'
       },
       controller: 'MwlCalendarCtrl as vm',
       bindToController: true
