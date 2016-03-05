@@ -10,6 +10,7 @@ angular
 
     vm.customData = vm.customData || {};
     vm.events = vm.events || [];
+    vm.categories = vm.categories || [];
 
     vm.changeView = function(view, newDay) {
       vm.view = view;

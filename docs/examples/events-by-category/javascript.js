@@ -6,8 +6,40 @@ angular
 
     calendarConfig.templates.calendarMonthCell = 'customMonthCell.html';
 
-    calendarConfig.showCategories = true;
-    calendarConfig.categories = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+    calendarConfig.category = {
+      showCategories: true,
+      referenceKey: 'id',
+      eventsReferenceKey: 'category',
+      templateList: 'category.type + ":" + category.size',
+      templateHeaderList: 'Typologia',
+      categoryHeaderList: 'Stanze'
+    };
+
+    vm.categories = [{
+      id: 0,
+      number: 1,
+      type: 'Doppia',
+      size: 4,
+      isClean: true
+    }, {
+      id: 1,
+      number: 2,
+      type: 'Doppia',
+      size: 4,
+      isClean: true
+    }, {
+      id: 2,
+      number: 3,
+      type: 'Doppia',
+      size: 4,
+      isClean: true
+    }, {
+      id: 3,
+      number: 4,
+      type: 'Doppia',
+      size: 4,
+      isClean: true
+    }];
 
     vm.events = [{
         title: 'An event',
@@ -16,7 +48,7 @@ angular
         endsAt: moment().startOf('day').add(3, 'hours').toDate(),
         draggable: true,
         resizable: true,
-        category: 0
+        category: 1
     }, {
         title: 'An event',
         type: 'warning',

@@ -331,7 +331,7 @@ angular
       return weekView;
     }
 
-    function getDayViewWithCategories(events, viewDate, dayViewStart, dayViewEnd) {
+    function getDayViewWithCategories(events, categories, viewDate, dayViewStart, dayViewEnd) {
 
       var dayStartHour = moment(dayViewStart || '00:00', 'HH:mm').hours();
       var dayEndHour = moment(dayViewEnd || '23:00', 'HH:mm').hours();
@@ -347,7 +347,16 @@ angular
       );
       return eventsInPeriod.map(function(event) {
         var evStart, evEnd;
-        event.top = (event.category * roomHeight);
+        var counter = -1;
+
+        for (var i = 0; i < categories.length; i++) {
+          counter += 1;
+          if (parseInt(categories[i].number) === parseInt(event.category)) {
+            break;
+          }
+        }
+
+        event.top = (counter * roomHeight);
 
         event.height = 30;
 
@@ -403,7 +412,7 @@ angular
       });
     }
 
-    function getWeekViewWithCategories(events, viewDate) {
+    function getWeekViewWithCategories(events, categories, viewDate) {
       var startOfWeek = moment(viewDate).startOf('week');
       var endOfWeek = moment(viewDate).endOf('week');
       var dayCounter = startOfWeek.clone();
@@ -435,7 +444,16 @@ angular
         var eventStart = eventPeriod.start;
         var eventEnd = eventPeriod.end;
 
-        event.top = (event.category * 30) - 2;
+        var counter = -1;
+
+        for (var i = 0; i < categories.length; i++) {
+          counter += 1;
+          if (parseInt(categories[i].number) === parseInt(event.category)) {
+            break;
+          }
+        }
+
+        event.top = (counter * 30) - 2;
 
         var offset, span;
         if (eventStart.isBefore(weekViewStart) || eventStart.isSame(weekViewStart)) {

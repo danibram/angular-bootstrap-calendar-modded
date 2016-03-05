@@ -1,0 +1,31 @@
+
+@its: 7;
+.cal-week-box{
+  .grid-gen (@ii) when (@ii > 0) {
+
+    .grid-gen-column (@coll, @ii) when (@coll > 0) {
+
+      /*CSS to gen*/
+      .grid-week-@{ii}-@{coll} {
+        width: 100%/@ii*@coll !important;
+      }
+      .grid-week-left-@{ii}-@{coll} {
+        margin-left: 100%/@ii*@coll !important;
+      }
+
+      /*CSS to gen*/
+      .grid-gen-column(@coll - 1, @ii);
+    }
+
+    /*CSS to gen*/
+    .cal-week-@{ii} {
+      width: calc(100%/@ii)
+    }
+    /*CSS to gen*/
+
+    .grid-gen-column(@ii, @ii);
+    .grid-gen(@ii - 1);
+  }
+
+  .grid-gen(@its);
+}

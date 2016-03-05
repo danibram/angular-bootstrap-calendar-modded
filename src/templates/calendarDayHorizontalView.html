@@ -1,19 +1,22 @@
-<div class="cal-week-box" ng-class="{'cal-day-box': (vm.showTimes||vm.showCategories)}">
-  <div class="cal-row-fluid cal-row-head">
+<div class="cal-week-box" ng-class="{'cal-day-box': (vm.showTimes||vm.category.showCategories)}">
+  <div class="row">
+    <div class="col-xs-1 row-header" ng-if="vm.category.templateHeaderList">{{vm.category.templateHeaderList}}</div>
+    <div class="col-xs-1 row-header" ng-if="vm.category.categoryHeaderList">{{vm.category.categoryHeaderList}}</div>
+    <div class="col-xs-10">
+      <div
+        ng-class="'cal-hour-' + vm.hours.length"
+        style="display: inline-block;text-align:center;"
+        ng-repeat="hour in vm.hours track by $index"
+        mwl-element-dimensions="vm.dayColumnDimensions">
 
-    <div
-      ng-class="'cal-hour-' + vm.hours.length"
-      style="display: inline-block;text-align:center;"
-      ng-repeat="hour in vm.hours track by $index"
-      mwl-element-dimensions="vm.dayColumnDimensions">
+        <span ng-bind="hour.label"></span>
 
-      <span ng-bind="hour.label"></span>
-
+      </div>
     </div>
 
   </div>
 
-  <div class="cal-day-panel clearfix" ng-style="{height: (vm.showTimes||vm.showCategories) ? (vm.dayViewHeight + 'px') : 'auto'}">
+  <div class="cal-day-panel clearfix" ng-style="{height: (vm.showTimes||vm.category.showCategories) ? (vm.dayViewHeight + 'px') : 'auto'}">
 
     <mwl-calendar-hour-list
       day-view-start="vm.dayViewStart"
@@ -26,13 +29,14 @@
 
     <mwl-calendar-category-list
       categories="vm.categories"
-      ng-if="vm.showCategories">
+      ng-if="vm.category.showCategories">
     </mwl-calendar-category-list>
 
     <div class="row">
-      <div class="col-xs-12">
+      <div class="col-xs-2"></div>
+      <div class="col-xs-10">
         <div
-          class="cal-row-fluid "
+          style="position:relative;"
           ng-repeat="event in vm.view track by event.$id"
           ng-style="{
             top: event.top + 'px',
@@ -48,8 +52,8 @@
             }"
             data-event-class
             mwl-draggable="event.draggable === true"
-            axis="(vm.showTimes||vm.showCategories) ? 'xy' : 'x'"
-            snap-grid="(vm.showTimes||vm.showCategories) ? {x: vm.dayColumnDimensions.width, y: 30} : {x: vm.dayColumnDimensions.width}"
+            axis="(vm.showTimes||vm.category.showCategories) ? 'xy' : 'x'"
+            snap-grid="(vm.showTimes||vm.category.showCategories) ? {x: vm.dayColumnDimensions.width, y: 30} : {x: vm.dayColumnDimensions.width}"
             on-drag="vm.eventDragged(event, y)"
             on-drag-end="vm.eventDragComplete(event, x, y)"
             mwl-resizable="event.resizable === true && event.endsAt && !(vm.showTimes)"

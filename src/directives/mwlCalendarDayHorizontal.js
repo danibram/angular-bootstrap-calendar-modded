@@ -9,8 +9,8 @@ angular
     var vm = this;
 
     vm.showTimes = calendarConfig.showTimesOnWeekView;
-    vm.showCategories = calendarConfig.showCategories;
-    vm.categories = calendarConfig.categories;
+    vm.category = calendarConfig.category;
+    vm.categories = vm.categories || [];
 
     vm.$sce = $sce;
 
@@ -40,14 +40,14 @@ angular
         vm.dayViewSplit
       );
 
-      if (vm.showCategories) {
-        vm.dayViewHeight = calendarConfig.categories.length * 30 + 2;
+      if (vm.category.showCategories) {
+        vm.dayViewHeight = vm.categories.length * 30 + 2;
         vm.view = calendarHelper.getDayViewWithCategories(
           vm.events,
+          vm.categories,
           vm.viewDate,
           vm.dayViewStart,
-          vm.dayViewEnd,
-          calendarConfig.categories
+          vm.dayViewEnd
         );
       } else {
         vm.view = calendarHelper.getDayView(
@@ -112,6 +112,7 @@ angular
       require: '^mwlCalendar',
       scope: {
         events: '=',
+        categories: '=?',
         viewDate: '=',
         onEventClick: '=',
         onEventTimesChanged: '=',

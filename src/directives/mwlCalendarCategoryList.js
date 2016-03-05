@@ -4,20 +4,9 @@ var angular = require('angular');
 
 angular
   .module('mwl.calendar')
-  .controller('MwlCalendarCategoryListCtrl', function($scope, calendarConfig) {
+  .controller('MwlCalendarCategoryListCtrl', function(calendarConfig) {
     var vm = this;
-
-    vm.categories = calendarConfig.categories;
-    $scope.$watchGroup([
-      'vm.categories'
-    ], function() {
-      vm.categories = calendarConfig.categories;
-    });
-
-    $scope.$on('calendar.refreshView', function() {
-      vm.categories = calendarConfig.categories;
-    });
-
+    vm.category = calendarConfig.category;
   })
   .directive('mwlCalendarCategoryList', function(calendarConfig) {
 
@@ -26,7 +15,7 @@ angular
       templateUrl: calendarConfig.templates.calendarCategoryList,
       controller: 'MwlCalendarCategoryListCtrl as vm',
       scope: {
-        categories: '=',
+        categories: '=?',
         onTimespanClick: '='
       },
       bindToController: true

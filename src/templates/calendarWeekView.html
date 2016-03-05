@@ -1,34 +1,41 @@
 
-<div class="cal-week-box" ng-class="{'cal-day-box': (vm.showTimes||vm.showCategories)}">
+<div class="cal-week-box" ng-class="{'cal-day-box': (vm.showTimes||vm.category.showCategories)}">
+  <div class="row">
+    <div class="col-xs-1 row-header" ng-if="vm.category.templateHeaderList">{{vm.category.templateHeaderList}}</div>
+    <div class="col-xs-1 row-header" ng-if="vm.category.categoryHeaderList">{{vm.category.categoryHeaderList}}</div>
+    <div class="col-xs-10">
 
-  <div class="cal-row-fluid cal-row-head">
+      <div class="cal-row-fluid cal-row-head">
 
-    <div
-      class="cal-cell1"
-      ng-repeat="day in vm.view.days track by $index"
-      ng-class="{
-        'cal-day-weekend': day.isWeekend,
-        'cal-day-past': day.isPast,
-        'cal-day-today': day.isToday,
-        'cal-day-future': day.isFuture}"
-      mwl-element-dimensions="vm.dayColumnDimensions">
+        <div
+          class="cal-week-7"
+          ng-repeat="day in vm.view.days track by $index"
+          style="display: inline-block;text-align:center;"
+          ng-class="{
+            'cal-day-weekend': day.isWeekend,
+            'cal-day-past': day.isPast,
+            'cal-day-today': day.isToday,
+            'cal-day-future': day.isFuture}"
+          mwl-element-dimensions="vm.dayColumnDimensions">
 
-      <span ng-bind="day.weekDayLabel"></span>
-      <br>
-      <small>
-        <span
-          data-cal-date
-          ng-click="vm.calendarCtrl.dateClicked(day.date)"
-          class="pointer"
-          ng-bind="day.dayLabel">
-        </span>
-      </small>
+          <span ng-bind="day.weekDayLabel"></span>
+          <br>
+          <small>
+            <span
+              data-cal-date
+              ng-click="vm.calendarCtrl.dateClicked(day.date)"
+              class="pointer"
+              ng-bind="day.dayLabel">
+            </span>
+          </small>
 
+        </div>
+
+      </div>
     </div>
-
   </div>
 
-  <div class="cal-day-panel clearfix" ng-style="{height: (vm.showTimes||vm.showCategories) ? (vm.dayViewHeight + 'px') : 'auto'}">
+  <div class="cal-day-panel clearfix" ng-style="{height: (vm.showTimes||vm.category.showCategories) ? (vm.dayViewHeight + 'px') : 'auto'}">
 
     <mwl-calendar-hour-list
       day-view-start="vm.dayViewStart"
@@ -41,21 +48,22 @@
 
     <mwl-calendar-category-list
       categories="vm.categories"
-      ng-if="vm.showCategories">
+      ng-if="vm.category.showCategories">
     </mwl-calendar-category-list>
 
     <div class="row">
-      <div class="col-xs-12">
+      <div class="col-xs-2"></div>
+      <div class="col-xs-10">
         <div
-          class="cal-row-fluid "
+        style="position:relative;"
           ng-repeat="event in vm.view.events track by event.$id">
           <div
-            ng-class="'cal-cell' + ((vm.showTimes||vm.showCategories) ? 1 : event.daySpan) + ((vm.showTimes||vm.showCategories) ? '' : ' cal-offset' + event.dayOffset) + ' day-highlight dh-event-' + event.type + ' ' + event.cssClass"
+            ng-class="'grid-week-7-' + event.daySpan +  ' grid-week-left-7-' + event.dayOffset + ' day-highlight dh-event-' + event.type + ' ' + event.cssClass"
             ng-style="{
-              top: (vm.showTimes||vm.showCategories) ? ((event.top + 2) + 'px') : 'auto',
-              position: (vm.showTimes||vm.showCategories) ? 'absolute' : 'inherit',
-              width: (vm.showTimes||vm.showCategories) ? (vm.dayColumnDimensions.width * event.daySpan + 'px') : '',
-              left: (vm.showTimes||vm.showCategories) ? (vm.dayColumnDimensions.width * event.dayOffset) + 15 + 'px' : ''
+              top: (vm.showTimes||vm.category.showCategories) ? ((event.top + 2) + 'px') : 'auto',
+              position: (vm.showTimes||vm.category.showCategories) ? 'absolute' : 'inherit',
+              width: '',
+              left: ''
             }"
             data-event-class
             mwl-draggable="event.draggable === true"

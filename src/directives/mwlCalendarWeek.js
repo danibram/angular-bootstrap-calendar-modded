@@ -9,8 +9,8 @@ angular
     var vm = this;
 
     vm.showTimes = calendarConfig.showTimesOnWeekView;
-    vm.showCategories = calendarConfig.showCategories;
-    vm.categories = calendarConfig.categories;
+    vm.category = calendarConfig.category;
+    vm.categories = vm.categories;
 
     vm.$sce = $sce;
 
@@ -24,17 +24,18 @@ angular
       if (vm.showTimes) {
         vm.view = calendarHelper.getWeekViewWithTimes(
           vm.events,
+          vm.categories,
           vm.viewDate,
           vm.dayViewStart,
           vm.dayViewEnd,
           vm.dayViewSplit
         );
-      } else if (vm.showCategories) {
-        vm.dayViewHeight = calendarConfig.categories.length * 30 + 2;
+      } else if (vm.category.showCategories) {
+        vm.dayViewHeight = vm.categories.length * 30 + 2;
         vm.view = calendarHelper.getWeekViewWithCategories(
           vm.events,
-          vm.viewDate,
-          calendarConfig.categories
+          vm.categories,
+          vm.viewDate
         );
       } else {
         vm.view = calendarHelper.getWeekView(vm.events, vm.viewDate);
@@ -99,7 +100,8 @@ angular
         dayViewStart: '=',
         dayViewEnd: '=',
         dayViewSplit: '=',
-        onTimespanClick: '='
+        onTimespanClick: '=',
+        categories: '=?'
       },
       controller: 'MwlCalendarWeekCtrl as vm',
       link: function(scope, element, attrs, calendarCtrl) {
