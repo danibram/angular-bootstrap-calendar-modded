@@ -333,6 +333,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	  .controller('MwlCalendarCategoryListCtrl', ["calendarConfig", function(calendarConfig) {
 	    var vm = this;
 	    vm.category = calendarConfig.category;
+
+	    vm.showTooltip = function(category) {
+	        var text = 'Type: ' + category.type + '<br/>';
+	        text += 'Size: ' + category.size + '<br/>';
+	        text += 'Clean: ' + category.isclean;
+	        return text;
+	    };
 	  }])
 	  .directive('mwlCalendarCategoryList', ["calendarConfig", function(calendarConfig) {
 

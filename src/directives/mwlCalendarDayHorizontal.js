@@ -103,10 +103,6 @@ angular
       }
     };
 
-    vm.events.map(function(e){
-      console.log(e)
-    })
-
   })
   .directive('mwlCalendarDayHorizontal', function(calendarConfig) {
 

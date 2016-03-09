@@ -73,16 +73,16 @@
             on-drag-end="vm.weekDragged(event, x, y)"
             mwl-resizable="event.resizable === true && event.endsAt && !vm.showTimes"
             resize-edges="{left: true, right: true}"
-            on-resize-end="vm.weekResized(event, edge, x)">
+            on-resize-end="vm.weekResized(event, edge, x)"
+            uib-tooltip-html="event.tooltip(event) | calendarTrustAsHtml"
+            tooltip-placement="bottom"
+            tooltip-append-to-body="true">
             <strong ng-bind="(event.tempStartsAt || event.startsAt) | calendarDate:'time':true" ng-show="vm.showTimes"></strong>
             <a
               href="javascript:;"
               ng-click="vm.onEventClick({calendarEvent: event})"
               class="event-item"
-              ng-bind-html="vm.$sce.trustAsHtml(event.title)"
-              uib-tooltip-html="event.tooltip(event) | calendarTrustAsHtml"
-              tooltip-placement="bottom"
-              tooltip-append-to-body="true">
+              ng-bind-html="vm.$sce.trustAsHtml(event.title)">
             </a>
           </div>
         </div>
