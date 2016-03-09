@@ -3105,25 +3105,6 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.cal-day-box .day-highlight.dh-event-important {
-  border: 1px solid #ad2121;
-}
-.cal-day-box .day-highlight.dh-event-warning {
-  border: 1px solid #e3bc08;
-}
-.cal-day-box .day-highlight.dh-event-info {
-  border: 1px solid dodgerblue;
-}
-.cal-day-box .day-highlight.dh-event-inverse {
-  border: 1px solid #1b1b1b;
-}
-.cal-day-box .day-highlight.dh-event-success {
-  border: 1px solid darkgreen;
-}
-.cal-day-box .day-highlight.dh-event-special {
-  background-color: #ffe6ff;
-  border: 1px solid #800080;
-}
 .event {
   display: block;
   background-color: #c3c3c3;
@@ -3135,15 +3116,28 @@
   box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.4);
   border-radius: 8px;
   border: 1px solid #ffffff;
+  color: #FFF;
 }
 .event-block {
   display: block;
-  background-color: #c3c3c3;
+  background-color: #444;
   width: 20px;
   height: 100%;
 }
 .cal-event-list .event.pull-left {
   margin-top: 3px;
+}
+.event-booked {
+  background-color: #ad2121;
+}
+.event-out {
+  background-color: darkgreen;
+}
+.event-close {
+  background-color: #444;
+}
+.event-in {
+  background-color: dodgerblue;
 }
 .event-important {
   background-color: #ad2121;

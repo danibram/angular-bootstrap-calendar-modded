@@ -9,17 +9,31 @@
   box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.4);
   border-radius: @eventBorderRadius;
   border: @eventBorderSize solid @eventBorderColor;
+  color: #FFF;
 }
 
 .event-block {
   display: block;
-  background-color:  #c3c3c3;
+  background-color:  #444;
   width: 20px;
   height: 100%;
 }
 
 .cal-event-list .event.pull-left {
   margin-top: 3px;
+}
+
+.event-booked {
+  background-color: @eventImportantColor;
+}
+.event-out {
+  background-color: @eventSuccessColor;
+}
+.event-close {
+  background-color:  #444;
+}
+.event-in {
+  background-color: @eventInfoColor;
 }
 
 .event-important {
@@ -29,6 +43,8 @@
 .event-info {
   background-color: @eventInfoColor;
 }
+
+
 
 .event-warning {
   background-color: @eventWarningColor;
