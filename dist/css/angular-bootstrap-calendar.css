@@ -3157,8 +3157,8 @@
 .event-special {
   background-color: #800080;
 }
-.day-highlight {
-  color: #FFF;
+.day-highlight a {
+  color: #FFF !important;
 }
 .day-highlight:hover,
 .day-highlight {
