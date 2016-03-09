@@ -3157,9 +3157,28 @@
 .event-special {
   background-color: #800080;
 }
+.day-highlight {
+  color: #FFF;
+}
 .day-highlight:hover,
 .day-highlight {
-  background-color: #dddddd;
+  background-color: #444;
+}
+.day-highlight.dh-event-booked:hover,
+.day-highlight.dh-event-booked {
+  background-color: #ad2121;
+}
+.day-highlight.dh-event-out:hover,
+.day-highlight.dh-event-out {
+  background-color: darkgreen;
+}
+.day-highlight.dh-event-close:hover,
+.day-highlight.dh-event-close {
+  background-color: #444;
+}
+.day-highlight.dh-event-in:hover,
+.day-highlight.dh-event-in {
+  background-color: dodgerblue;
 }
 .day-highlight.dh-event-important:hover,
 .day-highlight.dh-event-important {
