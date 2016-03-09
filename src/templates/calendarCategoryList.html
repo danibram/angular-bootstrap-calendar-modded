@@ -5,7 +5,11 @@
       ng-click="vm.onTimespanClick({calendarDate: hour.date.toDate()})">
       <div class="span1 col-xs-1 text-center"><strong ng-bind="$eval(vm.category.templateList)"></strong></div>
       <div class="span1 col-xs-1 text-center"><strong ng-bind="category.number"></strong></div>
-      <div class="span10 col-xs-10"></div>
+      <div class="span10 col-xs-10"
+      style="height:30px;"
+      uib-tooltip-html="vm.showTooltip(category) | calendarTrustAsHtml"
+      tooltip-placement="bottom"
+      tooltip-append-to-body="true"></div>
     </div>
 
   </div>

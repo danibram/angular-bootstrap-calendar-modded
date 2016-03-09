@@ -80,8 +80,8 @@
               ng-click="vm.onEventClick({calendarEvent: event})"
               class="event-item"
               ng-bind-html="vm.$sce.trustAsHtml(event.title)"
-              uib-tooltip-html="event.title | calendarTrustAsHtml"
-              tooltip-placement="left"
+              uib-tooltip-html="event.tooltip(event) | calendarTrustAsHtml"
+              tooltip-placement="bottom"
               tooltip-append-to-body="true">
             </a>
           </div>
