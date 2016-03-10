@@ -3530,3 +3530,6 @@ a.cal-event-week {
 .table-mwl.last {
   border-bottom: 1px solid #ccc;
 }
+.today-row {
+  background-color: rgba(255, 255, 255, 0.2);
+}

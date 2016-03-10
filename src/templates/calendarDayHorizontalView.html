@@ -5,7 +5,8 @@
     <div class="col-xs-1 header-title general-row no-border" ng-if="vm.category.categoryHeaderList">{{vm.category.categoryHeaderList}}</div>
     <div class="col-xs-10 header-title general-row no-border">
       <div
-        ng-class="'cal-hour-' + vm.hours.length"
+        ng-class="{'today-row': vm.checkToday(hour)}"
+        class="cal-hour-{{vm.hours.length}}"
         style="display: inline-block;text-align:center;"
         ng-repeat="hour in vm.hours track by $index"
         mwl-element-dimensions="vm.dayColumnDimensions">
@@ -58,7 +59,7 @@
       <div class="line"></div>
       <div
         class="category-event cal-hour-{{vm.hours.length}}"
-        ng-class="{first:$first, last:$last}"
+        ng-class="{first:$first, last:$last, 'today-row': vm.checkToday(hour)}"
         ng-repeat="hour in vm.hours track by $index"
         ng-click="vm.onRClick(hour, category)"
         uib-tooltip-html="vm.showTooltip(category) | calendarTrustAsHtml"

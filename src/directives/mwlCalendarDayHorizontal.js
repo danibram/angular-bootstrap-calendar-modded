@@ -60,6 +60,10 @@ angular
       }
     });
 
+    vm.checkToday = function(h) {
+      return h.date.hour() === moment().hour();
+    };
+
     vm.onRClick = function(hour, category) {
       vm.onRoomClick(moment(vm.viewDate).hours(hour.label), category);
     };
