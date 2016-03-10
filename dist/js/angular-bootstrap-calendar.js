@@ -13,7 +13,7 @@
 		exports["angularBootstrapCalendarModuleName"] = factory(require("angular"), (function webpackLoadOptionalExternalModule() { try { return require("interact.js"); } catch(e) {} }()), require("moment"));
 	else
 		root["angularBootstrapCalendarModuleName"] = factory(root["angular"], root["interact"], root["moment"]);
-})(this, function(__WEBPACK_EXTERNAL_MODULE_14__, __WEBPACK_EXTERNAL_MODULE_43__, __WEBPACK_EXTERNAL_MODULE_45__) {
+})(this, function(__WEBPACK_EXTERNAL_MODULE_15__, __WEBPACK_EXTERNAL_MODULE_44__, __WEBPACK_EXTERNAL_MODULE_46__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -62,9 +62,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 
-	__webpack_require__(10);
+	__webpack_require__(11);
 
-	var angular = __webpack_require__(14);
+	var angular = __webpack_require__(15);
 
 	function requireAll(r) {
 	  r.keys().forEach(r);
@@ -107,9 +107,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	  }]).name;
 
-	requireAll(__webpack_require__(15));
-	requireAll(__webpack_require__(31));
-	requireAll(__webpack_require__(37));
+	requireAll(__webpack_require__(16));
+	requireAll(__webpack_require__(32));
+	requireAll(__webpack_require__(38));
 
 
 /***/ },
@@ -122,40 +122,41 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 7 */,
 /* 8 */,
 /* 9 */,
-/* 10 */
+/* 10 */,
+/* 11 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
-/* 11 */,
 /* 12 */,
 /* 13 */,
-/* 14 */
+/* 14 */,
+/* 15 */
 /***/ function(module, exports) {
 
-	module.exports = __WEBPACK_EXTERNAL_MODULE_14__;
+	module.exports = __WEBPACK_EXTERNAL_MODULE_15__;
 
 /***/ },
-/* 15 */
+/* 16 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
-		"./mwlCalendar.js": 16,
-		"./mwlCalendarCategoryList.js": 17,
-		"./mwlCalendarDay.js": 18,
-		"./mwlCalendarDayHorizontal.js": 19,
-		"./mwlCalendarHourList.js": 20,
-		"./mwlCalendarMonth.js": 21,
-		"./mwlCalendarSlideBox.js": 22,
-		"./mwlCalendarWeek.js": 23,
-		"./mwlCalendarYear.js": 24,
-		"./mwlCollapseFallback.js": 25,
-		"./mwlDateModifier.js": 26,
-		"./mwlDraggable.js": 27,
-		"./mwlDroppable.js": 28,
-		"./mwlElementDimensions.js": 29,
-		"./mwlResizable.js": 30
+		"./mwlCalendar.js": 17,
+		"./mwlCalendarCategoryList.js": 18,
+		"./mwlCalendarDay.js": 19,
+		"./mwlCalendarDayHorizontal.js": 20,
+		"./mwlCalendarHourList.js": 21,
+		"./mwlCalendarMonth.js": 22,
+		"./mwlCalendarSlideBox.js": 23,
+		"./mwlCalendarWeek.js": 24,
+		"./mwlCalendarYear.js": 25,
+		"./mwlCollapseFallback.js": 26,
+		"./mwlDateModifier.js": 27,
+		"./mwlDraggable.js": 28,
+		"./mwlDroppable.js": 29,
+		"./mwlElementDimensions.js": 30,
+		"./mwlResizable.js": 31
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -168,16 +169,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 	webpackContext.resolve = webpackContextResolve;
 	module.exports = webpackContext;
-	webpackContext.id = 15;
+	webpackContext.id = 16;
 
 
 /***/ },
-/* 16 */
+/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var angular = __webpack_require__(14);
+	var angular = __webpack_require__(15);
 
 	angular
 	  .module('mwl.calendar')
@@ -321,12 +322,12 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 17 */
+/* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var angular = __webpack_require__(14);
+	var angular = __webpack_require__(15);
 
 	angular
 	  .module('mwl.calendar')
@@ -360,12 +361,12 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 18 */
+/* 19 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var angular = __webpack_require__(14);
+	var angular = __webpack_require__(15);
 
 	angular
 	  .module('mwl.calendar')
@@ -462,12 +463,12 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 19 */
+/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var angular = __webpack_require__(14);
+	var angular = __webpack_require__(15);
 
 	angular
 	  .module('mwl.calendar')
@@ -564,12 +565,12 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 20 */
+/* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var angular = __webpack_require__(14);
+	var angular = __webpack_require__(15);
 
 	angular
 	  .module('mwl.calendar')
@@ -637,12 +638,12 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 21 */
+/* 22 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var angular = __webpack_require__(14);
+	var angular = __webpack_require__(15);
 
 	angular
 	  .module('mwl.calendar')
@@ -763,12 +764,12 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 22 */
+/* 23 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var angular = __webpack_require__(14);
+	var angular = __webpack_require__(15);
 
 	angular
 	  .module('mwl.calendar')
@@ -815,12 +816,12 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 23 */
+/* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var angular = __webpack_require__(14);
+	var angular = __webpack_require__(15);
 
 	angular
 	  .module('mwl.calendar')
@@ -901,12 +902,12 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 24 */
+/* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var angular = __webpack_require__(14);
+	var angular = __webpack_require__(15);
 
 	angular
 	  .module('mwl.calendar')
@@ -998,12 +999,12 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 25 */
+/* 26 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var angular = __webpack_require__(14);
+	var angular = __webpack_require__(15);
 
 	angular
 	  .module('mwl.calendar')
@@ -1033,12 +1034,12 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 26 */
+/* 27 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var angular = __webpack_require__(14);
+	var angular = __webpack_require__(15);
 
 	angular
 	  .module('mwl.calendar')
@@ -1083,12 +1084,12 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 27 */
+/* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var angular = __webpack_require__(14);
+	var angular = __webpack_require__(15);
 
 	angular
 	  .module('mwl.calendar')
@@ -1224,12 +1225,12 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 28 */
+/* 29 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var angular = __webpack_require__(14);
+	var angular = __webpack_require__(15);
 
 	angular
 	  .module('mwl.calendar')
@@ -1273,12 +1274,12 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 29 */
+/* 30 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var angular = __webpack_require__(14);
+	var angular = __webpack_require__(15);
 
 	angular
 	  .module('mwl.calendar')
@@ -1300,12 +1301,12 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 30 */
+/* 31 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var angular = __webpack_require__(14);
+	var angular = __webpack_require__(15);
 
 	angular
 	  .module('mwl.calendar')
@@ -1443,15 +1444,15 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 31 */
+/* 32 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
-		"./calendarDate.js": 32,
-		"./calendarLimitTo.js": 33,
-		"./calendarTruncateEventTitle.js": 34,
-		"./calendarTrustAsHtml.js": 35,
-		"./dateUtils.js": 36
+		"./calendarDate.js": 33,
+		"./calendarLimitTo.js": 34,
+		"./calendarTruncateEventTitle.js": 35,
+		"./calendarTrustAsHtml.js": 36,
+		"./dateUtils.js": 37
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -1464,16 +1465,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 	webpackContext.resolve = webpackContextResolve;
 	module.exports = webpackContext;
-	webpackContext.id = 31;
+	webpackContext.id = 32;
 
 
 /***/ },
-/* 32 */
+/* 33 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var angular = __webpack_require__(14);
+	var angular = __webpack_require__(15);
 
 	angular
 	  .module('mwl.calendar')
@@ -1499,12 +1500,12 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 33 */
+/* 34 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var angular = __webpack_require__(14);
+	var angular = __webpack_require__(15);
 
 	angular
 	  .module('mwl.calendar')
@@ -1548,12 +1549,12 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 34 */
+/* 35 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var angular = __webpack_require__(14);
+	var angular = __webpack_require__(15);
 
 	angular
 	  .module('mwl.calendar')
@@ -1576,12 +1577,12 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 35 */
+/* 36 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var angular = __webpack_require__(14);
+	var angular = __webpack_require__(15);
 
 	angular
 	  .module('mwl.calendar')
@@ -1595,12 +1596,12 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 36 */
+/* 37 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var angular = __webpack_require__(14);
+	var angular = __webpack_require__(15);
 
 	angular
 	  .module('mwl.calendar')
@@ -1624,16 +1625,16 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 37 */
+/* 38 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
-		"./calendarConfig.js": 38,
-		"./calendarHelper.js": 39,
-		"./calendarInputEvents.js": 40,
-		"./calendarTitle.js": 41,
-		"./interact.js": 42,
-		"./moment.js": 44
+		"./calendarConfig.js": 39,
+		"./calendarHelper.js": 40,
+		"./calendarInputEvents.js": 41,
+		"./calendarTitle.js": 42,
+		"./interact.js": 43,
+		"./moment.js": 45
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -1646,16 +1647,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 	webpackContext.resolve = webpackContextResolve;
 	module.exports = webpackContext;
-	webpackContext.id = 37;
+	webpackContext.id = 38;
 
 
 /***/ },
-/* 38 */
+/* 39 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var angular = __webpack_require__(14);
+	var angular = __webpack_require__(15);
 
 	angular
 	  .module('mwl.calendar')
@@ -1718,12 +1719,12 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 39 */
+/* 40 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var angular = __webpack_require__(14);
+	var angular = __webpack_require__(15);
 
 	angular
 	  .module('mwl.calendar')
@@ -2060,7 +2061,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      var dayEndHour = moment(dayViewEnd || '23:00', 'HH:mm').hours();
 	      var calendarStart = moment(viewDate).startOf('day').add(dayStartHour, 'hours');
 	      var calendarEnd = moment(viewDate).startOf('day').add(dayEndHour, 'hours');
-	      var roomHeight = 30;
+	      var roomHeight = 50;
 	      var buckets = [];
 
 	      events = calendarInputEvents.processEvents(events, moment(viewDate).startOf('day'), moment(viewDate).endOf('day'), true);
@@ -2182,7 +2183,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          }
 	        }
 
-	        event.top = (counter * 30) - 1;
+	        event.top = (counter * 50) - 2;
 
 	        var offset, span;
 	        if (eventStart.isBefore(weekViewStart) || eventStart.isSame(weekViewStart)) {
@@ -2236,12 +2237,12 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 40 */
+/* 41 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var angular = __webpack_require__(14);
+	var angular = __webpack_require__(15);
 
 	angular
 	  .module('mwl.calendar')
@@ -2251,35 +2252,71 @@ return /******/ (function(modules) { // webpackBootstrap
 	      return Math.floor(Math.random() * 1000000000);
 	    }
 
+	    function addNewElement(eventsList, title, type, startE, endE, category, bid, clean, state, user, tooltip) {
+	      var el = {
+	        $id: randomId(),
+	        title: title,
+	        type: type,
+	        startsAt: startE,
+	        endsAt: endE,
+	        category: category,
+	        b_id: bid,
+	        isClean: clean,
+	        state: state,
+	        user: user
+	      };
+
+	      if (tooltip) {
+	        el.tooltip = function(event) {
+	          var text = '<strong>' + event.user + '</strong><br/>';
+	          text += 'In: ' + moment(new Date(event.startsAt)).format('DD/MM/YYYY') + '<br/>';
+	          text += 'Out: ' + moment(new Date(event.endsAt)).format('DD/MM/YYYY') + '<br/>';
+	          text += 'State: ' + event.state + '<br/>';
+	          text += 'Booking Id: ' + event.b_id + '<br/>';
+	          text += 'Clean: ' + event.isClean;
+	          return text;
+	        };
+	      }
+	      eventsList.push(el);
+	    }
+
+	    function newEl(eventsList, title, type, startE, endE, category, bid, clean, state, user, tooltip) {
+	      // var startHour = moment().hour(moment().hour()).minute(0);
+	      // var finishHour = moment().hour(moment().hour()).minute(0).add(1, 'hours');
+	      // console.log(startHour.format('DD/MM HH:mm'))
+	      // console.log(finishHour.format('DD/MM HH:mm'))
+	      // console.log(startE.format('DD/MM HH:mm'))
+	      // console.log(endE.format('DD/MM HH:mm'))
+	      //
+	      // if (startE.isBefore(startHour) && endE.isAfter(finishHour)) {
+	      //   addNewElement(eventsList, title, type, startE, startHour, category, bid, clean, state, user, tooltip);
+	      //   addNewElement(eventsList, '', 'close', finishHour, endE, category, bid, clean, state, user, tooltip);
+	      //   addNewElement(eventsList, '', 'close-today', startHour, finishHour, category, bid, clean, state, user, tooltip);
+	      //   console.log('triple kill')
+	      //
+	      // } else if (startE.isBefore(startHour) && endE.isBefore(finishHour)) {
+	      //   addNewElement(eventsList, title, type, startE, startHour, category, bid, clean, state, user, tooltip);
+	      //   addNewElement(eventsList, title, type + '-today', startHour, finishHour, category, bid, clean, state, user, tooltip);
+	      //   console.log('only start')
+	      //
+	      // } else if (startE.isAfter(startHour) && endE.isAfter(finishHour)) {
+	      //   addNewElement(eventsList, title, type, finishHour, endE, category, bid, clean, state, user, tooltip);
+	      //   addNewElement(eventsList, title, type + '-today', startHour, finishHour, category, bid, clean, state, user, tooltip);
+	      //   console.log('only finish')
+	      //
+	      // } else if (startE.isAfter(startHour) && endE.isBefore(finishHour)) {
+	      //   addNewElement(eventsList, title, type + '-today', startHour, finishHour, category, bid, clean, state, user, tooltip);
+	      //   console.log('AllDay')
+	      // } else {
+	      //   addNewElement(eventsList, title, type, startE, endE, category, bid, clean, state, user, tooltip);
+	      //   console.log('N')
+	      // }
+	      // console.log('-----')
+	      addNewElement(eventsList, title, type, startE, endE, category, bid, clean, state, user, tooltip);
+	    }
+
 	    function processEvents(events, start, end, day) {
 	      var newEvents = [];
-	      function newEl(eventsList, title, type, startE, endE, category, bid, clean, state, user, tooltip) {
-	        var el = {
-	          $id: randomId(),
-	          title: title,
-	          type: type,
-	          startsAt: startE,
-	          endsAt: endE,
-	          category: category,
-	          b_id: bid,
-	          isClean: clean,
-	          state: state,
-	          user: user
-	        };
-
-	        if (tooltip) {
-	          el.tooltip = function(event) {
-	            var text = '<strong>' + event.user + '</strong><br/>';
-	            text += 'In: ' + moment(new Date(event.startsAt)).format('DD/MM/YYYY') + '<br/>';
-	            text += 'Out: ' + moment(new Date(event.endsAt)).format('DD/MM/YYYY') + '<br/>';
-	            text += 'State: ' + event.state + '<br/>';
-	            text += 'Booking Id: ' + event.b_id + '<br/>';
-	            text += 'Clean: ' + event.isClean;
-	            return text;
-	          };
-	        }
-	        eventsList.push(el);
-	      }
 
 	      events.map(function(e) {
 	        var eventStart = moment(new Date(e.startsAt));
@@ -2291,7 +2328,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var state = e.state;
 	        var user = e.title;
 
-	        newEl(newEvents, '', 'ghost', eventStart.toDate(), eventFinish.toDate(), category, bid, clean, state, user, function(event) {
+	        addNewElement(newEvents, '', 'ghost', eventStart.toDate(), eventFinish.toDate(), category, bid, clean, state, user, function(event) {
 	          var text = '<strong>' + event.title + '</strong><br/>';
 	          text += 'In: ' + moment(new Date(event.startsAt)).format('DD/MM/YYYY') + '<br/>';
 	          text += 'Out: ' + moment(new Date(event.endsAt)).format('DD/MM/YYYY') + '<br/>';
@@ -2301,48 +2338,53 @@ return /******/ (function(modules) { // webpackBootstrap
 	          return text;
 	        });
 
-	        if (moment(eventFinish).isAfter(end) && moment(eventStart).isBefore(start)) {
-	          newEl(newEvents, e.title, 'close', eventStart.toDate(), eventFinish.toDate(), category, bid, clean, state, user);
-	          return;
+	        switch (e.type) {
+	          case 'booked':
+	            newEl(newEvents, e.title, 'booked', eventStart, eventFinish, category, bid, clean, state, user);
+	            break;
+	          case 'in':
+	            if (moment(eventFinish).diff(moment(eventStart), 'days') > 0) {
+	              newEl(newEvents, '', 'close', moment(eventStart).add(1, 'hours'), eventFinish, category, bid, clean, state, user);
+	            }
+
+	            if (day &&
+	              calendarConfig.category.showMaid &&
+	              moment(eventStart).diff(moment(), 'minutes') <= 60 &&
+	              moment(eventStart).diff(moment(), 'minutes') >= 0) {
+
+	              newEl(newEvents,
+	                '<i class="eut-cleaner font-48"></i>',
+	                'cleaner',
+	                moment(),
+	                moment().add(1, 'hours'),
+	                category, bid, clean, state, user);
+	            }
+
+	            if (day &&
+	              calendarConfig.category.showMaid &&
+	              eventStart.isBetween(moment().hour(moment().hour()).minute(0), moment().hour(moment().hour()).minute(0).add(1, 'hours'), 'minutes')) {
+	              newEl(newEvents, e.title, 'fast', eventStart, moment(eventStart).add(1, 'hours'), category, bid, clean, state, user);
+	            } else {
+	              newEl(newEvents, e.title, 'in', eventStart, moment(eventStart).add(1, 'hours'), category, bid, clean, state, user);
+	            }
+	            break;
+	          case 'out':
+	            if (moment(eventFinish).diff(moment(eventStart), 'days') > 0) {
+	              newEl(newEvents, '', 'close', eventStart, moment(eventFinish).subtract(1, 'hours'), category, bid, clean, state, user);
+	            }
+	            newEl(newEvents, e.title, 'out', moment(eventFinish).subtract(1, 'hours'), eventFinish, category, bid, clean, state, user);
+	            break;
+	          case 'close':
+	            var title = '';
+	            if (moment(eventFinish).isBefore(end) && moment(eventStart).isBefore(start)) {
+	              title = e.title;
+	            }
+	            newEl(newEvents, title, 'close', eventStart, eventFinish, category, bid, clean, state, user);
+	            break;
+	          default:
+	            break;
 	        }
-
-	        if (e.type === 'booked') {
-	          newEl(newEvents, e.title, 'booked', eventStart.toDate(), eventFinish.toDate(), category, bid, clean, state, user);
-	        } else if (e.type === 'in') {
-
-	          if (moment(eventFinish).diff(moment(eventStart), 'days') > 0) {
-	            newEl(newEvents, '', 'close', moment(eventStart).add(1, 'hours').toDate(), eventFinish.toDate(), category, bid, clean, state, user);
-	          }
-
-	          if (day &&
-	            calendarConfig.category.showMaid && moment(eventStart).diff(moment(), 'minutes') <= 60 && moment(eventStart).diff(moment(), 'minutes') >= 0) {
-	            newEl(newEvents,
-	              '<i class="eut-cleaner font-48"></i>',
-	              'cleaner',
-	              moment().toDate(),
-	              moment().add(1, 'hours').toDate(),
-	              category, bid, clean, state, user);
-	          }
-
-	          if (day &&
-	            calendarConfig.category.showMaid && moment(eventStart).diff(moment(), 'minutes') <= 0 && moment(eventStart).diff(moment(), 'minutes') >= -30) {
-	            newEl(newEvents, e.title, 'fast', eventStart.toDate(), moment(eventStart).add(1, 'hours').toDate(), category, bid, clean, state, user);
-	          } else {
-	            newEl(newEvents, e.title, 'in', eventStart.toDate(), moment(eventStart).add(1, 'hours').toDate(), category, bid, clean, state, user);
-	          }
-
-	        } else if (e.type === 'out') {
-	          if (moment(eventFinish).diff(moment(eventStart), 'days') > 0) {
-	            newEl(newEvents, '', 'close', eventStart.toDate(), moment(eventFinish).subtract(1, 'hours').toDate(), category, bid, clean, state, user);
-	          }
-	          newEl(newEvents, e.title, 'out', moment(eventFinish).subtract(1, 'hours').toDate(), eventFinish.toDate(), category, bid, clean, state, user);
-	        } else if (e.type === 'close') {
-	          var title = '';
-	          if (moment(eventFinish).isBefore(end) && moment(eventStart).isBefore(start)) {
-	            title = e.title;
-	          }
-	          newEl(newEvents, title, 'close', eventStart.toDate(), eventFinish.toDate(), category, bid, clean, state, user);
-	        }
+	        return;
 	      });
 	      return newEvents;
 	    }
@@ -2413,12 +2455,12 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 41 */
+/* 42 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var angular = __webpack_require__(14);
+	var angular = __webpack_require__(15);
 
 	angular
 	  .module('mwl.calendar')
@@ -2452,15 +2494,15 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 42 */
+/* 43 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var angular = __webpack_require__(14);
+	var angular = __webpack_require__(15);
 	var interact;
 	try {
-	  interact = __webpack_require__(43);
+	  interact = __webpack_require__(44);
 	} catch (e) {
 	  /* istanbul ignore next */
 	  interact = null;
@@ -2472,20 +2514,20 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 43 */
+/* 44 */
 /***/ function(module, exports) {
 
-	if(typeof __WEBPACK_EXTERNAL_MODULE_43__ === 'undefined') {var e = new Error("Cannot find module \"undefined\""); e.code = 'MODULE_NOT_FOUND'; throw e;}
-	module.exports = __WEBPACK_EXTERNAL_MODULE_43__;
+	if(typeof __WEBPACK_EXTERNAL_MODULE_44__ === 'undefined') {var e = new Error("Cannot find module \"undefined\""); e.code = 'MODULE_NOT_FOUND'; throw e;}
+	module.exports = __WEBPACK_EXTERNAL_MODULE_44__;
 
 /***/ },
-/* 44 */
+/* 45 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var angular = __webpack_require__(14);
-	var moment = __webpack_require__(45);
+	var angular = __webpack_require__(15);
+	var moment = __webpack_require__(46);
 
 	angular
 	  .module('mwl.calendar')
@@ -2493,10 +2535,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 45 */
+/* 46 */
 /***/ function(module, exports) {
 
-	module.exports = __WEBPACK_EXTERNAL_MODULE_45__;
+	module.exports = __WEBPACK_EXTERNAL_MODULE_46__;
 
 /***/ }
 /******/ ])

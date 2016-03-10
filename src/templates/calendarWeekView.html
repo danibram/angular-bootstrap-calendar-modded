@@ -1,14 +1,14 @@
 
 <div class="cal-week-box" ng-class="{'cal-day-box': (vm.showTimes||vm.category.showCategories)}">
-  <div class="row">
-    <div class="col-xs-1 row-header" ng-if="vm.category.templateHeaderList">{{vm.category.templateHeaderList}}</div>
-    <div class="col-xs-1 row-header" ng-if="vm.category.categoryHeaderList">{{vm.category.categoryHeaderList}}</div>
-    <div class="col-xs-10">
+  <div class="row row-header table">
+    <div class="col-xs-1 header-title general-row no-border" ng-if="vm.category.templateHeaderList">{{vm.category.templateHeaderList}}</div>
+    <div class="col-xs-1 header-title general-row no-border" ng-if="vm.category.categoryHeaderList">{{vm.category.categoryHeaderList}}</div>
+    <div class="col-xs-10 header-title general-row no-border">
       <div class="cal-row-fluid cal-row-head">
         <div
           class="cal-week-7 pointer"
           ng-repeat="day in vm.view.days track by $index"
-          style="display: inline-block;text-align:center;padding:5px 0;"
+          style="display: inline-block;text-align:center;"
           ng-class="{
             'cal-day-weekend': day.isWeekend,
             'cal-day-past': day.isPast,
@@ -31,7 +31,7 @@
     </div>
   </div>
 
-  <div class="row">
+  <div class="row table">
     <div class="col-xs-2"></div>
     <div class="col-xs-10">
       <div
@@ -61,13 +61,14 @@
     </div>
   </div>
 
-  <div class="row" ng-repeat="category in vm.categories track by $index">
-    <div class="span1 col-xs-1 text-center" style="height: 30px;line-height: 30px;"><strong ng-bind="$eval(vm.category.templateList)"></strong></div>
-    <div class="span1 col-xs-1 text-center" style="height: 30px;line-height: 30px;"><strong ng-bind="category.number"></strong></div>
-    <div class="col-xs-10" style="height: 30px;line-height: 30px;">
+  <div class="row table" ng-repeat="category in vm.categories track by $index" ng-class="{first:$first, last:$last}">
+    <div class="span1 col-xs-1 text-center general-row"><strong ng-bind="$eval(vm.category.templateList)"></strong></div>
+    <div class="span1 col-xs-1 text-center general-row"><strong ng-bind="category.number"></strong></div>
+    <div class="col-xs-10 general-row" >
+      <div class="line"></div>
       <div
-        class="cal-week-7"
-        style="display: inline-block;text-align:center;height:30px;"
+        class="cal-week-7 category-event"
+        ng-class="{first:$first, last:$last}"
         ng-repeat="day in vm.view.days track by $index"
         ng-click="vm.onRoomClick(day.date, category)"
         uib-tooltip-html="vm.showTooltip(category) | calendarTrustAsHtml"

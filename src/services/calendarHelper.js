@@ -337,7 +337,7 @@ angular
       var dayEndHour = moment(dayViewEnd || '23:00', 'HH:mm').hours();
       var calendarStart = moment(viewDate).startOf('day').add(dayStartHour, 'hours');
       var calendarEnd = moment(viewDate).startOf('day').add(dayEndHour, 'hours');
-      var roomHeight = 30;
+      var roomHeight = 50;
       var buckets = [];
 
       events = calendarInputEvents.processEvents(events, moment(viewDate).startOf('day'), moment(viewDate).endOf('day'), true);
@@ -459,7 +459,7 @@ angular
           }
         }
 
-        event.top = (counter * 30) - 1;
+        event.top = (counter * 50) - 2;
 
         var offset, span;
         if (eventStart.isBefore(weekViewStart) || eventStart.isSame(weekViewStart)) {

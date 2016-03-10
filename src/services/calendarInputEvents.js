@@ -10,35 +10,71 @@ angular
       return Math.floor(Math.random() * 1000000000);
     }
 
+    function addNewElement(eventsList, title, type, startE, endE, category, bid, clean, state, user, tooltip) {
+      var el = {
+        $id: randomId(),
+        title: title,
+        type: type,
+        startsAt: startE,
+        endsAt: endE,
+        category: category,
+        b_id: bid,
+        isClean: clean,
+        state: state,
+        user: user
+      };
+
+      if (tooltip) {
+        el.tooltip = function(event) {
+          var text = '<strong>' + event.user + '</strong><br/>';
+          text += 'In: ' + moment(new Date(event.startsAt)).format('DD/MM/YYYY') + '<br/>';
+          text += 'Out: ' + moment(new Date(event.endsAt)).format('DD/MM/YYYY') + '<br/>';
+          text += 'State: ' + event.state + '<br/>';
+          text += 'Booking Id: ' + event.b_id + '<br/>';
+          text += 'Clean: ' + event.isClean;
+          return text;
+        };
+      }
+      eventsList.push(el);
+    }
+
+    function newEl(eventsList, title, type, startE, endE, category, bid, clean, state, user, tooltip) {
+      // var startHour = moment().hour(moment().hour()).minute(0);
+      // var finishHour = moment().hour(moment().hour()).minute(0).add(1, 'hours');
+      // console.log(startHour.format('DD/MM HH:mm'))
+      // console.log(finishHour.format('DD/MM HH:mm'))
+      // console.log(startE.format('DD/MM HH:mm'))
+      // console.log(endE.format('DD/MM HH:mm'))
+      //
+      // if (startE.isBefore(startHour) && endE.isAfter(finishHour)) {
+      //   addNewElement(eventsList, title, type, startE, startHour, category, bid, clean, state, user, tooltip);
+      //   addNewElement(eventsList, '', 'close', finishHour, endE, category, bid, clean, state, user, tooltip);
+      //   addNewElement(eventsList, '', 'close-today', startHour, finishHour, category, bid, clean, state, user, tooltip);
+      //   console.log('triple kill')
+      //
+      // } else if (startE.isBefore(startHour) && endE.isBefore(finishHour)) {
+      //   addNewElement(eventsList, title, type, startE, startHour, category, bid, clean, state, user, tooltip);
+      //   addNewElement(eventsList, title, type + '-today', startHour, finishHour, category, bid, clean, state, user, tooltip);
+      //   console.log('only start')
+      //
+      // } else if (startE.isAfter(startHour) && endE.isAfter(finishHour)) {
+      //   addNewElement(eventsList, title, type, finishHour, endE, category, bid, clean, state, user, tooltip);
+      //   addNewElement(eventsList, title, type + '-today', startHour, finishHour, category, bid, clean, state, user, tooltip);
+      //   console.log('only finish')
+      //
+      // } else if (startE.isAfter(startHour) && endE.isBefore(finishHour)) {
+      //   addNewElement(eventsList, title, type + '-today', startHour, finishHour, category, bid, clean, state, user, tooltip);
+      //   console.log('AllDay')
+      // } else {
+      //   addNewElement(eventsList, title, type, startE, endE, category, bid, clean, state, user, tooltip);
+      //   console.log('N')
+      // }
+      // console.log('-----')
+      addNewElement(eventsList, title, type, startE, endE, category, bid, clean, state, user, tooltip);
+    }
+
     function processEvents(events, start, end, day) {
       var newEvents = [];
-      function newEl(eventsList, title, type, startE, endE, category, bid, clean, state, user, tooltip) {
-        var el = {
-          $id: randomId(),
-          title: title,
-          type: type,
-          startsAt: startE,
-          endsAt: endE,
-          category: category,
-          b_id: bid,
-          isClean: clean,
-          state: state,
-          user: user
-        };
-
-        if (tooltip) {
-          el.tooltip = function(event) {
-            var text = '<strong>' + event.user + '</strong><br/>';
-            text += 'In: ' + moment(new Date(event.startsAt)).format('DD/MM/YYYY') + '<br/>';
-            text += 'Out: ' + moment(new Date(event.endsAt)).format('DD/MM/YYYY') + '<br/>';
-            text += 'State: ' + event.state + '<br/>';
-            text += 'Booking Id: ' + event.b_id + '<br/>';
-            text += 'Clean: ' + event.isClean;
-            return text;
-          };
-        }
-        eventsList.push(el);
-      }
 
       events.map(function(e) {
         var eventStart = moment(new Date(e.startsAt));
@@ -50,7 +86,7 @@ angular
         var state = e.state;
         var user = e.title;
 
-        newEl(newEvents, '', 'ghost', eventStart.toDate(), eventFinish.toDate(), category, bid, clean, state, user, function(event) {
+        addNewElement(newEvents, '', 'ghost', eventStart.toDate(), eventFinish.toDate(), category, bid, clean, state, user, function(event) {
           var text = '<strong>' + event.title + '</strong><br/>';
           text += 'In: ' + moment(new Date(event.startsAt)).format('DD/MM/YYYY') + '<br/>';
           text += 'Out: ' + moment(new Date(event.endsAt)).format('DD/MM/YYYY') + '<br/>';
@@ -60,48 +96,53 @@ angular
           return text;
         });
 
-        if (moment(eventFinish).isAfter(end) && moment(eventStart).isBefore(start)) {
-          newEl(newEvents, e.title, 'close', eventStart.toDate(), eventFinish.toDate(), category, bid, clean, state, user);
-          return;
+        switch (e.type) {
+          case 'booked':
+            newEl(newEvents, e.title, 'booked', eventStart, eventFinish, category, bid, clean, state, user);
+            break;
+          case 'in':
+            if (moment(eventFinish).diff(moment(eventStart), 'days') > 0) {
+              newEl(newEvents, '', 'close', moment(eventStart).add(1, 'hours'), eventFinish, category, bid, clean, state, user);
+            }
+
+            if (day &&
+              calendarConfig.category.showMaid &&
+              moment(eventStart).diff(moment(), 'minutes') <= 60 &&
+              moment(eventStart).diff(moment(), 'minutes') >= 0) {
+
+              newEl(newEvents,
+                '<i class="eut-cleaner font-48"></i>',
+                'cleaner',
+                moment(),
+                moment().add(1, 'hours'),
+                category, bid, clean, state, user);
+            }
+
+            if (day &&
+              calendarConfig.category.showMaid &&
+              eventStart.isBetween(moment().hour(moment().hour()).minute(0), moment().hour(moment().hour()).minute(0).add(1, 'hours'), 'minutes')) {
+              newEl(newEvents, e.title, 'fast', eventStart, moment(eventStart).add(1, 'hours'), category, bid, clean, state, user);
+            } else {
+              newEl(newEvents, e.title, 'in', eventStart, moment(eventStart).add(1, 'hours'), category, bid, clean, state, user);
+            }
+            break;
+          case 'out':
+            if (moment(eventFinish).diff(moment(eventStart), 'days') > 0) {
+              newEl(newEvents, '', 'close', eventStart, moment(eventFinish).subtract(1, 'hours'), category, bid, clean, state, user);
+            }
+            newEl(newEvents, e.title, 'out', moment(eventFinish).subtract(1, 'hours'), eventFinish, category, bid, clean, state, user);
+            break;
+          case 'close':
+            var title = '';
+            if (moment(eventFinish).isBefore(end) && moment(eventStart).isBefore(start)) {
+              title = e.title;
+            }
+            newEl(newEvents, title, 'close', eventStart, eventFinish, category, bid, clean, state, user);
+            break;
+          default:
+            break;
         }
-
-        if (e.type === 'booked') {
-          newEl(newEvents, e.title, 'booked', eventStart.toDate(), eventFinish.toDate(), category, bid, clean, state, user);
-        } else if (e.type === 'in') {
-
-          if (moment(eventFinish).diff(moment(eventStart), 'days') > 0) {
-            newEl(newEvents, '', 'close', moment(eventStart).add(1, 'hours').toDate(), eventFinish.toDate(), category, bid, clean, state, user);
-          }
-
-          if (day &&
-            calendarConfig.category.showMaid && moment(eventStart).diff(moment(), 'minutes') <= 60 && moment(eventStart).diff(moment(), 'minutes') >= 0) {
-            newEl(newEvents,
-              '<i class="eut-cleaner font-48"></i>',
-              'cleaner',
-              moment().toDate(),
-              moment().add(1, 'hours').toDate(),
-              category, bid, clean, state, user);
-          }
-
-          if (day &&
-            calendarConfig.category.showMaid && moment(eventStart).diff(moment(), 'minutes') <= 0 && moment(eventStart).diff(moment(), 'minutes') >= -30) {
-            newEl(newEvents, e.title, 'fast', eventStart.toDate(), moment(eventStart).add(1, 'hours').toDate(), category, bid, clean, state, user);
-          } else {
-            newEl(newEvents, e.title, 'in', eventStart.toDate(), moment(eventStart).add(1, 'hours').toDate(), category, bid, clean, state, user);
-          }
-
-        } else if (e.type === 'out') {
-          if (moment(eventFinish).diff(moment(eventStart), 'days') > 0) {
-            newEl(newEvents, '', 'close', eventStart.toDate(), moment(eventFinish).subtract(1, 'hours').toDate(), category, bid, clean, state, user);
-          }
-          newEl(newEvents, e.title, 'out', moment(eventFinish).subtract(1, 'hours').toDate(), eventFinish.toDate(), category, bid, clean, state, user);
-        } else if (e.type === 'close') {
-          var title = '';
-          if (moment(eventFinish).isBefore(end) && moment(eventStart).isBefore(start)) {
-            title = e.title;
-          }
-          newEl(newEvents, title, 'close', eventStart.toDate(), eventFinish.toDate(), category, bid, clean, state, user);
-        }
+        return;
       });
       return newEvents;
     }

@@ -3100,8 +3100,8 @@
   text-overflow: ellipsis;
   overflow: hidden;
   padding-top: 0px !important;
-  margin-top: 0px !important;
-  margin-bottom: 0px !important;
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
   font-size: 14px;
   padding: 0 3px !important;
 }
@@ -3112,9 +3112,7 @@
   font-weight: bolder;
   text-align: center;
   border: 0px solid;
-  padding: 5px 0;
   vertical-align: middle;
-  padding-left: 30px;
 }
 .cal-week-box.cal-day-box .cal-day-panel {
   overflow-x: hidden;
@@ -3135,8 +3133,8 @@
 .room-indicator {
   position: absolute;
   left: -60px;
-  height: 30px;
-  line-height: 30px;
+  height: 50px;
+  line-height: 50px;
   overflow: hidden;
   padding-top: 0px !important;
   margin-top: 0px !important;
@@ -3233,6 +3231,18 @@
 .event-in {
   background-color: dodgerblue;
 }
+.event-booked-today {
+  background-color: #e78080;
+}
+.event-out-today {
+  background-color: #00fd00;
+}
+.event-close-today {
+  background-color: #919191;
+}
+.event-in-today {
+  background-color: #b7dbff;
+}
 .event-important {
   background-color: #ad2121;
 }
@@ -3323,10 +3333,10 @@
 .cal-row-head [class*="cal-cell"] small {
   font-weight: normal;
 }
-.cal-year-box .row:hover,
+/*.cal-year-box .row:hover,
 .cal-row-fluid:hover {
-  background-color: #fafafa;
-}
+  background-color: @rowHover;
+}*/
 .cal-month-day {
   height: 100px;
 }
@@ -3344,29 +3354,6 @@
 }
 .cal-year-box [class*="span"] {
   min-height: 60px;
-}
-.cal-year-box .row [class*="col-"]:last-child,
-.cal-month-box .cal-row [class*="cal-cell"]:last-child {
-  border-right: 0px;
-}
-.cal-year-box .row,
-.cal-month-box .cal-row-fluid {
-  border-bottom: 1px solid #e1e1e1;
-  margin-left: 0px;
-  margin-right: 0px;
-}
-.cal-year-box .row:last-child,
-.cal-month-box .cal-row-fluid:last-child {
-  border-bottom: 0px;
-}
-.cal-month-box,
-.cal-year-box,
-.cal-week-box {
-  border-top: 1px solid #e1e1e1;
-  border-bottom: 1px solid #e1e1e1;
-  border-right: 1px solid #e1e1e1;
-  border-left: 1px solid #e1e1e1;
-  border-radius: 2px;
 }
 .cal-month-box {
   border-right: 0px;
@@ -3485,4 +3472,56 @@ a.cal-event-week {
   .cal-year-box [class*="span"]:nth-child(2) {
     border-bottom: 1px solid #e1e1e1;
   }
+}
+.category-event {
+  display: inline-block;
+  text-align: center;
+  height: 30px;
+  margin: 9px 0 10px;
+  z-index: 500;
+  position: relative;
+}
+.general-row {
+  height: 50px;
+  line-height: 50px;
+  border-bottom: 1px dotted #ccc;
+  border-right: 1px solid #ccc;
+}
+.general-row.first {
+  border-bottom: 1px solid #ccc;
+}
+.general-row.last {
+  border-right: 0;
+}
+.general-row.no-border-left {
+  border-left: 0px solid #ccc;
+}
+.general-row .line {
+  clear: both;
+  width: 100%;
+  border-bottom: 10px solid #eee;
+  height: 1px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  z-index: -2;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.no-margin {
+  margin: 0;
+}
+.no-border {
+  border: 0;
+}
+.table {
+  margin: 0;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+.table.first {
+  border-top: 1px solid #ccc;
+}
+.table.last {
+  border-bottom: 1px solid #ccc;
 }

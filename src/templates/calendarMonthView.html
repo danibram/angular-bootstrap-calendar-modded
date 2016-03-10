@@ -9,26 +9,16 @@
     ng-repeat="rowOffset in vm.monthOffsets track by rowOffset"
     ng-mouseenter="rowHovered = true"
     ng-mouseleave="rowHovered = false">
-    <div class="cal-row-fluid cal-before-eventlist">
+    <div class="cal-row-fluid cal-before-eventlist table" ng-class="{first:$first, last:$last}">
       <div
         ng-repeat="day in vm.view | calendarLimitTo:7:rowOffset track by $index"
         ng-init="dayIndex = vm.view.indexOf(day)"
-        class="cal-cell1 cal-cell {{ day.highlightClass }}"
+        class="cal-cell1 cal-cell general-row {{ day.highlightClass }}"
         ng-click="vm.dayClicked(day, false, $event)"
         ng-class="{pointer: true}">
         <ng-include src="vm.calendarConfig.templates.calendarMonthCell"></ng-include>
       </div>
     </div>
-
-    <mwl-calendar-slide-box
-      is-open="false"
-      events="vm.view[vm.openDayIndex].events"
-      on-event-click="vm.onEventClick"
-      edit-event-html="vm.editEventHtml"
-      on-edit-event-click="vm.onEditEventClick"
-      delete-event-html="vm.deleteEventHtml"
-      on-delete-event-click="vm.onDeleteEventClick">
-    </mwl-calendar-slide-box>
 
   </div>
 
