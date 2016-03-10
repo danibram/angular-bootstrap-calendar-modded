@@ -13,7 +13,7 @@
 		exports["angularBootstrapCalendarModuleName"] = factory(require("angular"), (function webpackLoadOptionalExternalModule() { try { return require("interact.js"); } catch(e) {} }()), require("moment"));
 	else
 		root["angularBootstrapCalendarModuleName"] = factory(root["angular"], root["interact"], root["moment"]);
-})(this, function(__WEBPACK_EXTERNAL_MODULE_14__, __WEBPACK_EXTERNAL_MODULE_42__, __WEBPACK_EXTERNAL_MODULE_44__) {
+})(this, function(__WEBPACK_EXTERNAL_MODULE_14__, __WEBPACK_EXTERNAL_MODULE_43__, __WEBPACK_EXTERNAL_MODULE_45__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -109,7 +109,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	requireAll(__webpack_require__(15));
 	requireAll(__webpack_require__(31));
-	requireAll(__webpack_require__(36));
+	requireAll(__webpack_require__(37));
 
 
 /***/ },
@@ -649,6 +649,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  .controller('MwlCalendarMonthCtrl', ["$scope", "moment", "calendarHelper", "calendarConfig", function($scope, moment, calendarHelper, calendarConfig) {
 
 	    var vm = this;
+
 	    vm.calendarConfig = calendarConfig;
 	    vm.openRowIndex = null;
 
@@ -1449,7 +1450,8 @@ return /******/ (function(modules) { // webpackBootstrap
 		"./calendarDate.js": 32,
 		"./calendarLimitTo.js": 33,
 		"./calendarTruncateEventTitle.js": 34,
-		"./calendarTrustAsHtml.js": 35
+		"./calendarTrustAsHtml.js": 35,
+		"./dateUtils.js": 36
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -1596,13 +1598,42 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 36 */
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+
+	var angular = __webpack_require__(14);
+
+	angular
+	  .module('mwl.calendar')
+	    .filter('mFormat', ["moment", function(moment) {
+	        function formatDate(date, format) {
+	            return moment(new Date(date)).format(format);
+	        }
+	        formatDate.$stateful = true;
+	        return formatDate;
+	    }])
+	    .filter('mIsSameDayMonth', ["moment", function(moment) {
+
+	        function mIsSame(date, date2) {
+	            date = moment(new Date(date)).format('DD/MM');
+	            date2 = moment(new Date(date2)).format('DD/MM');
+	            return (date === date2);
+	        }
+	        mIsSame.$stateful = true;
+	        return mIsSame;
+	    }]);
+
+
+/***/ },
+/* 37 */
+/***/ function(module, exports, __webpack_require__) {
+
 	var map = {
-		"./calendarConfig.js": 37,
-		"./calendarHelper.js": 38,
-		"./calendarInputEvents.js": 39,
-		"./calendarTitle.js": 40,
-		"./interact.js": 41,
-		"./moment.js": 43
+		"./calendarConfig.js": 38,
+		"./calendarHelper.js": 39,
+		"./calendarInputEvents.js": 40,
+		"./calendarTitle.js": 41,
+		"./interact.js": 42,
+		"./moment.js": 44
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -1615,11 +1646,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 	webpackContext.resolve = webpackContextResolve;
 	module.exports = webpackContext;
-	webpackContext.id = 36;
+	webpackContext.id = 37;
 
 
 /***/ },
-/* 37 */
+/* 38 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1687,7 +1718,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 38 */
+/* 39 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2205,7 +2236,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 39 */
+/* 40 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2382,7 +2413,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 40 */
+/* 41 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2421,7 +2452,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 41 */
+/* 42 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2429,7 +2460,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var angular = __webpack_require__(14);
 	var interact;
 	try {
-	  interact = __webpack_require__(42);
+	  interact = __webpack_require__(43);
 	} catch (e) {
 	  /* istanbul ignore next */
 	  interact = null;
@@ -2441,20 +2472,20 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 42 */
+/* 43 */
 /***/ function(module, exports) {
 
-	if(typeof __WEBPACK_EXTERNAL_MODULE_42__ === 'undefined') {var e = new Error("Cannot find module \"undefined\""); e.code = 'MODULE_NOT_FOUND'; throw e;}
-	module.exports = __WEBPACK_EXTERNAL_MODULE_42__;
+	if(typeof __WEBPACK_EXTERNAL_MODULE_43__ === 'undefined') {var e = new Error("Cannot find module \"undefined\""); e.code = 'MODULE_NOT_FOUND'; throw e;}
+	module.exports = __WEBPACK_EXTERNAL_MODULE_43__;
 
 /***/ },
-/* 43 */
+/* 44 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var angular = __webpack_require__(14);
-	var moment = __webpack_require__(44);
+	var moment = __webpack_require__(45);
 
 	angular
 	  .module('mwl.calendar')
@@ -2462,10 +2493,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 44 */
+/* 45 */
 /***/ function(module, exports) {
 
-	module.exports = __WEBPACK_EXTERNAL_MODULE_44__;
+	module.exports = __WEBPACK_EXTERNAL_MODULE_45__;
 
 /***/ }
 /******/ ])

@@ -7,6 +7,7 @@ angular
   .controller('MwlCalendarMonthCtrl', function($scope, moment, calendarHelper, calendarConfig) {
 
     var vm = this;
+
     vm.calendarConfig = calendarConfig;
     vm.openRowIndex = null;
 
