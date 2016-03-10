@@ -1,10 +1,16 @@
 .category-event{
   display: inline-block;
   text-align:center;
-  height:30px;
-  margin: 10px 0;
+  height:50px;
   z-index: 500;
   position: relative;
+  .cell-room{
+    height:30px;
+    margin: 10px 0;
+    &:hover{
+      background-color: rgba(255,255,255,0.40);
+    }
+  }
 }
 
 .general-row{
@@ -61,5 +67,5 @@
 }
 
 .today-row{
-  background-color: rgba(255,255,255,0.2);
+  background-color: rgba(255,255,255,0.4);
 }
