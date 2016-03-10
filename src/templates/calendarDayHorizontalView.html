@@ -1,6 +1,6 @@
 
 <div class="cal-week-box" ng-class="{'cal-day-box': (vm.showTimes||vm.category.showCategories)}">
-  <div class="row row-header table">
+  <div class="row row-header table-mwl">
     <div class="col-xs-1 header-title general-row no-border" ng-if="vm.category.templateHeaderList">{{vm.category.templateHeaderList}}</div>
     <div class="col-xs-1 header-title general-row no-border" ng-if="vm.category.categoryHeaderList">{{vm.category.categoryHeaderList}}</div>
     <div class="col-xs-10 header-title general-row no-border">
@@ -17,7 +17,7 @@
 
   </div>
 
-  <div class="row table">
+  <div class="row table-mwl">
     <div class="col-xs-2"></div>
     <div class="col-xs-10">
       <div
@@ -51,7 +51,7 @@
     </div>
   </div>
 
-  <div class="row table" ng-repeat="category in vm.categories track by $index" ng-class="{first:$first, last:$last}">
+  <div class="row table-mwl" ng-repeat="category in vm.categories track by $index" ng-class="{first:$first, last:$last}">
     <div class="span1 col-xs-1 text-center general-row"><strong ng-bind="$eval(vm.category.templateList)"></strong></div>
     <div class="span1 col-xs-1 text-center general-row"><strong ng-bind="category.number"></strong></div>
     <div class="col-xs-10 general-row">

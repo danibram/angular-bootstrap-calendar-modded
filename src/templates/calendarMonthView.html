@@ -9,7 +9,7 @@
     ng-repeat="rowOffset in vm.monthOffsets track by rowOffset"
     ng-mouseenter="rowHovered = true"
     ng-mouseleave="rowHovered = false">
-    <div class="cal-row-fluid cal-before-eventlist table" ng-class="{first:$first, last:$last}">
+    <div class="cal-row-fluid cal-before-eventlist table-mwl" ng-class="{first:$first, last:$last}">
       <div
         ng-repeat="day in vm.view | calendarLimitTo:7:rowOffset track by $index"
         ng-init="dayIndex = vm.view.indexOf(day)"

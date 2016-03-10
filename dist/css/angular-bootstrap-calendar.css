@@ -3514,14 +3514,14 @@ a.cal-event-week {
 .no-border {
   border: 0;
 }
-.table {
+.table-mwl {
   margin: 0;
   border-left: 1px solid #ccc;
   border-right: 1px solid #ccc;
 }
-.table.first {
+.table-mwl.first {
   border-top: 1px solid #ccc;
 }
-.table.last {
+.table-mwl.last {
   border-bottom: 1px solid #ccc;
 }
