@@ -2182,7 +2182,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          }
 	        }
 
-	        event.top = (counter * 30) - 2;
+	        event.top = (counter * 30) - 1;
 
 	        var offset, span;
 	        if (eventStart.isBefore(weekViewStart) || eventStart.isSame(weekViewStart)) {
