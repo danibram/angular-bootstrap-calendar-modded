@@ -3100,10 +3100,9 @@
   text-overflow: ellipsis;
   overflow: hidden;
   padding-top: 0px !important;
-  margin-top: 10px !important;
+  margin-top: 12px !important;
   margin-bottom: 10px !important;
   font-size: 14px;
-  padding: 0 3px !important;
 }
 .cal-week-box .cal-day-panel {
   border: 0px !important;
@@ -3477,7 +3476,7 @@ a.cal-event-week {
   display: inline-block;
   text-align: center;
   height: 30px;
-  margin: 9px 0 10px;
+  margin: 10px 0;
   z-index: 500;
   position: relative;
 }
@@ -3515,7 +3514,7 @@ a.cal-event-week {
   border: 0;
 }
 .table-mwl {
-  margin: 0;
+  margin: 0 !important;
   border-left: 1px solid #ccc;
   border-right: 1px solid #ccc;
 }
