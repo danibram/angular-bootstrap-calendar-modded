@@ -479,6 +479,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    vm.showTimes = calendarConfig.showTimesOnWeekView;
 	    vm.category = calendarConfig.category;
 	    vm.categories = vm.categories || [];
+	    vm.parseNumber = calendarHelper.parseNumber;
 
 	    vm.$sce = $sce;
 
@@ -836,6 +837,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    vm.showTimes = calendarConfig.showTimesOnWeekView;
 	    vm.category = calendarConfig.category;
 	    vm.categories = vm.categories;
+	    vm.parseNumber = calendarHelper.parseNumber;
 
 	    vm.$sce = $sce;
 
@@ -2222,6 +2224,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	      return ((dayViewEndM.diff(dayViewStartM, 'hours') + 1) * hourHeight) + 2;
 	    }
 
+	    function parseNumber(number) {
+	      var ln = parseInt(calendarConfig.category.roomNameLenght);
+	      var finalName = '';
+
+	      for (var f = 0; f < ln; f++) {
+	        finalName += '0';
+	      }
+	      return (finalName + number.toString()).slice(-ln);
+	    }
+
 	    return {
 	      getWeekDayNames: getWeekDayNames,
 	      getYearView: getYearView,
@@ -2234,7 +2246,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	      getDayViewHeight: getDayViewHeight,
 	      adjustEndDateFromStartDiff: adjustEndDateFromStartDiff,
 	      formatDate: formatDate,
-	      eventIsInPeriod: eventIsInPeriod //expose for testing only
+	      eventIsInPeriod: eventIsInPeriod, //expose for testing only
+	      parseNumber: parseNumber
 	    };
 
 	  }]);
@@ -2251,6 +2264,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	angular
 	  .module('mwl.calendar')
 	  .factory('calendarInputEvents', ["moment", "calendarConfig", function(moment, calendarConfig) {
+	    function truncate(str, number) {
+	      if (str.length > number) {
+	        return str.substring(0, number) + '...';
+	      }
+	      return str;
+	    }
 
 	    function randomId() {
 	      return Math.floor(Math.random() * 1000000000);
@@ -2259,7 +2278,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    function addNewElement(eventsList, title, type, startE, endE, category, bid, clean, state, user, tooltip) {
 	      var el = {
 	        $id: randomId(),
-	        title: title,
+	        title: truncate(title, calendarConfig.category.userNameLenght),
 	        type: type,
 	        startsAt: startE,
 	        endsAt: endE,

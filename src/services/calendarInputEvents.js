@@ -5,6 +5,12 @@ var angular = require('angular');
 angular
   .module('mwl.calendar')
   .factory('calendarInputEvents', function(moment, calendarConfig) {
+    function truncate(str, number) {
+      if (str.length > number) {
+        return str.substring(0, number) + '...';
+      }
+      return str;
+    }
 
     function randomId() {
       return Math.floor(Math.random() * 1000000000);
@@ -13,7 +19,7 @@ angular
     function addNewElement(eventsList, title, type, startE, endE, category, bid, clean, state, user, tooltip) {
       var el = {
         $id: randomId(),
-        title: title,
+        title: truncate(title, calendarConfig.category.userNameLenght),
         type: type,
         startsAt: startE,
         endsAt: endE,

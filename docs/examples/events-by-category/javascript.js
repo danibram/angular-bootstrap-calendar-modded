@@ -167,8 +167,8 @@ angular
       templateList: 'category.typeDesc + ":" + category.size',
       templateHeaderList: 'Typologia',
       categoryHeaderList: 'Stanze',
-      userNameLenght: 2,
-      roomNameLenght: 2,
+      userNameLenght: 5,
+      roomNameLenght: 4,
       showMaid: true
     };
     calendarConfig.allDateFormats.moment.date.hour = 'H';

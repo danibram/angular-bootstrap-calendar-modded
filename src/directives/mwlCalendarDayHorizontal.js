@@ -11,6 +11,7 @@ angular
     vm.showTimes = calendarConfig.showTimesOnWeekView;
     vm.category = calendarConfig.category;
     vm.categories = vm.categories || [];
+    vm.parseNumber = calendarHelper.parseNumber;
 
     vm.$sce = $sce;
 

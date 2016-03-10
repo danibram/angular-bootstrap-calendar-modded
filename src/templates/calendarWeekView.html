@@ -63,7 +63,7 @@
 
   <div class="row table-mwl" ng-repeat="category in vm.categories track by $index" ng-class="{first:$first, last:$last}">
     <div class="span1 col-xs-1 text-center general-row no-padding"><strong ng-bind="$eval(vm.category.templateList)"></strong></div>
-    <div class="span1 col-xs-1 text-center general-row no-padding"><strong ng-bind="category.number"></strong></div>
+    <div class="span1 col-xs-1 text-center general-row no-padding"><strong ng-bind="vm.parseNumber(category.number)"></strong></div>
     <div class="col-xs-10 general-row no-padding" >
       <div class="line"></div>
       <div ng-repeat="day in vm.view.days track by $index" class="cal-week-7 category-event" ng-class="{first:$first, last:$last, 'today-row': day.isToday}">

@@ -184,7 +184,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 19 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<div class=\"cal-week-box\" ng-class=\"{'cal-day-box': (vm.showTimes||vm.category.showCategories)}\">\n  <div class=\"row row-header table-mwl\">\n    <div class=\"col-xs-1 header-title general-row no-border no-padding\" ng-if=\"vm.category.templateHeaderList\">{{vm.category.templateHeaderList}}</div>\n    <div class=\"col-xs-1 header-title general-row no-border no-padding\" ng-if=\"vm.category.categoryHeaderList\">{{vm.category.categoryHeaderList}}</div>\n    <div class=\"col-xs-10 header-title general-row no-border no-padding\">\n      <div\n        ng-class=\"{'today-row': vm.checkToday(hour)}\"\n        class=\"cal-hour-{{vm.hours.length}}\"\n        style=\"display: inline-block;text-align:center;\"\n        ng-repeat=\"hour in vm.hours track by $index\"\n        mwl-element-dimensions=\"vm.dayColumnDimensions\">\n\n        <span ng-bind=\"hour.label\"></span>\n\n      </div>\n    </div>\n\n  </div>\n\n  <div class=\"row table-mwl\">\n    <div class=\"col-xs-2  no-padding\"></div>\n    <div class=\"col-xs-10 no-padding\">\n      <div\n        style=\"position:relative;\"\n        ng-repeat=\"event in vm.view track by event.$id\"\n        ng-style=\"{\n          top: event.top + 'px',\n          position: 'inherit'\n        }\">\n        <div\n          ng-class=\"'grid-hour-' + vm.hours.length + '-' + event.hourSpan +  ' grid-hour-left-' + vm.hours.length + '-' + event.dayOffset + ' day-highlight dh-event-' + event.type + ' ' + event.cssClass\"\n          ng-style=\"{\n            top: '0px',\n            position: 'absolute',\n            width: '',\n            left: ''\n          }\"\n          data-event-class\n          uib-tooltip-html=\"event.tooltip(event) | calendarTrustAsHtml\"\n          tooltip-placement=\"bottom\"\n          tooltip-append-to-body=\"true\">\n          <strong ng-bind=\"(event.tempStartsAt || event.startsAt) | calendarDate:'time':true\" ng-show=\"vm.showTimes\"></strong>\n          <a\n            href=\"javascript:;\"\n            ng-click=\"vm.onEventClick({calendarEvent: event})\"\n            class=\"event-item\"\n            ng-bind-html=\"vm.$sce.trustAsHtml(event.title)\">\n          </a>\n        </div>\n      </div>\n    </div>\n  </div>\n\n  <div class=\"row table-mwl\" ng-repeat=\"category in vm.categories track by $index\" ng-class=\"{first:$first, last:$last}\">\n    <div class=\"col-xs-1 text-center general-row no-padding\"><strong ng-bind=\"$eval(vm.category.templateList)\"></strong></div>\n    <div class=\"col-xs-1 text-center general-row no-padding\"><strong ng-bind=\"category.number\"></strong></div>\n    <div class=\"col-xs-10 general-row no-padding\">\n      <div class=\"line\"></div>\n      <div ng-repeat=\"hour in vm.hours track by $index\" class=\"category-event cal-hour-{{vm.hours.length}}\" ng-class=\"{first:$first, last:$last,'today-row': vm.checkToday(hour)}\">\n        <div\n          class=\"cell-room\"\n          ng-click=\"vm.onRClick(hour, category)\"\n          uib-tooltip-html=\"vm.showTooltip(category) | calendarTrustAsHtml\"\n          tooltip-placement=\"bottom\"\n          tooltip-append-to-body=\"true\">\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n";
+	module.exports = "\n<div class=\"cal-week-box\" ng-class=\"{'cal-day-box': (vm.showTimes||vm.category.showCategories)}\">\n  <div class=\"row row-header table-mwl\">\n    <div class=\"col-xs-1 header-title general-row no-border no-padding\" ng-if=\"vm.category.templateHeaderList\">{{vm.category.templateHeaderList}}</div>\n    <div class=\"col-xs-1 header-title general-row no-border no-padding\" ng-if=\"vm.category.categoryHeaderList\">{{vm.category.categoryHeaderList}}</div>\n    <div class=\"col-xs-10 header-title general-row no-border no-padding\">\n      <div\n        ng-class=\"{'today-row': vm.checkToday(hour)}\"\n        class=\"cal-hour-{{vm.hours.length}}\"\n        style=\"display: inline-block;text-align:center;\"\n        ng-repeat=\"hour in vm.hours track by $index\"\n        mwl-element-dimensions=\"vm.dayColumnDimensions\">\n\n        <span ng-bind=\"hour.label\"></span>\n\n      </div>\n    </div>\n\n  </div>\n\n  <div class=\"row table-mwl\">\n    <div class=\"col-xs-2  no-padding\"></div>\n    <div class=\"col-xs-10 no-padding\">\n      <div\n        style=\"position:relative;\"\n        ng-repeat=\"event in vm.view track by event.$id\"\n        ng-style=\"{\n          top: event.top + 'px',\n          position: 'inherit'\n        }\">\n        <div\n          ng-class=\"'grid-hour-' + vm.hours.length + '-' + event.hourSpan +  ' grid-hour-left-' + vm.hours.length + '-' + event.dayOffset + ' day-highlight dh-event-' + event.type + ' ' + event.cssClass\"\n          ng-style=\"{\n            top: '0px',\n            position: 'absolute',\n            width: '',\n            left: ''\n          }\"\n          data-event-class\n          uib-tooltip-html=\"event.tooltip(event) | calendarTrustAsHtml\"\n          tooltip-placement=\"bottom\"\n          tooltip-append-to-body=\"true\">\n          <strong ng-bind=\"(event.tempStartsAt || event.startsAt) | calendarDate:'time':true\" ng-show=\"vm.showTimes\"></strong>\n          <a\n            href=\"javascript:;\"\n            ng-click=\"vm.onEventClick({calendarEvent: event})\"\n            class=\"event-item\"\n            ng-bind-html=\"vm.$sce.trustAsHtml(event.title)\">\n          </a>\n        </div>\n      </div>\n    </div>\n  </div>\n\n  <div class=\"row table-mwl\" ng-repeat=\"category in vm.categories track by $index\" ng-class=\"{first:$first, last:$last}\">\n    <div class=\"col-xs-1 text-center general-row no-padding\"><strong ng-bind=\"$eval(vm.category.templateList)\"></strong></div>\n    <div class=\"col-xs-1 text-center general-row no-padding\"><strong ng-bind=\"vm.parseNumber(category.number)\"></strong></div>\n    <div class=\"col-xs-10 general-row no-padding\">\n      <div class=\"line\"></div>\n      <div ng-repeat=\"hour in vm.hours track by $index\" class=\"category-event cal-hour-{{vm.hours.length}}\" ng-class=\"{first:$first, last:$last,'today-row': vm.checkToday(hour)}\">\n        <div\n          class=\"cell-room\"\n          ng-click=\"vm.onRClick(hour, category)\"\n          uib-tooltip-html=\"vm.showTooltip(category) | calendarTrustAsHtml\"\n          tooltip-placement=\"bottom\"\n          tooltip-append-to-body=\"true\">\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n";
 
 /***/ },
 /* 20 */
@@ -226,7 +226,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 26 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<div class=\"cal-week-box\" ng-class=\"{'cal-day-box': (vm.showTimes||vm.category.showCategories)}\">\n  <div class=\"row row-header table-mwl\">\n    <div class=\"col-xs-1 header-title general-row no-border no-padding\" ng-if=\"vm.category.templateHeaderList\">{{vm.category.templateHeaderList}}</div>\n    <div class=\"col-xs-1 header-title general-row no-border no-padding\" ng-if=\"vm.category.categoryHeaderList\">{{vm.category.categoryHeaderList}}</div>\n    <div class=\"col-xs-10 header-title general-row no-border no-padding\">\n      <div class=\"cal-row-fluid cal-row-head\">\n        <div\n          class=\"cal-week-7 pointer\"\n          ng-repeat=\"day in vm.view.days track by $index\"\n          style=\"display: inline-block;text-align:center;\"\n          ng-class=\"{\n            'cal-day-weekend': day.isWeekend,\n            'cal-day-past': day.isPast,\n            'today-row': day.isToday,\n            'cal-day-future': day.isFuture}\"\n          mwl-element-dimensions=\"vm.dayColumnDimensions\"\n          ng-click=\"vm.calendarCtrl.dateClicked(day.date)\">\n\n          <span ng-bind=\"day.weekDayLabel\"></span>\n          <small>\n            <span\n              data-cal-date\n              ng-bind=\"day.dayLabel\">\n            </span>\n          </small>\n\n        </div>\n\n      </div>\n    </div>\n  </div>\n\n  <div class=\"row table-mwl\">\n    <div class=\"col-xs-2 no-padding\"></div>\n    <div class=\"col-xs-10 no-padding\">\n      <div\n      style=\"position:relative;\"\n        ng-repeat=\"event in vm.view.events track by event.$id\">\n        <div\n          ng-class=\"'grid-week-7-' + event.daySpan +  ' grid-week-left-7-' + event.dayOffset + ' day-highlight dh-event-' + event.type + ' ' + event.cssClass\"\n          ng-style=\"{\n            top: (vm.showTimes||vm.category.showCategories) ? ((event.top + 2) + 'px') : 'auto',\n            position: (vm.showTimes||vm.category.showCategories) ? 'absolute' : 'inherit',\n            width: '',\n            left: ''\n          }\"\n          data-event-class\n          uib-tooltip-html=\"event.tooltip(event) | calendarTrustAsHtml\"\n          tooltip-placement=\"bottom\"\n          tooltip-append-to-body=\"true\"\n          ng-click=\"vm.onEventClick(event)\">\n          <strong ng-bind=\"(event.tempStartsAt || event.startsAt) | calendarDate:'time':true\" ng-show=\"vm.showTimes\"></strong>\n          <a\n            href=\"javascript:;\"\n            class=\"event-item\"\n            ng-bind-html=\"vm.$sce.trustAsHtml(event.title)\">\n          </a>\n        </div>\n      </div>\n    </div>\n  </div>\n\n  <div class=\"row table-mwl\" ng-repeat=\"category in vm.categories track by $index\" ng-class=\"{first:$first, last:$last}\">\n    <div class=\"span1 col-xs-1 text-center general-row no-padding\"><strong ng-bind=\"$eval(vm.category.templateList)\"></strong></div>\n    <div class=\"span1 col-xs-1 text-center general-row no-padding\"><strong ng-bind=\"category.number\"></strong></div>\n    <div class=\"col-xs-10 general-row no-padding\" >\n      <div class=\"line\"></div>\n      <div ng-repeat=\"day in vm.view.days track by $index\" class=\"cal-week-7 category-event\" ng-class=\"{first:$first, last:$last, 'today-row': day.isToday}\">\n        <div\n          class=\"cell-room\"\n          ng-click=\"vm.onRoomClick(day.date, category)\"\n          uib-tooltip-html=\"vm.showTooltip(category) | calendarTrustAsHtml\"\n          tooltip-placement=\"bottom\"\n          tooltip-append-to-body=\"true\">\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n";
+	module.exports = "\n<div class=\"cal-week-box\" ng-class=\"{'cal-day-box': (vm.showTimes||vm.category.showCategories)}\">\n  <div class=\"row row-header table-mwl\">\n    <div class=\"col-xs-1 header-title general-row no-border no-padding\" ng-if=\"vm.category.templateHeaderList\">{{vm.category.templateHeaderList}}</div>\n    <div class=\"col-xs-1 header-title general-row no-border no-padding\" ng-if=\"vm.category.categoryHeaderList\">{{vm.category.categoryHeaderList}}</div>\n    <div class=\"col-xs-10 header-title general-row no-border no-padding\">\n      <div class=\"cal-row-fluid cal-row-head\">\n        <div\n          class=\"cal-week-7 pointer\"\n          ng-repeat=\"day in vm.view.days track by $index\"\n          style=\"display: inline-block;text-align:center;\"\n          ng-class=\"{\n            'cal-day-weekend': day.isWeekend,\n            'cal-day-past': day.isPast,\n            'today-row': day.isToday,\n            'cal-day-future': day.isFuture}\"\n          mwl-element-dimensions=\"vm.dayColumnDimensions\"\n          ng-click=\"vm.calendarCtrl.dateClicked(day.date)\">\n\n          <span ng-bind=\"day.weekDayLabel\"></span>\n          <small>\n            <span\n              data-cal-date\n              ng-bind=\"day.dayLabel\">\n            </span>\n          </small>\n\n        </div>\n\n      </div>\n    </div>\n  </div>\n\n  <div class=\"row table-mwl\">\n    <div class=\"col-xs-2 no-padding\"></div>\n    <div class=\"col-xs-10 no-padding\">\n      <div\n      style=\"position:relative;\"\n        ng-repeat=\"event in vm.view.events track by event.$id\">\n        <div\n          ng-class=\"'grid-week-7-' + event.daySpan +  ' grid-week-left-7-' + event.dayOffset + ' day-highlight dh-event-' + event.type + ' ' + event.cssClass\"\n          ng-style=\"{\n            top: (vm.showTimes||vm.category.showCategories) ? ((event.top + 2) + 'px') : 'auto',\n            position: (vm.showTimes||vm.category.showCategories) ? 'absolute' : 'inherit',\n            width: '',\n            left: ''\n          }\"\n          data-event-class\n          uib-tooltip-html=\"event.tooltip(event) | calendarTrustAsHtml\"\n          tooltip-placement=\"bottom\"\n          tooltip-append-to-body=\"true\"\n          ng-click=\"vm.onEventClick(event)\">\n          <strong ng-bind=\"(event.tempStartsAt || event.startsAt) | calendarDate:'time':true\" ng-show=\"vm.showTimes\"></strong>\n          <a\n            href=\"javascript:;\"\n            class=\"event-item\"\n            ng-bind-html=\"vm.$sce.trustAsHtml(event.title)\">\n          </a>\n        </div>\n      </div>\n    </div>\n  </div>\n\n  <div class=\"row table-mwl\" ng-repeat=\"category in vm.categories track by $index\" ng-class=\"{first:$first, last:$last}\">\n    <div class=\"span1 col-xs-1 text-center general-row no-padding\"><strong ng-bind=\"$eval(vm.category.templateList)\"></strong></div>\n    <div class=\"span1 col-xs-1 text-center general-row no-padding\"><strong ng-bind=\"vm.parseNumber(category.number)\"></strong></div>\n    <div class=\"col-xs-10 general-row no-padding\" >\n      <div class=\"line\"></div>\n      <div ng-repeat=\"day in vm.view.days track by $index\" class=\"cal-week-7 category-event\" ng-class=\"{first:$first, last:$last, 'today-row': day.isToday}\">\n        <div\n          class=\"cell-room\"\n          ng-click=\"vm.onRoomClick(day.date, category)\"\n          uib-tooltip-html=\"vm.showTooltip(category) | calendarTrustAsHtml\"\n          tooltip-placement=\"bottom\"\n          tooltip-append-to-body=\"true\">\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n";
 
 /***/ },
 /* 27 */
@@ -576,6 +576,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    vm.showTimes = calendarConfig.showTimesOnWeekView;
 	    vm.category = calendarConfig.category;
 	    vm.categories = vm.categories || [];
+	    vm.parseNumber = calendarHelper.parseNumber;
 
 	    vm.$sce = $sce;
 
@@ -933,6 +934,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    vm.showTimes = calendarConfig.showTimesOnWeekView;
 	    vm.category = calendarConfig.category;
 	    vm.categories = vm.categories;
+	    vm.parseNumber = calendarHelper.parseNumber;
 
 	    vm.$sce = $sce;
 
@@ -2319,6 +2321,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	      return ((dayViewEndM.diff(dayViewStartM, 'hours') + 1) * hourHeight) + 2;
 	    }
 
+	    function parseNumber(number) {
+	      var ln = parseInt(calendarConfig.category.roomNameLenght);
+	      var finalName = '';
+
+	      for (var f = 0; f < ln; f++) {
+	        finalName += '0';
+	      }
+	      return (finalName + number.toString()).slice(-ln);
+	    }
+
 	    return {
 	      getWeekDayNames: getWeekDayNames,
 	      getYearView: getYearView,
@@ -2331,7 +2343,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	      getDayViewHeight: getDayViewHeight,
 	      adjustEndDateFromStartDiff: adjustEndDateFromStartDiff,
 	      formatDate: formatDate,
-	      eventIsInPeriod: eventIsInPeriod //expose for testing only
+	      eventIsInPeriod: eventIsInPeriod, //expose for testing only
+	      parseNumber: parseNumber
 	    };
 
 	  }]);
@@ -2348,6 +2361,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	angular
 	  .module('mwl.calendar')
 	  .factory('calendarInputEvents', ["moment", "calendarConfig", function(moment, calendarConfig) {
+	    function truncate(str, number) {
+	      if (str.length > number) {
+	        return str.substring(0, number) + '...';
+	      }
+	      return str;
+	    }
 
 	    function randomId() {
 	      return Math.floor(Math.random() * 1000000000);
@@ -2356,7 +2375,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    function addNewElement(eventsList, title, type, startE, endE, category, bid, clean, state, user, tooltip) {
 	      var el = {
 	        $id: randomId(),
-	        title: title,
+	        title: truncate(title, calendarConfig.category.userNameLenght),
 	        type: type,
 	        startsAt: startE,
 	        endsAt: endE,

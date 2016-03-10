@@ -494,6 +494,16 @@ angular
       return ((dayViewEndM.diff(dayViewStartM, 'hours') + 1) * hourHeight) + 2;
     }
 
+    function parseNumber(number) {
+      var ln = parseInt(calendarConfig.category.roomNameLenght);
+      var finalName = '';
+
+      for (var f = 0; f < ln; f++) {
+        finalName += '0';
+      }
+      return (finalName + number.toString()).slice(-ln);
+    }
+
     return {
       getWeekDayNames: getWeekDayNames,
       getYearView: getYearView,
@@ -506,7 +516,8 @@ angular
       getDayViewHeight: getDayViewHeight,
       adjustEndDateFromStartDiff: adjustEndDateFromStartDiff,
       formatDate: formatDate,
-      eventIsInPeriod: eventIsInPeriod //expose for testing only
+      eventIsInPeriod: eventIsInPeriod, //expose for testing only
+      parseNumber: parseNumber
     };
 
   });
