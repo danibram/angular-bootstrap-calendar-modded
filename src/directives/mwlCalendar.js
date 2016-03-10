@@ -4,13 +4,13 @@ var angular = require('angular');
 
 angular
   .module('mwl.calendar')
-  .controller('MwlCalendarCtrl', function($scope, $log, $timeout, $attrs, $locale, moment, calendarTitle) {
+  .controller('MwlCalendarCtrl', function($scope, $log, $timeout, $attrs, $locale, calendarInputEvents, moment, calendarTitle) {
 
     var vm = this;
 
     vm.customData = vm.customData || {};
-    vm.events = vm.events || [];
-    vm.categories = vm.categories || [];
+    vm.events = calendarInputEvents.calendarioToEvents(vm.calendario);
+    vm.categories = calendarInputEvents.calendarioToCategories(vm.calendario);
 
     vm.changeView = function(view, newDay) {
       vm.view = view;
@@ -116,14 +116,15 @@ angular
       templateUrl: calendarConfig.templates.calendar,
       restrict: 'E',
       scope: {
-        events: '=',
+        calendario: '=',
         view: '=',
         viewTitle: '=?',
         viewDate: '=',
         editEventHtml: '=?',
         deleteEventHtml: '=?',
         cellIsOpen: '=?',
-        onEventClick: '&',
+        onEventClick: '=',
+        onRoomClick: '=',
         onEventTimesChanged: '&',
         onEditEventClick: '&',
         onDeleteEventClick: '&',
@@ -133,7 +134,6 @@ angular
         dayViewStart: '@',
         dayViewEnd: '@',
         dayViewSplit: '@',
-        categories: '=?',
         customData: '=?'
       },
       controller: 'MwlCalendarCtrl as vm',

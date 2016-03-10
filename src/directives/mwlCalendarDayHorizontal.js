@@ -60,49 +60,16 @@ angular
       }
     });
 
-    vm.eventDragComplete = function(event, minuteChunksMoved) {
-      var minutesDiff = minuteChunksMoved * vm.dayViewSplit;
-      var newStart = moment(event.startsAt).add(minutesDiff, 'minutes');
-      var newEnd = moment(event.endsAt).add(minutesDiff, 'minutes');
-      delete event.tempStartsAt;
-
-      vm.onEventTimesChanged({
-        calendarEvent: event,
-        calendarNewEventStart: newStart.toDate(),
-        calendarNewEventEnd: event.endsAt ? newEnd.toDate() : null
-      });
+    vm.onRClick = function(hour, category) {
+      vm.onRoomClick(moment(vm.viewDate).hours(hour.label), category);
     };
 
-    vm.eventDragged = function(event, minuteChunksMoved) {
-      var minutesDiff = minuteChunksMoved * vm.dayViewSplit;
-      event.tempStartsAt = moment(event.startsAt).add(minutesDiff, 'minutes').toDate();
+    vm.showTooltip = function(category) {
+        var text = 'Type: ' + category.type + '<br/>';
+        text += 'Size: ' + category.size + '<br/>';
+        text += 'Clean: ' + category.isclean;
+        return text;
     };
-
-    vm.eventResizeComplete = function(event, edge, minuteChunksMoved) {
-      var minutesDiff = minuteChunksMoved * vm.dayViewSplit;
-      var start = moment(event.startsAt);
-      var end = moment(event.endsAt);
-      if (edge === 'start') {
-        start.add(minutesDiff, 'minutes');
-      } else {
-        end.add(minutesDiff, 'minutes');
-      }
-      delete event.tempStartsAt;
-
-      vm.onEventTimesChanged({
-        calendarEvent: event,
-        calendarNewEventStart: start.toDate(),
-        calendarNewEventEnd: end.toDate()
-      });
-    };
-
-    vm.eventResized = function(event, edge, minuteChunksMoved) {
-      var minutesDiff = minuteChunksMoved * vm.dayViewSplit;
-      if (edge === 'start') {
-        event.tempStartsAt = moment(event.startsAt).add(minutesDiff, 'minutes').toDate();
-      }
-    };
-
   })
   .directive('mwlCalendarDayHorizontal', function(calendarConfig) {
 
@@ -115,6 +82,7 @@ angular
         categories: '=?',
         viewDate: '=',
         onEventClick: '=',
+        onRoomClick: '=',
         onEventTimesChanged: '=',
         onTimespanClick: '=',
         dayViewStart: '=',

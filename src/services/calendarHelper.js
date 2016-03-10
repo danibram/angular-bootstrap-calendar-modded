@@ -4,7 +4,7 @@ var angular = require('angular');
 
 angular
   .module('mwl.calendar')
-  .factory('calendarHelper', function(dateFilter, moment, calendarConfig) {
+  .factory('calendarHelper', function(dateFilter, moment, calendarConfig, calendarInputEvents) {
 
     function formatDate(date, format) {
       if (calendarConfig.dateFormatter === 'angular') {
@@ -340,12 +340,15 @@ angular
       var roomHeight = 30;
       var buckets = [];
 
-      var eventsInPeriod = filterEventsInPeriod(
+      events = calendarInputEvents.processEvents(events, moment(viewDate).startOf('day'), moment(viewDate).endOf('day'), true);
+
+      events = filterEventsInPeriod(
         events,
         moment(viewDate).startOf('day').toDate(),
         moment(viewDate).endOf('day').toDate()
       );
-      return eventsInPeriod.map(function(event) {
+
+      return events.map(function(event) {
         var evStart, evEnd;
         var counter = -1;
 
@@ -431,7 +434,10 @@ angular
         dayCounter.add(1, 'day');
       }
 
-      var eventsSorted = filterEventsInPeriod(events, startOfWeek, endOfWeek).map(function(event) {
+      events = calendarInputEvents.processEvents(events, startOfWeek, endOfWeek);
+      events = filterEventsInPeriod(events, startOfWeek, endOfWeek);
+
+      var eventsSorted = events.map(function(event) {
 
         var weekViewStart = moment(startOfWeek).startOf('day');
         var weekViewEnd = moment(endOfWeek).startOf('day');

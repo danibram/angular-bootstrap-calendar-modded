@@ -4,27 +4,23 @@
     <div class="col-xs-1 row-header" ng-if="vm.category.templateHeaderList">{{vm.category.templateHeaderList}}</div>
     <div class="col-xs-1 row-header" ng-if="vm.category.categoryHeaderList">{{vm.category.categoryHeaderList}}</div>
     <div class="col-xs-10">
-
       <div class="cal-row-fluid cal-row-head">
-
         <div
-          class="cal-week-7"
+          class="cal-week-7 pointer"
           ng-repeat="day in vm.view.days track by $index"
-          style="display: inline-block;text-align:center;"
+          style="display: inline-block;text-align:center;padding:5px 0;"
           ng-class="{
             'cal-day-weekend': day.isWeekend,
             'cal-day-past': day.isPast,
             'cal-day-today': day.isToday,
             'cal-day-future': day.isFuture}"
-          mwl-element-dimensions="vm.dayColumnDimensions">
+          mwl-element-dimensions="vm.dayColumnDimensions"
+          ng-click="vm.calendarCtrl.dateClicked(day.date)">
 
           <span ng-bind="day.weekDayLabel"></span>
-          <br>
           <small>
             <span
               data-cal-date
-              ng-click="vm.calendarCtrl.dateClicked(day.date)"
-              class="pointer"
               ng-bind="day.dayLabel">
             </span>
           </small>
@@ -35,60 +31,49 @@
     </div>
   </div>
 
-  <div class="cal-day-panel clearfix" ng-style="{height: (vm.showTimes||vm.category.showCategories) ? (vm.dayViewHeight + 'px') : 'auto'}">
-
-    <mwl-calendar-hour-list
-      day-view-start="vm.dayViewStart"
-      day-view-end="vm.dayViewEnd"
-      day-view-split="vm.dayViewSplit"
-      view-date="vm.viewDate"
-      on-timespan-click="vm.onTimespanClick"
-      ng-if="vm.showTimes">
-    </mwl-calendar-hour-list>
-
-    <mwl-calendar-category-list
-      categories="vm.categories"
-      ng-if="vm.category.showCategories">
-    </mwl-calendar-category-list>
-
-    <div class="row">
-      <div class="col-xs-2"></div>
-      <div class="col-xs-10">
+  <div class="row">
+    <div class="col-xs-2"></div>
+    <div class="col-xs-10">
+      <div
+      style="position:relative;"
+        ng-repeat="event in vm.view.events track by event.$id">
         <div
-        style="position:relative;"
-          ng-repeat="event in vm.view.events track by event.$id">
-          <div
-            ng-class="'grid-week-7-' + event.daySpan +  ' grid-week-left-7-' + event.dayOffset + ' day-highlight dh-event-' + event.type + ' ' + event.cssClass"
-            ng-style="{
-              top: (vm.showTimes||vm.category.showCategories) ? ((event.top + 2) + 'px') : 'auto',
-              position: (vm.showTimes||vm.category.showCategories) ? 'absolute' : 'inherit',
-              width: '',
-              left: ''
-            }"
-            data-event-class
-            mwl-draggable="event.draggable === true"
-            axis="vm.showTimes ? 'xy' : 'x'"
-            snap-grid="vm.showTimes ? {x: vm.dayColumnDimensions.width, y: 30} : {x: vm.dayColumnDimensions.width}"
-            on-drag="vm.tempTimeChanged(event, y)"
-            on-drag-end="vm.weekDragged(event, x, y)"
-            mwl-resizable="event.resizable === true && event.endsAt && !vm.showTimes"
-            resize-edges="{left: true, right: true}"
-            on-resize-end="vm.weekResized(event, edge, x)"
-            uib-tooltip-html="event.tooltip(event) | calendarTrustAsHtml"
-            tooltip-placement="bottom"
-            tooltip-append-to-body="true">
-            <strong ng-bind="(event.tempStartsAt || event.startsAt) | calendarDate:'time':true" ng-show="vm.showTimes"></strong>
-            <a
-              href="javascript:;"
-              ng-click="vm.onEventClick({calendarEvent: event})"
-              class="event-item"
-              ng-bind-html="vm.$sce.trustAsHtml(event.title)">
-            </a>
-          </div>
+          ng-class="'grid-week-7-' + event.daySpan +  ' grid-week-left-7-' + event.dayOffset + ' day-highlight dh-event-' + event.type + ' ' + event.cssClass"
+          ng-style="{
+            top: (vm.showTimes||vm.category.showCategories) ? ((event.top + 2) + 'px') : 'auto',
+            position: (vm.showTimes||vm.category.showCategories) ? 'absolute' : 'inherit',
+            width: '',
+            left: ''
+          }"
+          data-event-class
+          uib-tooltip-html="event.tooltip(event) | calendarTrustAsHtml"
+          tooltip-placement="bottom"
+          tooltip-append-to-body="true"
+          ng-click="vm.onEventClick(event)">
+          <strong ng-bind="(event.tempStartsAt || event.startsAt) | calendarDate:'time':true" ng-show="vm.showTimes"></strong>
+          <a
+            href="javascript:;"
+            class="event-item"
+            ng-bind-html="vm.$sce.trustAsHtml(event.title)">
+          </a>
         </div>
       </div>
-
     </div>
+  </div>
 
+  <div class="row" ng-repeat="category in vm.categories track by $index">
+    <div class="span1 col-xs-1 text-center" style="height: 30px;line-height: 30px;"><strong ng-bind="$eval(vm.category.templateList)"></strong></div>
+    <div class="span1 col-xs-1 text-center" style="height: 30px;line-height: 30px;"><strong ng-bind="category.number"></strong></div>
+    <div class="col-xs-10" style="height: 30px;line-height: 30px;">
+      <div
+        class="cal-week-7"
+        style="display: inline-block;text-align:center;height:30px;"
+        ng-repeat="day in vm.view.days track by $index"
+        ng-click="vm.onRoomClick(day.date, category)"
+        uib-tooltip-html="vm.showTooltip(category) | calendarTrustAsHtml"
+        tooltip-placement="bottom"
+        tooltip-append-to-body="true">
+      </div>
+    </div>
   </div>
 </div>

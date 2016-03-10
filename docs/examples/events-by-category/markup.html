@@ -63,12 +63,13 @@
   <br>
 
   <mwl-calendar
-    categories="vm.categories"
-    events="vm.events"
+    calendario="vm.calendario"
     view="vm.calendarView"
     view-date="vm.viewDate"
     customData="vm.customData"
-    on-event-times-changed="vm.eventTimesChanged(calendarEvent);">
+    on-event-click="vm.onBookingClick"
+    on-room-click="vm.onRoomClick"
+    on-view-change-click="vm.viewChangeClicked(calendarDate, calendarNextView)">
   </mwl-calendar>
 
 </div>

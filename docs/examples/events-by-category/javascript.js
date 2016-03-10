@@ -82,6 +82,76 @@ angular
         state: 'close',
         b_id: '341221342'
       }]
+    }, {
+      id: 12,
+      number: '22',
+      type: 'Suite',
+      size: 5,
+      isclean: false,
+      booking: [{
+        in: moment().startOf('day').subtract(5, 'days').toDate(),
+        out: moment().endOf('day').toDate(),
+        surname: 'Bohr',
+        name: 'Niels',
+        state: 'out',
+        b_id: '341221342'
+      }]
+    }, {
+      id: 13,
+      number: '25',
+      type: 'Suite',
+      size: 5,
+      isclean: false,
+      booking: [{
+        in: moment().startOf('day').toDate(),
+        out: moment().endOf('day').add(6, 'days').toDate(),
+        surname: 'Bohr',
+        name: 'Niels',
+        state: 'in',
+        b_id: '341221342'
+      }]
+    }, {
+      id: 17,
+      number: '27',
+      type: 'Suite',
+      size: 5,
+      isclean: false,
+      booking: [{
+        in: moment().startOf('day').subtract(6, 'days').toDate(),
+        out: moment().endOf('day').add(6, 'days').toDate(),
+        surname: 'Bohr',
+        name: 'Niels',
+        state: 'booked',
+        b_id: '341221342'
+      }]
+    }, {
+      id: 18,
+      number: '24',
+      type: 'Doppia',
+      size: 2,
+      isclean: false,
+      booking: [{
+        in: moment().add(1, 'hours').toDate(),
+        out: moment().add(1, 'days').endOf('day').toDate(),
+        surname: 'Bohr',
+        name: 'Niels',
+        state: 'in',
+        b_id: '341221342'
+      }]
+    }, {
+      id: 18,
+      number: '28',
+      type: 'Doppia',
+      size: 2,
+      isclean: false,
+      booking: [{
+        in: moment().toDate(),
+        out: moment().add(1, 'days').toDate(),
+        surname: 'Bohr',
+        name: 'Niels',
+        state: 'in',
+        b_id: '341221342'
+      }]
     }];
 
     moment.locale('it', {
@@ -114,7 +184,12 @@ angular
       calendarMonth: calendarMonth
     };
 
-    vm.eventClicked = function(event) {};
+    vm.onBookingClick = function(event) {
+      console.log(event)
+    };
+    vm.onRoomClick = function(day, room) {
+      console.log(day, room)
+    };
 
     vm.viewChangeClicked = function(date, nextView) {
       if (nextView == 'day') {

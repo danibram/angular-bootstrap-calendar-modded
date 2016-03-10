@@ -4,7 +4,7 @@ var angular = require('angular');
 
 angular
   .module('mwl.calendar')
-  .controller('MwlCalendarWeekCtrl', function($scope, $sce, moment, calendarHelper, calendarConfig) {
+  .controller('MwlCalendarWeekCtrl', function($scope, $sce, calendarHelper, calendarConfig) {
 
     var vm = this;
 
@@ -42,47 +42,13 @@ angular
       }
     });
 
-    vm.weekDragged = function(event, daysDiff, minuteChunksMoved) {
+    vm.category = calendarConfig.category;
 
-      var newStart = moment(event.startsAt).add(daysDiff, 'days');
-      var newEnd = moment(event.endsAt).add(daysDiff, 'days');
-
-      if (minuteChunksMoved) {
-        var minutesDiff = minuteChunksMoved * vm.dayViewSplit;
-        newStart = newStart.add(minutesDiff, 'minutes');
-        newEnd = newEnd.add(minutesDiff, 'minutes');
-      }
-
-      delete event.tempStartsAt;
-
-      vm.onEventTimesChanged({
-        calendarEvent: event,
-        calendarNewEventStart: newStart.toDate(),
-        calendarNewEventEnd: event.endsAt ? newEnd.toDate() : null
-      });
-    };
-
-    vm.weekResized = function(event, edge, daysDiff) {
-
-      var start = moment(event.startsAt);
-      var end = moment(event.endsAt);
-      if (edge === 'start') {
-        start.add(daysDiff, 'days');
-      } else {
-        end.add(daysDiff, 'days');
-      }
-
-      vm.onEventTimesChanged({
-        calendarEvent: event,
-        calendarNewEventStart: start.toDate(),
-        calendarNewEventEnd: end.toDate()
-      });
-
-    };
-
-    vm.tempTimeChanged = function(event, minuteChunksMoved) {
-      var minutesDiff = minuteChunksMoved * vm.dayViewSplit;
-      event.tempStartsAt = moment(event.startsAt).add(minutesDiff, 'minutes').toDate();
+    vm.showTooltip = function(category) {
+        var text = 'Type: ' + category.type + '<br/>';
+        text += 'Size: ' + category.size + '<br/>';
+        text += 'Clean: ' + category.isclean;
+        return text;
     };
 
   })
@@ -96,6 +62,7 @@ angular
         events: '=',
         viewDate: '=',
         onEventClick: '=',
+        onRoomClick: '=',
         onEventTimesChanged: '=',
         dayViewStart: '=',
         dayViewEnd: '=',

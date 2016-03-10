@@ -3009,7 +3009,7 @@
   padding-top: 0px !important;
   margin-top: 0px !important;
   margin-bottom: 0px !important;
-  font-size: 12px;
+  font-size: 14px;
   padding: 0 3px !important;
 }
 .cal-week-box .cal-day-panel {
@@ -3077,8 +3077,10 @@
   background-color: #fafafa;
 }
 .cal-day-box .cal-day-panel {
-  position: relative;
   border: solid 1px #e1e1e1;
+  position: absolute;
+  top: 41px;
+  width: 100%;
 }
 .cal-day-box .cal-day-panel-hour {
   position: absolute;
@@ -3101,7 +3103,6 @@
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  margin: 1px 1px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -3164,6 +3165,11 @@
 .day-highlight {
   background-color: #444;
 }
+.day-highlight.dh-event-ghost:hover,
+.day-highlight.dh-event-ghost {
+  z-index: 9999999999;
+  background-color: transparent;
+}
 .day-highlight.dh-event-booked:hover,
 .day-highlight.dh-event-booked {
   background-color: #ad2121;
@@ -3179,6 +3185,14 @@
 .day-highlight.dh-event-in:hover,
 .day-highlight.dh-event-in {
   background-color: dodgerblue;
+}
+.day-highlight.dh-event-fast:hover,
+.day-highlight.dh-event-fast {
+  background-color: orange;
+}
+.day-highlight.dh-event-cleaner:hover,
+.day-highlight.dh-event-cleaner {
+  background-color: #000;
 }
 .day-highlight.dh-event-important:hover,
 .day-highlight.dh-event-important {
@@ -3303,9 +3317,6 @@ span[data-cal-date]:hover {
   border-radius: 5px 0 0 5px;
   background-color: #fafafa;
   text-align: right;
-}
-.cal-week-box .cal-row-head {
-  border-bottom: 1px solid #e1e1e1;
 }
 .cal-day-tick {
   border: 1px solid #e1e1e1;

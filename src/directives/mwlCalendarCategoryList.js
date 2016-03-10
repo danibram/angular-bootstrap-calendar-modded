@@ -22,8 +22,10 @@ angular
       templateUrl: calendarConfig.templates.calendarCategoryList,
       controller: 'MwlCalendarCategoryListCtrl as vm',
       scope: {
-        categories: '=?',
-        onTimespanClick: '='
+        categories: '=',
+        onRoomClick: '=',
+        days: '=',
+        week: '=?'
       },
       bindToController: true
     };

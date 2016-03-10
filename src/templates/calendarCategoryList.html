@@ -1,17 +1,15 @@
-<div class="cal-day-panel-hour">
-  <div class="cal-day-hour" ng-repeat="category in vm.categories track by $index">
+<div class="row" ng-repeat="category in vm.categories track by $index">
+  <div class="span1 col-xs-1 text-center"><strong ng-bind="$eval(vm.category.templateList)"></strong></div>
+  <div class="span1 col-xs-1 text-center"><strong ng-bind="category.number"></strong></div>
+  <div class="col-xs-10">
     <div
-      class="row-fluid cal-day-hour-part"
-      ng-click="vm.onTimespanClick({calendarDate: hour.date.toDate()})">
-      <div class="span1 col-xs-1 text-center"><strong ng-bind="$eval(vm.category.templateList)"></strong></div>
-      <div class="span1 col-xs-1 text-center"><strong ng-bind="category.number"></strong></div>
-      <div class="span10 col-xs-10"
-      style="height:30px;"
+      class="cal-week-7"
+      style="display: inline-block;text-align:center;height:30px;"
+      ng-repeat="day in vm.days track by $index"
+      ng-click="vm.onRoomClick(day.date, category)"
       uib-tooltip-html="vm.showTooltip(category) | calendarTrustAsHtml"
       tooltip-placement="bottom"
-      tooltip-append-to-body="true"></div>
+      tooltip-append-to-body="true">
     </div>
-
   </div>
-
 </div>

@@ -13,7 +13,7 @@
 		exports["angularBootstrapCalendarModuleName"] = factory(require("angular"), (function webpackLoadOptionalExternalModule() { try { return require("interact.js"); } catch(e) {} }()), require("moment"));
 	else
 		root["angularBootstrapCalendarModuleName"] = factory(root["angular"], root["interact"], root["moment"]);
-})(this, function(__WEBPACK_EXTERNAL_MODULE_14__, __WEBPACK_EXTERNAL_MODULE_41__, __WEBPACK_EXTERNAL_MODULE_43__) {
+})(this, function(__WEBPACK_EXTERNAL_MODULE_14__, __WEBPACK_EXTERNAL_MODULE_42__, __WEBPACK_EXTERNAL_MODULE_44__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -181,13 +181,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	angular
 	  .module('mwl.calendar')
-	  .controller('MwlCalendarCtrl', ["$scope", "$log", "$timeout", "$attrs", "$locale", "moment", "calendarTitle", function($scope, $log, $timeout, $attrs, $locale, moment, calendarTitle) {
+	  .controller('MwlCalendarCtrl', ["$scope", "$log", "$timeout", "$attrs", "$locale", "calendarInputEvents", "moment", "calendarTitle", function($scope, $log, $timeout, $attrs, $locale, calendarInputEvents, moment, calendarTitle) {
 
 	    var vm = this;
 
 	    vm.customData = vm.customData || {};
-	    vm.events = vm.events || [];
-	    vm.categories = vm.categories || [];
+	    vm.events = calendarInputEvents.calendarioToEvents(vm.calendario);
+	    vm.categories = calendarInputEvents.calendarioToCategories(vm.calendario);
 
 	    vm.changeView = function(view, newDay) {
 	      vm.view = view;
@@ -293,14 +293,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	      templateUrl: calendarConfig.templates.calendar,
 	      restrict: 'E',
 	      scope: {
-	        events: '=',
+	        calendario: '=',
 	        view: '=',
 	        viewTitle: '=?',
 	        viewDate: '=',
 	        editEventHtml: '=?',
 	        deleteEventHtml: '=?',
 	        cellIsOpen: '=?',
-	        onEventClick: '&',
+	        onEventClick: '=',
+	        onRoomClick: '=',
 	        onEventTimesChanged: '&',
 	        onEditEventClick: '&',
 	        onDeleteEventClick: '&',
@@ -310,7 +311,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        dayViewStart: '@',
 	        dayViewEnd: '@',
 	        dayViewSplit: '@',
-	        categories: '=?',
 	        customData: '=?'
 	      },
 	      controller: 'MwlCalendarCtrl as vm',
@@ -348,8 +348,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	      templateUrl: calendarConfig.templates.calendarCategoryList,
 	      controller: 'MwlCalendarCategoryListCtrl as vm',
 	      scope: {
-	        categories: '=?',
-	        onTimespanClick: '='
+	        categories: '=',
+	        onRoomClick: '=',
+	        days: '=',
+	        week: '=?'
 	      },
 	      bindToController: true
 	    };
@@ -525,49 +527,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	      }
 	    });
 
-	    vm.eventDragComplete = function(event, minuteChunksMoved) {
-	      var minutesDiff = minuteChunksMoved * vm.dayViewSplit;
-	      var newStart = moment(event.startsAt).add(minutesDiff, 'minutes');
-	      var newEnd = moment(event.endsAt).add(minutesDiff, 'minutes');
-	      delete event.tempStartsAt;
-
-	      vm.onEventTimesChanged({
-	        calendarEvent: event,
-	        calendarNewEventStart: newStart.toDate(),
-	        calendarNewEventEnd: event.endsAt ? newEnd.toDate() : null
-	      });
+	    vm.onRClick = function(hour, category) {
+	      vm.onRoomClick(moment(vm.viewDate).hours(hour.label), category);
 	    };
 
-	    vm.eventDragged = function(event, minuteChunksMoved) {
-	      var minutesDiff = minuteChunksMoved * vm.dayViewSplit;
-	      event.tempStartsAt = moment(event.startsAt).add(minutesDiff, 'minutes').toDate();
+	    vm.showTooltip = function(category) {
+	        var text = 'Type: ' + category.type + '<br/>';
+	        text += 'Size: ' + category.size + '<br/>';
+	        text += 'Clean: ' + category.isclean;
+	        return text;
 	    };
-
-	    vm.eventResizeComplete = function(event, edge, minuteChunksMoved) {
-	      var minutesDiff = minuteChunksMoved * vm.dayViewSplit;
-	      var start = moment(event.startsAt);
-	      var end = moment(event.endsAt);
-	      if (edge === 'start') {
-	        start.add(minutesDiff, 'minutes');
-	      } else {
-	        end.add(minutesDiff, 'minutes');
-	      }
-	      delete event.tempStartsAt;
-
-	      vm.onEventTimesChanged({
-	        calendarEvent: event,
-	        calendarNewEventStart: start.toDate(),
-	        calendarNewEventEnd: end.toDate()
-	      });
-	    };
-
-	    vm.eventResized = function(event, edge, minuteChunksMoved) {
-	      var minutesDiff = minuteChunksMoved * vm.dayViewSplit;
-	      if (edge === 'start') {
-	        event.tempStartsAt = moment(event.startsAt).add(minutesDiff, 'minutes').toDate();
-	      }
-	    };
-
 	  }])
 	  .directive('mwlCalendarDayHorizontal', ["calendarConfig", function(calendarConfig) {
 
@@ -580,6 +549,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        categories: '=?',
 	        viewDate: '=',
 	        onEventClick: '=',
+	        onRoomClick: '=',
 	        onEventTimesChanged: '=',
 	        onTimespanClick: '=',
 	        dayViewStart: '=',
@@ -853,7 +823,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	angular
 	  .module('mwl.calendar')
-	  .controller('MwlCalendarWeekCtrl', ["$scope", "$sce", "moment", "calendarHelper", "calendarConfig", function($scope, $sce, moment, calendarHelper, calendarConfig) {
+	  .controller('MwlCalendarWeekCtrl', ["$scope", "$sce", "calendarHelper", "calendarConfig", function($scope, $sce, calendarHelper, calendarConfig) {
 
 	    var vm = this;
 
@@ -891,47 +861,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	      }
 	    });
 
-	    vm.weekDragged = function(event, daysDiff, minuteChunksMoved) {
+	    vm.category = calendarConfig.category;
 
-	      var newStart = moment(event.startsAt).add(daysDiff, 'days');
-	      var newEnd = moment(event.endsAt).add(daysDiff, 'days');
-
-	      if (minuteChunksMoved) {
-	        var minutesDiff = minuteChunksMoved * vm.dayViewSplit;
-	        newStart = newStart.add(minutesDiff, 'minutes');
-	        newEnd = newEnd.add(minutesDiff, 'minutes');
-	      }
-
-	      delete event.tempStartsAt;
-
-	      vm.onEventTimesChanged({
-	        calendarEvent: event,
-	        calendarNewEventStart: newStart.toDate(),
-	        calendarNewEventEnd: event.endsAt ? newEnd.toDate() : null
-	      });
-	    };
-
-	    vm.weekResized = function(event, edge, daysDiff) {
-
-	      var start = moment(event.startsAt);
-	      var end = moment(event.endsAt);
-	      if (edge === 'start') {
-	        start.add(daysDiff, 'days');
-	      } else {
-	        end.add(daysDiff, 'days');
-	      }
-
-	      vm.onEventTimesChanged({
-	        calendarEvent: event,
-	        calendarNewEventStart: start.toDate(),
-	        calendarNewEventEnd: end.toDate()
-	      });
-
-	    };
-
-	    vm.tempTimeChanged = function(event, minuteChunksMoved) {
-	      var minutesDiff = minuteChunksMoved * vm.dayViewSplit;
-	      event.tempStartsAt = moment(event.startsAt).add(minutesDiff, 'minutes').toDate();
+	    vm.showTooltip = function(category) {
+	        var text = 'Type: ' + category.type + '<br/>';
+	        text += 'Size: ' + category.size + '<br/>';
+	        text += 'Clean: ' + category.isclean;
+	        return text;
 	    };
 
 	  }])
@@ -945,6 +881,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        events: '=',
 	        viewDate: '=',
 	        onEventClick: '=',
+	        onRoomClick: '=',
 	        onEventTimesChanged: '=',
 	        dayViewStart: '=',
 	        dayViewEnd: '=',
@@ -1662,9 +1599,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	var map = {
 		"./calendarConfig.js": 37,
 		"./calendarHelper.js": 38,
-		"./calendarTitle.js": 39,
-		"./interact.js": 40,
-		"./moment.js": 42
+		"./calendarInputEvents.js": 39,
+		"./calendarTitle.js": 40,
+		"./interact.js": 41,
+		"./moment.js": 43
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -1758,7 +1696,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	angular
 	  .module('mwl.calendar')
-	  .factory('calendarHelper', ["dateFilter", "moment", "calendarConfig", function(dateFilter, moment, calendarConfig) {
+	  .factory('calendarHelper', ["dateFilter", "moment", "calendarConfig", "calendarInputEvents", function(dateFilter, moment, calendarConfig, calendarInputEvents) {
 
 	    function formatDate(date, format) {
 	      if (calendarConfig.dateFormatter === 'angular') {
@@ -2094,12 +2032,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	      var roomHeight = 30;
 	      var buckets = [];
 
-	      var eventsInPeriod = filterEventsInPeriod(
+	      events = calendarInputEvents.processEvents(events, moment(viewDate).startOf('day'), moment(viewDate).endOf('day'), true);
+
+	      events = filterEventsInPeriod(
 	        events,
 	        moment(viewDate).startOf('day').toDate(),
 	        moment(viewDate).endOf('day').toDate()
 	      );
-	      return eventsInPeriod.map(function(event) {
+
+	      return events.map(function(event) {
 	        var evStart, evEnd;
 	        var counter = -1;
 
@@ -2185,7 +2126,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	        dayCounter.add(1, 'day');
 	      }
 
-	      var eventsSorted = filterEventsInPeriod(events, startOfWeek, endOfWeek).map(function(event) {
+	      events = calendarInputEvents.processEvents(events, startOfWeek, endOfWeek);
+	      events = filterEventsInPeriod(events, startOfWeek, endOfWeek);
+
+	      var eventsSorted = events.map(function(event) {
 
 	        var weekViewStart = moment(startOfWeek).startOf('day');
 	        var weekViewEnd = moment(endOfWeek).startOf('day');
@@ -2270,6 +2214,183 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	angular
 	  .module('mwl.calendar')
+	  .factory('calendarInputEvents', ["moment", "calendarConfig", function(moment, calendarConfig) {
+
+	    function randomId() {
+	      return Math.floor(Math.random() * 1000000000);
+	    }
+
+	    function processEvents(events, start, end, day) {
+	      var newEvents = [];
+	      function newEl(eventsList, title, type, startE, endE, category, bid, clean, state, user, tooltip) {
+	        var el = {
+	          $id: randomId(),
+	          title: title,
+	          type: type,
+	          startsAt: startE,
+	          endsAt: endE,
+	          category: category,
+	          b_id: bid,
+	          isClean: clean,
+	          state: state,
+	          user: user
+	        };
+
+	        if (tooltip) {
+	          el.tooltip = function(event) {
+	            var text = '<strong>' + event.user + '</strong><br/>';
+	            text += 'In: ' + moment(new Date(event.startsAt)).format('DD/MM/YYYY') + '<br/>';
+	            text += 'Out: ' + moment(new Date(event.endsAt)).format('DD/MM/YYYY') + '<br/>';
+	            text += 'State: ' + event.state + '<br/>';
+	            text += 'Booking Id: ' + event.b_id + '<br/>';
+	            text += 'Clean: ' + event.isClean;
+	            return text;
+	          };
+	        }
+	        eventsList.push(el);
+	      }
+
+	      events.map(function(e) {
+	        var eventStart = moment(new Date(e.startsAt));
+	        var eventFinish = moment(new Date(e.endsAt));
+
+	        var category = e.category;
+	        var bid = e.b_id;
+	        var clean = e.isClean;
+	        var state = e.state;
+	        var user = e.title;
+
+	        newEl(newEvents, '', 'ghost', eventStart.toDate(), eventFinish.toDate(), category, bid, clean, state, user, function(event) {
+	          var text = '<strong>' + event.title + '</strong><br/>';
+	          text += 'In: ' + moment(new Date(event.startsAt)).format('DD/MM/YYYY') + '<br/>';
+	          text += 'Out: ' + moment(new Date(event.endsAt)).format('DD/MM/YYYY') + '<br/>';
+	          text += 'State: ' + event.type + '<br/>';
+	          text += 'Booking Id: ' + event.b_id + '<br/>';
+	          text += 'Clean: ' + event.isClean;
+	          return text;
+	        });
+
+	        if (moment(eventFinish).isAfter(end) && moment(eventStart).isBefore(start)) {
+	          newEl(newEvents, e.title, 'close', eventStart.toDate(), eventFinish.toDate(), category, bid, clean, state, user);
+	          return;
+	        }
+
+	        if (e.type === 'booked') {
+	          newEl(newEvents, e.title, 'booked', eventStart.toDate(), eventFinish.toDate(), category, bid, clean, state, user);
+	        } else if (e.type === 'in') {
+
+	          if (moment(eventFinish).diff(moment(eventStart), 'days') > 0) {
+	            newEl(newEvents, '', 'close', moment(eventStart).add(1, 'hours').toDate(), eventFinish.toDate(), category, bid, clean, state, user);
+	          }
+
+	          if (day &&
+	            calendarConfig.category.showMaid && moment(eventStart).diff(moment(), 'minutes') <= 60 && moment(eventStart).diff(moment(), 'minutes') >= 0) {
+	            newEl(newEvents,
+	              '<i class="eut-cleaner font-48"></i>',
+	              'cleaner',
+	              moment().toDate(),
+	              moment().add(1, 'hours').toDate(),
+	              category, bid, clean, state, user);
+	          }
+
+	          if (day &&
+	            calendarConfig.category.showMaid && moment(eventStart).diff(moment(), 'minutes') <= 0 && moment(eventStart).diff(moment(), 'minutes') >= -30) {
+	            newEl(newEvents, e.title, 'fast', eventStart.toDate(), moment(eventStart).add(1, 'hours').toDate(), category, bid, clean, state, user);
+	          } else {
+	            newEl(newEvents, e.title, 'in', eventStart.toDate(), moment(eventStart).add(1, 'hours').toDate(), category, bid, clean, state, user);
+	          }
+
+	        } else if (e.type === 'out') {
+	          if (moment(eventFinish).diff(moment(eventStart), 'days') > 0) {
+	            newEl(newEvents, '', 'close', eventStart.toDate(), moment(eventFinish).subtract(1, 'hours').toDate(), category, bid, clean, state, user);
+	          }
+	          newEl(newEvents, e.title, 'out', moment(eventFinish).subtract(1, 'hours').toDate(), eventFinish.toDate(), category, bid, clean, state, user);
+	        } else if (e.type === 'close') {
+	          var title = '';
+	          if (moment(eventFinish).isBefore(end) && moment(eventStart).isBefore(start)) {
+	            title = e.title;
+	          }
+	          newEl(newEvents, title, 'close', eventStart.toDate(), eventFinish.toDate(), category, bid, clean, state, user);
+	        }
+	      });
+	      return newEvents;
+	    }
+
+	    function calendarioToEvents(calendario) {
+	      var events = [];
+
+	      calendario.map(function(room) {
+	        if (room.booking && room.booking.length > 0) {
+	          room.booking.map(function(e) {
+
+	            events.push({
+	              title: e.name + ' ' + e.surname,
+	              type: e.state,
+	              state: e.state,
+	              startsAt: moment(new Date(e.in)).toDate(),
+	              endsAt: moment(new Date(e.out)).toDate(),
+	              category: room.number,
+	              b_id: e.b_id,
+	              isClean: room.isclean,
+	              tooltip: function(event) {
+	                var text = '<strong>' + event.title + '</strong><br/>';
+	                text += 'In: ' + moment(new Date(event.startsAt)).format('DD/MM/YYYY') + '<br/>';
+	                text += 'Out: ' + moment(new Date(event.endsAt)).format('DD/MM/YYYY') + '<br/>';
+	                text += 'State: ' + event.type + '<br/>';
+	                text += 'Booking Id: ' + event.b_id + '<br/>';
+	                text += 'Clean: ' + event.isClean;
+	                return text;
+	              }
+	            });
+	          });
+	        }
+	      });
+	      return events;
+	    }
+
+	    function calendarioToCategories(calendario) {
+
+	      return calendario.map(function(room) {
+	        delete room.booking;
+	        switch (room.type) {
+	          default:
+	            break;
+	          case 'Singola':
+	            room.typeDesc = 'S';
+	            break;
+	          case 'Doppia':
+	            room.typeDesc = 'D';
+	            break;
+	          case 'Tripla':
+	            room.typeDesc = 'T';
+	            break;
+	          case 'Suite':
+	            room.typeDesc = 'SS';
+	            break;
+	        }
+	        return room;
+	      });
+	    }
+
+	    return {
+	      processEvents: processEvents,
+	      calendarioToCategories: calendarioToCategories,
+	      calendarioToEvents: calendarioToEvents
+	    };
+
+	  }]);
+
+
+/***/ },
+/* 40 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var angular = __webpack_require__(14);
+
+	angular
+	  .module('mwl.calendar')
 	  .factory('calendarTitle', ["moment", "calendarConfig", "calendarHelper", function(moment, calendarConfig, calendarHelper) {
 
 	    function day(viewDate) {
@@ -2300,7 +2421,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 40 */
+/* 41 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2308,7 +2429,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var angular = __webpack_require__(14);
 	var interact;
 	try {
-	  interact = __webpack_require__(41);
+	  interact = __webpack_require__(42);
 	} catch (e) {
 	  /* istanbul ignore next */
 	  interact = null;
@@ -2320,20 +2441,20 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 41 */
+/* 42 */
 /***/ function(module, exports) {
 
-	if(typeof __WEBPACK_EXTERNAL_MODULE_41__ === 'undefined') {var e = new Error("Cannot find module \"undefined\""); e.code = 'MODULE_NOT_FOUND'; throw e;}
-	module.exports = __WEBPACK_EXTERNAL_MODULE_41__;
+	if(typeof __WEBPACK_EXTERNAL_MODULE_42__ === 'undefined') {var e = new Error("Cannot find module \"undefined\""); e.code = 'MODULE_NOT_FOUND'; throw e;}
+	module.exports = __WEBPACK_EXTERNAL_MODULE_42__;
 
 /***/ },
-/* 42 */
+/* 43 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var angular = __webpack_require__(14);
-	var moment = __webpack_require__(43);
+	var moment = __webpack_require__(44);
 
 	angular
 	  .module('mwl.calendar')
@@ -2341,10 +2462,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 43 */
+/* 44 */
 /***/ function(module, exports) {
 
-	module.exports = __WEBPACK_EXTERNAL_MODULE_43__;
+	module.exports = __WEBPACK_EXTERNAL_MODULE_44__;
 
 /***/ }
 /******/ ])
