@@ -124,6 +124,10 @@
 .cal-hour-24 {
   width: calc(4.16666667%);
 }
+.cal-hour-24:hover {
+  background-color: #FFF;
+  opacity: 0.25;
+}
 /*CSS to gen*/
 /*CSS to gen*/
 .grid-hour-24-24 {
@@ -321,6 +325,10 @@
 .cal-hour-23 {
   width: calc(4.34782609%);
 }
+.cal-hour-23:hover {
+  background-color: #FFF;
+  opacity: 0.25;
+}
 /*CSS to gen*/
 /*CSS to gen*/
 .grid-hour-23-23 {
@@ -510,6 +518,10 @@
 .cal-hour-22 {
   width: calc(4.54545455%);
 }
+.cal-hour-22:hover {
+  background-color: #FFF;
+  opacity: 0.25;
+}
 /*CSS to gen*/
 /*CSS to gen*/
 .grid-hour-22-22 {
@@ -691,6 +703,10 @@
 .cal-hour-21 {
   width: calc(4.76190476%);
 }
+.cal-hour-21:hover {
+  background-color: #FFF;
+  opacity: 0.25;
+}
 /*CSS to gen*/
 /*CSS to gen*/
 .grid-hour-21-21 {
@@ -864,6 +880,10 @@
 .cal-hour-20 {
   width: calc(5%);
 }
+.cal-hour-20:hover {
+  background-color: #FFF;
+  opacity: 0.25;
+}
 /*CSS to gen*/
 /*CSS to gen*/
 .grid-hour-20-20 {
@@ -1029,6 +1049,10 @@
 .cal-hour-19 {
   width: calc(5.26315789%);
 }
+.cal-hour-19:hover {
+  background-color: #FFF;
+  opacity: 0.25;
+}
 /*CSS to gen*/
 /*CSS to gen*/
 .grid-hour-19-19 {
@@ -1186,6 +1210,10 @@
 .cal-hour-18 {
   width: calc(5.55555556%);
 }
+.cal-hour-18:hover {
+  background-color: #FFF;
+  opacity: 0.25;
+}
 /*CSS to gen*/
 /*CSS to gen*/
 .grid-hour-18-18 {
@@ -1335,6 +1363,10 @@
 .cal-hour-17 {
   width: calc(5.88235294%);
 }
+.cal-hour-17:hover {
+  background-color: #FFF;
+  opacity: 0.25;
+}
 /*CSS to gen*/
 /*CSS to gen*/
 .grid-hour-17-17 {
@@ -1476,6 +1508,10 @@
 .cal-hour-16 {
   width: calc(6.25%);
 }
+.cal-hour-16:hover {
+  background-color: #FFF;
+  opacity: 0.25;
+}
 /*CSS to gen*/
 /*CSS to gen*/
 .grid-hour-16-16 {
@@ -1609,6 +1645,10 @@
 .cal-hour-15 {
   width: calc(6.66666667%);
 }
+.cal-hour-15:hover {
+  background-color: #FFF;
+  opacity: 0.25;
+}
 /*CSS to gen*/
 /*CSS to gen*/
 .grid-hour-15-15 {
@@ -1734,6 +1774,10 @@
 .cal-hour-14 {
   width: calc(7.14285714%);
 }
+.cal-hour-14:hover {
+  background-color: #FFF;
+  opacity: 0.25;
+}
 /*CSS to gen*/
 /*CSS to gen*/
 .grid-hour-14-14 {
@@ -1851,6 +1895,10 @@
 .cal-hour-13 {
   width: calc(7.69230769%);
 }
+.cal-hour-13:hover {
+  background-color: #FFF;
+  opacity: 0.25;
+}
 /*CSS to gen*/
 /*CSS to gen*/
 .grid-hour-13-13 {
@@ -1960,6 +2008,10 @@
 .cal-hour-12 {
   width: calc(8.33333333%);
 }
+.cal-hour-12:hover {
+  background-color: #FFF;
+  opacity: 0.25;
+}
 /*CSS to gen*/
 /*CSS to gen*/
 .grid-hour-12-12 {
@@ -2061,6 +2113,10 @@
 .cal-hour-11 {
   width: calc(9.09090909%);
 }
+.cal-hour-11:hover {
+  background-color: #FFF;
+  opacity: 0.25;
+}
 /*CSS to gen*/
 /*CSS to gen*/
 .grid-hour-11-11 {
@@ -2154,6 +2210,10 @@
 .cal-hour-10 {
   width: calc(10%);
 }
+.cal-hour-10:hover {
+  background-color: #FFF;
+  opacity: 0.25;
+}
 /*CSS to gen*/
 /*CSS to gen*/
 .grid-hour-10-10 {
@@ -2239,6 +2299,10 @@
 .cal-hour-9 {
   width: calc(11.11111111%);
 }
+.cal-hour-9:hover {
+  background-color: #FFF;
+  opacity: 0.25;
+}
 /*CSS to gen*/
 /*CSS to gen*/
 .grid-hour-9-9 {
@@ -2316,6 +2380,10 @@
 .cal-hour-8 {
   width: calc(12.5%);
 }
+.cal-hour-8:hover {
+  background-color: #FFF;
+  opacity: 0.25;
+}
 /*CSS to gen*/
 /*CSS to gen*/
 .grid-hour-8-8 {
@@ -2385,6 +2453,10 @@
 .cal-hour-7 {
   width: calc(14.28571429%);
 }
+.cal-hour-7:hover {
+  background-color: #FFF;
+  opacity: 0.25;
+}
 /*CSS to gen*/
 /*CSS to gen*/
 .grid-hour-7-7 {
@@ -2446,6 +2518,10 @@
 .cal-hour-6 {
   width: calc(16.66666667%);
 }
+.cal-hour-6:hover {
+  background-color: #FFF;
+  opacity: 0.25;
+}
 /*CSS to gen*/
 /*CSS to gen*/
 .grid-hour-6-6 {
@@ -2499,6 +2575,10 @@
 .cal-hour-5 {
   width: calc(20%);
 }
+.cal-hour-5:hover {
+  background-color: #FFF;
+  opacity: 0.25;
+}
 /*CSS to gen*/
 /*CSS to gen*/
 .grid-hour-5-5 {
@@ -2544,6 +2624,10 @@
 .cal-hour-4 {
   width: calc(25%);
 }
+.cal-hour-4:hover {
+  background-color: #FFF;
+  opacity: 0.25;
+}
 /*CSS to gen*/
 /*CSS to gen*/
 .grid-hour-4-4 {
@@ -2581,6 +2665,10 @@
 .cal-hour-3 {
   width: calc(33.33333333%);
 }
+.cal-hour-3:hover {
+  background-color: #FFF;
+  opacity: 0.25;
+}
 /*CSS to gen*/
 /*CSS to gen*/
 .grid-hour-3-3 {
@@ -2610,6 +2698,10 @@
 .cal-hour-2 {
   width: calc(50%);
 }
+.cal-hour-2:hover {
+  background-color: #FFF;
+  opacity: 0.25;
+}
 /*CSS to gen*/
 /*CSS to gen*/
 .grid-hour-2-2 {
@@ -2630,6 +2722,10 @@
 /*CSS to gen*/
 .cal-hour-1 {
   width: calc(100%);
+}
+.cal-hour-1:hover {
+  background-color: #FFF;
+  opacity: 0.25;
 }
 /*CSS to gen*/
 /*CSS to gen*/
@@ -2715,6 +2811,10 @@
 .cal-week-box .cal-week-7 {
   width: calc(14.28571429%);
 }
+.cal-week-box .cal-week-7:hover {
+  background-color: #FFF;
+  opacity: 0.25;
+}
 .cal-week-box .grid-week-7-7 {
   width: 100% !important;
 }
@@ -2760,6 +2860,10 @@
 .cal-week-box .cal-week-6 {
   width: calc(16.66666667%);
 }
+.cal-week-box .cal-week-6:hover {
+  background-color: #FFF;
+  opacity: 0.25;
+}
 .cal-week-box .grid-week-6-6 {
   width: 100% !important;
 }
@@ -2799,6 +2903,10 @@
 .cal-week-box .cal-week-5 {
   width: calc(20%);
 }
+.cal-week-box .cal-week-5:hover {
+  background-color: #FFF;
+  opacity: 0.25;
+}
 .cal-week-box .grid-week-5-5 {
   width: 100% !important;
 }
@@ -2832,6 +2940,10 @@
 .cal-week-box .cal-week-4 {
   width: calc(25%);
 }
+.cal-week-box .cal-week-4:hover {
+  background-color: #FFF;
+  opacity: 0.25;
+}
 .cal-week-box .grid-week-4-4 {
   width: 100% !important;
 }
@@ -2859,6 +2971,10 @@
 .cal-week-box .cal-week-3 {
   width: calc(33.33333333%);
 }
+.cal-week-box .cal-week-3:hover {
+  background-color: #FFF;
+  opacity: 0.25;
+}
 .cal-week-box .grid-week-3-3 {
   width: 100% !important;
 }
@@ -2880,6 +2996,10 @@
 .cal-week-box .cal-week-2 {
   width: calc(50%);
 }
+.cal-week-box .cal-week-2:hover {
+  background-color: #FFF;
+  opacity: 0.25;
+}
 .cal-week-box .grid-week-2-2 {
   width: 100% !important;
 }
@@ -2894,6 +3014,10 @@
 }
 .cal-week-box .cal-week-1 {
   width: calc(100%);
+}
+.cal-week-box .cal-week-1:hover {
+  background-color: #FFF;
+  opacity: 0.25;
 }
 .cal-week-box .grid-week-1-1 {
   width: 100% !important;
@@ -3165,7 +3289,10 @@
 .day-highlight {
   background-color: #444;
 }
-.day-highlight.dh-event-ghost:hover,
+.day-highlight.dh-event-ghost:hover {
+  background-color: #FFF;
+  opacity: 0.25;
+}
 .day-highlight.dh-event-ghost {
   z-index: 9999999999;
   background-color: transparent;
