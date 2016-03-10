@@ -3409,6 +3409,9 @@ a.cal-event-week {
   border-bottom: 1px solid #ccc;
 }
 .general-row.last {
+  border-bottom: 0;
+}
+.general-row.col-xs-10 {
   border-right: 0;
 }
 .general-row.no-border-left {
