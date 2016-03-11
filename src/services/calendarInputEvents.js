@@ -16,10 +16,10 @@ angular
       return Math.floor(Math.random() * 1000000000);
     }
 
-    function addNewElement(eventsList, title, type, startE, endE, category, bid, clean, state, user, tooltip) {
+    function newEl(eventsList, title, type, startE, endE, category, bid, clean, state, user, tooltip) {
       var el = {
         $id: randomId(),
-        title: truncate(title, calendarConfig.category.userNameLenght),
+        title: (type === 'cleaner') ? title : truncate(title, calendarConfig.category.userNameLenght),
         type: type,
         startsAt: startE,
         endsAt: endE,
@@ -44,41 +44,6 @@ angular
       eventsList.push(el);
     }
 
-    function newEl(eventsList, title, type, startE, endE, category, bid, clean, state, user, tooltip) {
-      // var startHour = moment().hour(moment().hour()).minute(0);
-      // var finishHour = moment().hour(moment().hour()).minute(0).add(1, 'hours');
-      // console.log(startHour.format('DD/MM HH:mm'))
-      // console.log(finishHour.format('DD/MM HH:mm'))
-      // console.log(startE.format('DD/MM HH:mm'))
-      // console.log(endE.format('DD/MM HH:mm'))
-      //
-      // if (startE.isBefore(startHour) && endE.isAfter(finishHour)) {
-      //   addNewElement(eventsList, title, type, startE, startHour, category, bid, clean, state, user, tooltip);
-      //   addNewElement(eventsList, '', 'close', finishHour, endE, category, bid, clean, state, user, tooltip);
-      //   addNewElement(eventsList, '', 'close-today', startHour, finishHour, category, bid, clean, state, user, tooltip);
-      //   console.log('triple kill')
-      //
-      // } else if (startE.isBefore(startHour) && endE.isBefore(finishHour)) {
-      //   addNewElement(eventsList, title, type, startE, startHour, category, bid, clean, state, user, tooltip);
-      //   addNewElement(eventsList, title, type + '-today', startHour, finishHour, category, bid, clean, state, user, tooltip);
-      //   console.log('only start')
-      //
-      // } else if (startE.isAfter(startHour) && endE.isAfter(finishHour)) {
-      //   addNewElement(eventsList, title, type, finishHour, endE, category, bid, clean, state, user, tooltip);
-      //   addNewElement(eventsList, title, type + '-today', startHour, finishHour, category, bid, clean, state, user, tooltip);
-      //   console.log('only finish')
-      //
-      // } else if (startE.isAfter(startHour) && endE.isBefore(finishHour)) {
-      //   addNewElement(eventsList, title, type + '-today', startHour, finishHour, category, bid, clean, state, user, tooltip);
-      //   console.log('AllDay')
-      // } else {
-      //   addNewElement(eventsList, title, type, startE, endE, category, bid, clean, state, user, tooltip);
-      //   console.log('N')
-      // }
-      // console.log('-----')
-      addNewElement(eventsList, title, type, startE, endE, category, bid, clean, state, user, tooltip);
-    }
-
     function processEvents(events, start, end, day) {
       var newEvents = [];
 
@@ -92,7 +57,7 @@ angular
         var state = e.state;
         var user = e.title;
 
-        addNewElement(newEvents, '', 'ghost', eventStart.toDate(), eventFinish.toDate(), category, bid, clean, state, user, function(event) {
+        newEl(newEvents, '', 'ghost', eventStart.toDate(), eventFinish.toDate(), category, bid, clean, state, user, function(event) {
           var text = '<strong>' + event.title + '</strong><br/>';
           text += 'In: ' + moment(new Date(event.startsAt)).format('DD/MM/YYYY') + '<br/>';
           text += 'Out: ' + moment(new Date(event.endsAt)).format('DD/MM/YYYY') + '<br/>';
