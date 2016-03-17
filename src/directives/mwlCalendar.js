@@ -91,7 +91,6 @@ angular
 
     var eventsWatched = false;
     $scope.$watch('vm.calendario', function(cal) {
-      console.log(cal)
       vm.events = calendarInputEvents.calendarioToEvents(cal);
       vm.categories = calendarInputEvents.calendarioToCategories(cal);
     });
@@ -108,6 +107,7 @@ angular
         eventsWatched = true;
         //need to deep watch events hence why it isn't included in the watch group
         $scope.$watch('vm.events', refreshCalendar, true); //this will call refreshCalendar when the watcher starts (i.e. now)
+        $scope.$watch('vm.categories', refreshCalendar, true); //this will call refreshCalendar when the watcher starts (i.e. now)
       } else {
         refreshCalendar();
       }
