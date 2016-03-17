@@ -151,9 +151,11 @@ angular
     }
 
     function calendarioToCategories(calendario) {
+      var rooms = [];
 
-      return calendario.map(function(room) {
-        delete room.booking;
+      calendario.map(function(room) {
+        var nR = {};
+
         switch (room.type) {
           default:
             break;
@@ -170,8 +172,17 @@ angular
             room.typeDesc = 'SS';
             break;
         }
-        return room;
+
+        Object.keys(room).map(function(k) {
+          if (k !== 'booking') {
+            nR[k] = room[k];
+          }
+        });
+
+        rooms.push(nR);
       });
+
+      return rooms;
     }
 
     return {

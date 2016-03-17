@@ -9,9 +9,6 @@ angular
     var vm = this;
 
     vm.customData = vm.customData || {};
-    vm.events = calendarInputEvents.calendarioToEvents(vm.calendario);
-    vm.categories = calendarInputEvents.calendarioToCategories(vm.calendario);
-
     vm.changeView = function(view, newDay) {
       vm.view = view;
       vm.viewDate = newDay;
@@ -57,6 +54,9 @@ angular
       return true;
     }
 
+    vm.events = calendarInputEvents.calendarioToEvents(vm.calendario);
+    vm.categories = calendarInputEvents.calendarioToCategories(vm.calendario);
+
     function refreshCalendar() {
 
       if (calendarTitle[vm.view] && angular.isDefined($attrs.viewTitle)) {
@@ -90,7 +90,11 @@ angular
     }
 
     var eventsWatched = false;
-
+    $scope.$watch('vm.calendario', function(cal) {
+      console.log(cal)
+      vm.events = calendarInputEvents.calendarioToEvents(cal);
+      vm.categories = calendarInputEvents.calendarioToCategories(cal);
+    });
     //Refresh the calendar when any of these variables change.
     $scope.$watchGroup([
       'vm.viewDate',
