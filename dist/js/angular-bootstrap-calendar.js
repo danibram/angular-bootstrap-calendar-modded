@@ -187,9 +187,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var vm = this;
 
 	    vm.customData = vm.customData || {};
-	    vm.events = calendarInputEvents.calendarioToEvents(vm.calendario);
-	    vm.categories = calendarInputEvents.calendarioToCategories(vm.calendario);
-
 	    vm.changeView = function(view, newDay) {
 	      vm.view = view;
 	      vm.viewDate = newDay;
@@ -235,6 +232,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	      return true;
 	    }
 
+	    vm.events = calendarInputEvents.calendarioToEvents(vm.calendario);
+	    vm.categories = calendarInputEvents.calendarioToCategories(vm.calendario);
+
 	    function refreshCalendar() {
 
 	      if (calendarTitle[vm.view] && angular.isDefined($attrs.viewTitle)) {
@@ -268,7 +268,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 
 	    var eventsWatched = false;
-
+	    $scope.$watch('vm.calendario', function(cal) {
+	      vm.events = calendarInputEvents.calendarioToEvents(cal);
+	      vm.categories = calendarInputEvents.calendarioToCategories(cal);
+	    });
 	    //Refresh the calendar when any of these variables change.
 	    $scope.$watchGroup([
 	      'vm.viewDate',
@@ -282,6 +285,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        eventsWatched = true;
 	        //need to deep watch events hence why it isn't included in the watch group
 	        $scope.$watch('vm.events', refreshCalendar, true); //this will call refreshCalendar when the watcher starts (i.e. now)
+	        $scope.$watch('vm.categories', refreshCalendar, true); //this will call refreshCalendar when the watcher starts (i.e. now)
 	      } else {
 	        refreshCalendar();
 	      }
@@ -2410,9 +2414,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 
 	    function calendarioToCategories(calendario) {
+	      var rooms = [];
 
-	      return calendario.map(function(room) {
-	        delete room.booking;
+	      calendario.map(function(room) {
+	        var nR = {};
+
 	        switch (room.type) {
 	          default:
 	            break;
@@ -2429,8 +2435,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	            room.typeDesc = 'SS';
 	            break;
 	        }
-	        return room;
+
+	        Object.keys(room).map(function(k) {
+	          if (k !== 'booking') {
+	            nR[k] = room[k];
+	          }
+	        });
+
+	        rooms.push(nR);
 	      });
+
+	      return rooms;
 	    }
 
 	    return {
