@@ -534,7 +534,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    });
 
 	    vm.checkToday = function(h) {
-	      return h.date.hour() === moment().hour();
+	      return h.date.hour() === moment().hour() && moment().startOf('day').isSame(moment(vm.viewDate).startOf('day'));
 	    };
 
 	    vm.onRClick = function(hour, category) {
