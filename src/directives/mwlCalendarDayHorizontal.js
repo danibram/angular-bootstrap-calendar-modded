@@ -16,7 +16,7 @@ angular
     vm.$sce = $sce;
 
     var dayViewStart = moment(vm.dayViewStart || '00:00', 'HH:mm');
-    var dayViewEnd = moment(vm.dayViewEnd || '23:00', 'HH:mm');
+    var dayViewEnd = moment(vm.dayViewEnd || '23:59', 'HH:mm');
     vm.dayViewSplit = parseInt(vm.dayViewSplit);
     vm.hours = [];
     var dayCounter = moment(vm.viewDate)

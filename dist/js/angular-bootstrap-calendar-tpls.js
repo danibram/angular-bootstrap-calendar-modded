@@ -585,7 +585,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    vm.$sce = $sce;
 
 	    var dayViewStart = moment(vm.dayViewStart || '00:00', 'HH:mm');
-	    var dayViewEnd = moment(vm.dayViewEnd || '23:00', 'HH:mm');
+	    var dayViewEnd = moment(vm.dayViewEnd || '23:59', 'HH:mm');
 	    vm.dayViewSplit = parseInt(vm.dayViewSplit);
 	    vm.hours = [];
 	    var dayCounter = moment(vm.viewDate)
@@ -2167,7 +2167,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      var dayStartHour = moment(dayViewStart || '00:00', 'HH:mm').hours();
 	      var dayEndHour = moment(dayViewEnd || '23:00', 'HH:mm').hours();
 	      var calendarStart = moment(viewDate).startOf('day').add(dayStartHour, 'hours');
-	      var calendarEnd = moment(viewDate).startOf('day').add(dayEndHour, 'hours');
+	      var calendarEnd = moment(viewDate).startOf('day').add(dayEndHour + 1, 'hours');
 	      var roomHeight = 50;
 	      var buckets = [];
 
@@ -2202,7 +2202,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          event.dayOffset = (moment(event.startsAt).startOf('hour').diff(calendarStart.startOf('hour'), 'hours'));
 	        }
 
-	        if (moment(event.endsAt).isAfter(calendarEnd) || moment(event.endsAt).isSame(calendarEnd)) {
+	        if (moment(event.endsAt).isAfter(calendarEnd) || moment(event.endsAt).isBefore(calendarEnd)) {
 	          evEnd = moment(calendarEnd).startOf('hour').diff(moment(evStart).endOf('hour'), 'hours') + 1;
 	        } else {
 	          evEnd = moment(event.endsAt).startOf('hour').diff(moment(evStart).endOf('hour'), 'hours') + 1;
