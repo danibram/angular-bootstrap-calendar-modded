@@ -1,5 +1,7 @@
 # Angular Bootstrap Calendar
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/danibram/angular-bootstrap-calendar-modded.svg)](https://greenkeeper.io/)
+
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/mattlewis92/angular-bootstrap-calendar?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 [![Build Status](https://travis-ci.org/mattlewis92/angular-bootstrap-calendar.svg?branch=master)](https://travis-ci.org/mattlewis92/angular-bootstrap-calendar)
 [![Bower version](https://badge.fury.io/bo/angular-bootstrap-calendar.svg)](http://badge.fury.io/bo/angular-bootstrap-calendar)
